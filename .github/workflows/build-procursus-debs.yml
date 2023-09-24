@@ -12,13 +12,13 @@ env:
 
 jobs:
   build:
-    runs-on: macos-11
+    runs-on: macos-12
     strategy:
       matrix:
         cfver: [ 1900 ]
     steps:
       - name: Select Xcode version
-        run: sudo xcode-select -s '/Applications/Xcode_13.2.1.app/Contents/Developer'
+        run: sudo xcode-select -switch '/Applications/Xcode_13.2.1.app/Contents/Developer'
     
       - name: Download zstd
         id: download-zstd
@@ -116,7 +116,7 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" )
+           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["zip"]="https://github.com/miticollo/Procursus.git" )
            if [ "${#prs[@]}" -ne 0 ]; then
              for branch in "${!prs[@]}"; do
                git remote -v add external_pr "${prs[$branch]}"
@@ -302,6 +302,8 @@ jobs:
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake havoc-keyring-package
 
       - name: Build launchctl
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
@@ -506,6 +508,8 @@ jobs:
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake shell-cmds-package
 
       - name: Build shshd
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
@@ -710,12 +714,16 @@ jobs:
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libarchive-package
 
       - name: Build network-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake network-cmds-package
 
       - name: Build lsof
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
