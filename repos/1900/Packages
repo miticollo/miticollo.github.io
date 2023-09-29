@@ -15,6 +15,23 @@ SHA256: 67fbd548208cc8a43bb2b28dcac1b8baac99d85e72825e2944b29233ad6b686e
 SHA512: 951bb634e3ab03e48402b67d94dcb7a0e7140b1d9d5121d79d08c0e81fa311ddd1f8ce4445656be0ff7c12ca99bc15f2bdd76ddce6552ae824f4603cce43c2a7
 Description: cap_mkdb, colldef, finger, gencat, last, locale, lsvfs, tabs
 
+Package: adv-cmds
+Architecture: iphoneos-arm
+Version: 213
+Multi-Arch: foreign
+Priority: important
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 740
+Depends: libiosexec1 (>= 1.3.1), libncursesw6, libxo0
+Filename: ./debs/adv-cmds/adv-cmds_213_iphoneos-arm.deb
+Size: 114710
+MD5sum: 504f5032d3b1bc80bace2dd4eb78e221
+SHA1: 0720036ccb6e5c237cabaae9cda3f0b724e22f8f
+SHA256: 171f150297c89f255b2ad576f8282a13516a1d4fd15f652b3527caf934e4280d
+SHA512: 5da0c9e873aa1a002312b748948489f499e06461b7f2dd303793222e962a9cc7206c244a5a9ae8b8d0229557a15073571713911ecf68c86450852add87b51ee5
+Description: cap_mkdb, colldef, finger, gencat, last, locale, lsvfs, tabs
+
 Package: amy-keyring
 Architecture: all
 Version: 2021.07.10
@@ -412,6 +429,22 @@ MD5sum: 55c9c7dc947505e1ff4d2a09eb353b16
 SHA1: 19087ba98079b1c18bc8c12a526e6fe3b61f4916
 SHA256: 9c86b1238012dfafb4bc518994bf018bd4111b9c550f1799f4d49c02e946a1a4
 SHA512: a50156de584e4df57f733b029e592f190cb2b81f50bbece950320cf3bc5c2c378b5d6bfca1eb556fce74c1379e1b644f9cc64075cbe5a25227268f66f33b42a8
+Description: underlying system directory structure
+
+Package: base
+Architecture: iphoneos-arm
+Version: 2
+Priority: required
+Essential: yes
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2508
+Filename: ./debs/base/base_2_iphoneos-arm.deb
+Size: 887168
+MD5sum: d30222c2ad55771e1afea436ae9f04c6
+SHA1: b6d2598ca2c0675615de660e74656c06c23ac7f4
+SHA256: 502826e006b3d0ca91732ebd406c82a19f1354de454c108cc5a8ec0553f04ef9
+SHA512: 418e4f64ddb7a31d85402034867a108cf5d8f54eee479c1877a4a2972b7eeced3c5900e12b74befb85eaebe33c3d1f64f644253d3b01a0e48006833d3d696964
 Description: underlying system directory structure
 
 Package: bash-completion
@@ -1248,6 +1281,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20230929
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 224
+Filename: ./debs/cacerts/ca-certificates_20230929_all.deb
+Size: 123846
+MD5sum: c0388f04a732e219ea62e43b159eb8e8
+SHA1: 8ab288e8e8dad390deaef0acce7ab4ea4933cea1
+SHA256: 39a3f0810dae18d12067a0cc1d03b2b362013d1b8f779d0fd8d712efa9312b6c
+SHA512: 25fb048039f936f22f667026db4a29c9b3b99b211beca73ce6906852ab3f9be9a38396165ef20c81a6e6e71ec7b101a48828872556a5f5c0d5a0e78e982e2673
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -1929,6 +1981,23 @@ MD5sum: e8b08644cc55277ce964f7b71e0c80cc
 SHA1: 722ceca5e12018775840db15c85b4c2f9aa09284
 SHA256: 773e54b476dbb8c808ee73c77cf7ab0e3debae194490a24a5ce59a4a5e9de5f7
 SHA512: 091253c4ea7a72bc9df7d99aa5a11961e62715b970f7f86e37490ad1a1e033d2416f1bffda586a9c67896cf1f4d84bf74430ff31d79a583ac847f07f1b388e69
+Description: mount, quota, fsck, fstyp, fdisk, tunefs
+
+Package: diskdev-cmds
+Architecture: iphoneos-arm
+Version: 712
+Priority: required
+Essential: yes
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 776
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/diskdev-cmds/diskdev-cmds_712_iphoneos-arm.deb
+Size: 84036
+MD5sum: cc1fa5817670fc6c63b2b8ac64f28b93
+SHA1: bf9aee73f9891c6f81b84fa025e08a4d15b3f173
+SHA256: db59efb8d14ea78b260bf921635d34558ae4ff8105bd626c43954f2f9257887b
+SHA512: 426342f348ec6b1a69bc436fbf5804217d85eec85d209ffabb18cfd0f4b65dd8e3f36d241669cbd1b65e29d819c17a3aac863f26343883fd20bbb2410e7ff9a0
 Description: mount, quota, fsck, fstyp, fdisk, tunefs
 
 Package: dpkg-dev
@@ -2642,6 +2711,22 @@ MD5sum: b199338252050c86753dcf3f7db6642f
 SHA1: af8027042a16831ff33e8aa42fe5fc2965dfc4d6
 SHA256: 4705922619a4d2b7e54dcc80934100ec6b26d4ec70854470b46fcfdda3b140d6
 SHA512: 0ccd304c7fa763b8135266070a64b732396fb063adf589e9f8abfa163b075f8385349548f834b3aa4e7caa8dffafe4d69c5f11ce651abe72a37a4d6711b8a4f9
+Description: chflags, compress, ipcrm, ipcs, pax
+
+Package: file-cmds
+Architecture: iphoneos-arm
+Version: 428
+Priority: important
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 480
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/file-cmds/file-cmds_428_iphoneos-arm.deb
+Size: 99120
+MD5sum: 34290b76822df57ffeb5cd72d693c460
+SHA1: c3de04dc38b77e2c30abbf97542254c842b4b1cc
+SHA256: a4cd04cf46255b574e72247f9bc1f2ac99f1043b3fbd5a5ca32e76f102260cc7
+SHA512: f831a2c529611d94d4ea9bbdc921f749906801364b3306a8c1a456fb314fba0d161895b06402cd2a7854d0cda0c66206f49a4f1143d38dd6bb70c3401b68174e
 Description: chflags, compress, ipcrm, ipcs, pax
 
 Package: file
@@ -4275,6 +4360,23 @@ SHA512: 731d7c9ee7ddc51bfad93edc948e1a5ed1f1b1aa440349544f6ab5e2fb44debb663e510a
 Homepage: https://github.com/apple-oss-distributions/IOKitTools
 Description: IOKit tools - ioclasscount, ioallocount and ioreg manpage
 
+Package: iokittools
+Architecture: iphoneos-arm
+Version: 124
+Priority: optional
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 120
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/iokittools/iokittools_124_iphoneos-arm.deb
+Size: 16514
+MD5sum: 50d07e27caec9d90b27e4c2ab84fddbf
+SHA1: 3e4be4618773524f9f211b869d474734c90e7627
+SHA256: 03a2a28fb0153dc26fc770e113b1ab0a5283418cbdc997de8c3dc09fcce68f07
+SHA512: db74f395ae7c7fec3d0438800e95508377e8bc20c8379f982f7f9faaf448eb0725d846907dabfd779d7e86e72661e67e3ce177cc003a45eb94f6a7371ea16989
+Homepage: https://github.com/apple-oss-distributions/IOKitTools
+Description: IOKit tools - ioclasscount, ioallocount and ioreg manpage
+
 Package: libjansson-dev
 Architecture: iphoneos-arm
 Version: 2.14
@@ -4357,6 +4459,31 @@ MD5sum: 4345503b4360eef1220ec1f41415f172
 SHA1: 51ab9268d7cc0e0684ce44c01223d2b0b7e7f248
 SHA256: 478532edb214f554956d8d689fea3167650e1260ec9a9a2c2d15ae4550ab882e
 SHA512: b96b4229952306e37f571b1e120590911eab90a69f50ce7c301fe6ec4ae63db2c6318e4348beafbf32880e3d4c39a5f0de9a433d14e788b125c19a85dc042d75
+Description: kernel extension utilities
+ Kext_tools is a collection of tools for managing kernel extensions (kexts).
+ .
+ This package includes:
+  kextstat    - list statuses of loaded kexts
+  kextload    - load kexts into kernel
+  kextunload  - unload kexts from kernel
+  kextlibs    - find OSBundleLibraries needed by a kext
+  kextfind    - find kexts based on a set of conditions
+  mkextunpack - extract or list the contents of a multikext (mkext) archive
+
+Package: kext-tools
+Architecture: iphoneos-arm
+Version: 740
+Priority: optional
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 500
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/kext-tools/kext-tools_740_iphoneos-arm.deb
+Size: 69062
+MD5sum: 8d92003e581545ae58d62758b74464db
+SHA1: cb7d3dbda47fc9dd5464c90de403d6bbd39ef0fc
+SHA256: f34888c99285d14bfa3dd9b487bb71fec878133de8e98d318016dddbe9b275f7
+SHA512: d24bb7f10b5486698e6757525f12748fa7e2dfb7c5abd161882be35cb8ee257026de6a68adb330c9f6fbd26db54c1316084b0d186a8567f2049de4061bbb494c
 Description: kernel extension utilities
  Kext_tools is a collection of tools for managing kernel extensions (kexts).
  .
@@ -7289,6 +7416,22 @@ SHA256: 49c3bbe66aee59e872b8c5c027271c756fa7598101c6b4eaa4d0bce1f57f3b35
 SHA512: 13f9e65010e473b98e05201661b2fc28daf7be058beff1ddfdde468f10b565cee3f4c45a410ecb61bcbf1e467d352e2c1d2b218003b4b51458eba1c0ef7f1aa0
 Description: arp, ndp, traceroute, mnc, mtest, traceroute6, ifconfig, ip6addrctl, netstat, ping6, route, rtsol
 
+Package: network-cmds
+Architecture: iphoneos-arm
+Version: 667
+Priority: important
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1540
+Depends: libiosexec1 (>= 1.3.1), firmware (>= 9.0) | rtadvd, libpcapa
+Filename: ./debs/network-cmds/network-cmds_667_iphoneos-arm.deb
+Size: 265032
+MD5sum: b35d4909572a28aac24b8a43d41d9098
+SHA1: bb1bf81bd047e73f78df2ad897a9745e455e832f
+SHA256: 2e273700e96f383fbf8c4b88d4ee922328894bd4f4b038c5051c22d1fef553a6
+SHA512: 25ad614d9d1db3745b404b21ea8bcf7826672b9cc8fd4d01da8b199d28b6a3aca2a7ab71146096523e259201929b44c14ad9e93516e29130df77f2acb1218905
+Description: arp, ndp, traceroute, mnc, mtest, traceroute6, ifconfig, ip6addrctl, netstat, ping6, route, rtsol
+
 Package: libnghttp2-14
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -8913,6 +9056,24 @@ MD5sum: 067f9072b8258237b60cdd30d785cff5
 SHA1: 9b6997d45bdab7b3c7ed08117b00197b8c7b60ee
 SHA256: 257539d814e6ace4df5d8179e220e85146ee2b4758b45d8bcf24659a62e1f985
 SHA512: 6a597c3e2e4c68d6a4ea5dcdd52ed5c29726392a10ed618c289cd25371064e4eac3af7f222b51e1b3bb07b1c18b6861b839039c05c116c18635123c928070b0b
+Description: killall, renice, script, time, which, getopt, what, hexdump, su
+
+Package: shell-cmds
+Architecture: iphoneos-arm
+Version: 302.0.1
+Priority: important
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1052
+Provides: killall, which
+Depends: libiosexec1 (>= 1.3.1), libpam2
+Conflicts: coreutils (<< 8.32-9)
+Filename: ./debs/shell-cmds/shell-cmds_302.0.1_iphoneos-arm.deb
+Size: 92378
+MD5sum: 31fe0bb7d3ae766dca7fa26b6b8c4507
+SHA1: cfe3b7db56e5066cbf9cf8217c6b42e8f2b46685
+SHA256: 67812acac440a4022500d8f321d8814c238dc722ff921438d33652602ccce8f5
+SHA512: 37b11e7d1afae25857216d154fc0dd02721efbd9378b766f061a11043f5c0dea7468d9d3ce822cd33a11dda41b0fdba8cd9529ce86d4d3e043e0031bfbfdcb35
 Description: killall, renice, script, time, which, getopt, what, hexdump, su
 
 Package: shshd
