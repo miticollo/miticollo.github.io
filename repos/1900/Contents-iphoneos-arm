@@ -172,6 +172,7 @@ usr/bin/basename					    coreutils
 usr/bin/basenc						    coreutils
 usr/bin/bash						    bash
 usr/bin/bashbug						    bash
+usr/bin/bintrans					    text-cmds
 usr/bin/brotli						    brotli
 usr/bin/bsdcat						    libarchive-tools
 usr/bin/bsdcpio						    libarchive-tools
@@ -602,6 +603,7 @@ usr/bin/vim.basic					    vim
 usr/bin/vimtutor					    vim
 usr/bin/vis						    text-cmds
 usr/bin/w						    shell-cmds
+usr/bin/wait4path					    system-cmds
 usr/bin/watchgnupg					    gnupg-utils
 usr/bin/wc						    coreutils
 usr/bin/what						    shell-cmds
@@ -13974,6 +13976,7 @@ usr/share/man/man1/basename.1.zst			    coreutils
 usr/share/man/man1/basenc.1.zst				    coreutils
 usr/share/man/man1/bash.1.zst				    bash
 usr/share/man/man1/bashbug.1.zst			    bash
+usr/share/man/man1/bintrans.1.zst			    text-cmds
 usr/share/man/man1/brotli.1				    brotli
 usr/share/man/man1/bsdcat.1.zst				    libarchive-tools
 usr/share/man/man1/bsdcpio.1.zst			    libarchive-tools

@@ -9257,6 +9257,25 @@ SHA256: 426e0d158e92aacc530ac466a703db3c6de7ec694ee98c47651b39c119f11556
 SHA512: 036ed036010159760e8d8eb9a62ff2eaeac3fdacbd20eeb479360984b375b41ffe6a5e3d8394e4b0a7044583141f5020d17205b0f3063a5d3778fd51b0f5bafd
 Description: iostat, login, passwd, sync, sysctl, pw
 
+Package: system-cmds
+Architecture: iphoneos-arm
+Version: 970.0.4
+Priority: required
+Essential: yes
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2796
+Provides: login, passwd, reboot
+Depends: libiosexec1 (>= 1.3.1), firmware-sbin, file-cmds, libcrypt2, libpam2
+Recommends: vi
+Filename: ./debs/system-cmds/system-cmds_970.0.4_iphoneos-arm.deb
+Size: 368320
+MD5sum: e9af00311572533b04b36b7b8241b0b5
+SHA1: 5b859a261884b762519ea59d6a77e70e368ce9c1
+SHA256: 397f3bea5ab4962ee02314b412a991da9e160411c1ae2d8e749190ac115ccc02
+SHA512: b28f524426ba8a3e373799e7489421d6858dd3cecdb736cd83ce4b4cb56777e870b46359bb6e7ff8e35a7d77107e11000c37f687784ee6575fbfc4924e3a51f5
+Description: iostat, login, passwd, sync, sysctl, pw
+
 Package: libtapi-dev
 Architecture: iphoneos-arm
 Version: 1100.0.11-1
@@ -9384,6 +9403,22 @@ SHA1: c60bb1413740fad91b15fbd5faccb798664b6dd4
 SHA256: aad35398c6007c365309258c794c4ba876ebfb8ac76c0e1d026aa18d7128db88
 SHA512: feb5794d777ab229af45c17c20c52161f5e054094567a7f2b18684f16fa71bd17059ffea9fe2784ce1ad072c6481400b4545c7fb6d199c2641852eaadff133f0
 Description: md5, ee, ul, banner
+
+Package: text-cmds
+Architecture: iphoneos-arm
+Version: 1:165.0.4
+Priority: standard
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 976
+Depends: libiosexec1 (>= 1.3.1), libncursesw6, base (>= 2)
+Filename: ./debs/text-cmds/text-cmds_1:165.0.4_iphoneos-arm.deb
+Size: 106924
+MD5sum: bdcc0e12b8c86b6cfa66c088ce1304b4
+SHA1: 38a39eeddaf6a5c2b6b2cf3659363108809b9d13
+SHA256: 359bf73b5ccb12c8446f7568fe1d33c05726e57a1027c3a75221bdfae8b9f0ed
+SHA512: 8e281d2dfff9adbfd6d222823bd18c632d50ec34fc9b1204e8090b28993184cefc96b17b1bd91eefc9cc0ec4f73da7460753a60d956cf105d50df24c9c9ef9cf
+Description: md5, ee, ul, banner, bintrans
 
 Package: tigisoftware-keyring
 Architecture: all
