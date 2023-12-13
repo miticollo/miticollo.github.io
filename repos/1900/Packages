@@ -791,6 +791,33 @@ Description: Contains an SDK for your platform.
 
 Package: bzip2
 Architecture: iphoneos-arm
+Version: 1.0.8-1
+Priority: important
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 468
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/bzip2/bzip2_1.0.8-1_iphoneos-arm.deb
+Size: 61588
+MD5sum: bb2744f873a58fef8f3730a6bd45aa03
+SHA1: d731474c504deb7bba0244feff0bb5e4b94044e4
+SHA256: dff393b358b6949c2495ea5e0add40f85dc61aab46476f000de685e1223d9d00
+SHA512: acb04ecc64169daedbd6e993399a115c56675861336fd752337e6c3089a18144def3bbf70fc569acfb8eec19a79db57753ba08fdc05de40ca8f3470e09a7bac1
+Homepage: http://www.bzip.org/
+Description: high-quality block-sorting file compressor - utilities
+ bzip2 is a freely available, patent free, data compressor.
+ .
+ bzip2 compresses files using the Burrows-Wheeler block-sorting text
+ compression algorithm, and Huffman coding.  Compression is generally
+ considerably better than that achieved by more conventional
+ LZ77/LZ78-based compressors, and approaches the performance of the PPM
+ family of statistical compressors.
+ .
+ The archive file format of bzip2 (.bz2) is incompatible with that of its
+ predecessor, bzip (.bz).
+
+Package: bzip2
+Architecture: iphoneos-arm
 Version: 1.0.8
 Priority: important
 Section: Archiving
@@ -1314,6 +1341,25 @@ MD5sum: f594eb257fe9f79861fed7ceb231dfa7
 SHA1: 7e6843145288a5eb4acb1506d9cf2de6ddc1c6e1
 SHA256: b2cd533b4d7f469d0eae3a0c0064033d57ba3c0903ac6a885dd890a5148dfdf3
 SHA512: 6ce6d8360531661296a35feb1b8e1d490cdfb4b798234021c5a29d582b5d50a03310ea799ef5b77ed37b0b131f2b6d099abf0f4b8ab47ba87b23717beb1eb3ba
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
+Package: ca-certificates
+Architecture: all
+Version: 20231213
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 228
+Filename: ./debs/cacerts/ca-certificates_20231213_all.deb
+Size: 127102
+MD5sum: e83a094e631f540dc36a2d50cafbf0e5
+SHA1: 920f1cfce109d7db4a60a80ccab8398a4f49c85e
+SHA256: 2d531637b84a17293aa4bfd435c8495b3827bbfdfb261571983695f17670c11f
+SHA512: b25fb33169758b27c99c534bf3f56b8cd2cbf28312783cdcf71e434a48d3398a7f0e82687dac15bfcc8318f3e77e1fd2ba5bc51fe63ceda6b4319e0276489944
 Description: Common CA certificates
  Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
  .
