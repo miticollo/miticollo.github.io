@@ -1435,6 +1435,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240412
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 232
+Filename: ./debs/cacerts/ca-certificates_20240412_all.deb
+Size: 128740
+MD5sum: 5e4e2e6c3a3566373b29dca8e1f604b7
+SHA1: f983c94c3a61aab0a862d23201673b5c6f25af8b
+SHA256: 78ee9cc4881e9b33a09d0f7ca979f49da0da426581b5bcb0ff340acce7dac27f
+SHA512: 1aad8879c47cd6d98828c2b70171984b761484fdf67aa03110e9d001a0732e145e36fe871d13c0e1f48db2060c2fbf0cf8892a67d6a2fc56734314758fec5047
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
