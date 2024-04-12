@@ -1,0 +1,1076 @@
+name: build-procursus-debs
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  MEMO_TARGET: iphoneos-arm64
+  NO_PGP: 1
+
+jobs:
+  build:
+    runs-on: macos-12
+    strategy:
+      matrix:
+        cfver: [ 1900 ]
+    steps:
+      - name: Select Xcode version
+        run: sudo xcode-select -switch '/Applications/Xcode_13.2.1.app/Contents/Developer'
+    
+      - name: Download zstd
+        id: download-zstd
+        run: |
+          dir=$(mktemp -d /tmp/XXXX) && cd "${dir}"
+          curl -LO https://cameronkatri.com/zstd
+          chmod +x ./zstd
+          echo "DIR=${dir}" >> $GITHUB_OUTPUT
+
+      - name: Boostrap Procursus
+        run: |
+          dir="${{ steps.download-zstd.outputs.DIR }}" && cd "${dir}"
+          curl -L https://apt.procurs.us/bootstraps/big_sur/bootstrap-darwin-amd64.tar.zst -o bootstrap.tar.zst
+          ./zstd -dk bootstrap.tar.zst
+          sudo tar -xvpkf ./bootstrap.tar -C / || :
+          cd -
+          rm -vrf "${dir}"
+
+      - name: Add Procusus to PATH
+        run: |
+          PROCURSUS_PATHS=("/opt/procursus/games" "/opt/procursus/sbin" "/opt/procursus/bin" "/opt/procursus/local/sbin" "/opt/procursus/local/bin")
+          for i in "${PROCURSUS_PATHS[@]}";
+          do
+            case ":$PATH:" in
+              *:$i:*) echo "$i is already in PATH, not adding";;
+              *) echo "$i" >> $GITHUB_PATH;;
+            esac
+          done
+          
+          case ":$CPATH:" in
+            *:/opt/procursus/include:*) echo "/opt/procursus/include already in CPATH, not adding";;
+            *) echo "CPATH=$CPATH:/opt/procursus/include" >> $GITHUB_ENV;;
+          esac
+          
+          case ":$LIBRARY_PATH:" in
+            *:/opt/procursus/lib:*) echo "/opt/procursus/lib already in LIBRARY_PATH, not adding";;
+            *) echo "LIBRARY_PATH=$LIBRARY_PATH:/opt/procursus/lib" >> $GITHUB_ENV;;
+          esac
+
+      - name: Create unprivileged user for APT method
+        run: |
+          # Taken from Procursus' apt.postinst
+          set -e
+          getHiddenUserUid()
+          {
+            local __UIDS=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ugr)
+            local __NewUID
+            for __NewUID in $__UIDS
+            do
+                if [[ $__NewUID -lt 499 ]] ; then
+                    break;
+                fi
+            done
+            echo $((__NewUID+1))
+          }
+          
+          if ! id _apt &>/dev/null; then
+            # add unprivileged user for the apt methods
+            sudo dscl . -create /Users/_apt UserShell /usr/bin/false
+            sudo dscl . -create /Users/_apt NSFHomeDirectory /var/empty
+            sudo dscl . -create /Users/_apt PrimaryGroupID -1
+            sudo dscl . -create /Users/_apt UniqueID $(getHiddenUserUid)
+            sudo dscl . -create /Users/_apt RealName "APT Sandbox User"
+          else
+            echo "APT Sandbox User already exists, not creating"
+          fi
+
+      - name: Update bootstrap
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -o DPkg::Options::=--force-confdef -y --allow-downgrades dist-upgrade || :
+
+      - name: Install necessary packages on macOS
+        run: |
+          sudo apt-get install -o DPkg::Options::=--force-confdef -y autoconf automake autopoint \
+          bash bison cmake curl docbook-xml docbook-xsl fakeroot findutils flex gawk git gnupg \
+          grep groff gzip ldid libtool make ncurses-bin openssl patch pkg-config po4a python3 \
+          sed tar triehash xz-utils asciidoc zstd xmlto gnu-getopt libpython3.9-dev
+
+      - name: Install pip packages
+        run: |
+          python -m ensurepip --upgrade
+          python -m pip --version
+          python -m pip -vvv install --upgrade pip cmarkgfm commonmark
+
+      - name: Checkout Procursus
+        uses: actions/checkout@v4
+        with:
+          repository: 'ProcursusTeam/Procursus'
+          path: 'Procursus'
+          fetch-depth: 0
+
+      ## Here we want merge the commits (NOT draf) done by other contributors and me before Procursus team acceptes them.
+      - name: Local merge other PRs
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["zip"]="https://github.com/miticollo/Procursus.git" ["libgmp10"]="https://github.com/miticollo/Procursus.git" ["gnutls"]="https://github.com/miticollo/Procursus.git" ["for-upstream/updates-apr2024"]="https://github.com/palera1n/Procursus.git" )
+           if [ "${#prs[@]}" -ne 0 ]; then
+             for branch in "${!prs[@]}"; do
+               git remote -v add external_pr "${prs[$branch]}"
+               git fetch -v external_pr
+               git merge -v --no-edit "external_pr/${branch}"
+               git remote -v remove external_pr
+             done
+             git log origin/main..HEAD
+           fi
+
+      - name: Remove macOS cURL --ipv4 flag
+        run: |-
+          curl --version
+          which curl
+          cat /etc/hosts
+          rm ~/.curlrc || true    
+      
+      - name: Build gnutls
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gnutls-package
+      
+      - name: Build libgmp10
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libgmp10-package
+
+      - name: Build popt
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake popt-package
+
+      - name: Build rsync
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake rsync-package
+
+      - name: Build libgpg-error
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libgpg-error-package
+
+      - name: Build libgcrypt
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libgcrypt-package
+
+      - name: Build zstd
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake zstd-package
+
+      - name: Build unrar
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake unrar-package
+
+      - name: Build ldid
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake ldid-package
+
+      - name: Build libplist
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libplist-package
+
+      - name: Build apt
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake apt-package
+
+      - name: Build base
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake base-package
+
+      - name: Build bash
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake bash-package
+
+      - name: Build bash-completion
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake bash-completion-package
+
+      - name: Build brotli
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake brotli-package
+
+      - name: Build cacerts
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake cacerts-package
+
+      - name: Build chariz-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake chariz-keyring-package
+
+      - name: Build coreutils
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake coreutils-package
+
+      - name: Build darwintools
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake darwintools-package
+
+      - name: Build dash
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake dash-package
+
+      - name: Build debianutils
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake debianutils-package
+
+      - name: Build diffutils
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake diffutils-package
+
+      - name: Build diskdev-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} gmake diskdev-cmds-package
+
+      - name: Build dpkg
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake dpkg-package
+
+      - name: Build essential
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake essential-package
+
+      - name: Build file-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake file-cmds-package
+
+      - name: Build findutils
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake findutils-package
+
+      - name: Build firmware-sbin
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake firmware-sbin-package
+
+      - name: Build gnupg
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gnupg-package
+
+      - name: Build grep
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake grep-package
+
+      - name: Build havoc-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake havoc-keyring-package
+
+      - name: Build launchctl
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake launchctl-package
+
+      - name: Build libassuan
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libassuan-package
+
+      - name: Build libxcrypt
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libxcrypt-package
+
+      - name: Build dimentio
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake dimentio-package
+
+      - name: Build libedit
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libedit-package
+
+      - name: Build libffi
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libffi-package
+
+      - name: Build neofetch
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake neofetch-package
+
+      - name: Build libidn2
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libidn2-package
+
+      - name: Build gettext
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gettext-package
+
+      - name: Build dropbear
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake dropbear-package
+
+      - name: Build libiosexec
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libiosexec-package
+
+      - name: Build libkernrw
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libkernrw-package
+
+      - name: Build lz4
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake lz4-package
+
+      - name: Build xz
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake xz-package
+
+      - name: Build libmd
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libmd-package
+
+      - name: Build ncurses
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake ncurses-package
+
+      - name: Build nettle
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nettle-package
+
+      - name: Build npth
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake npth-package
+
+      - name: Build p11-kit
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake p11-kit-package
+
+      - name: Build openpam
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake openpam-package
+
+      - name: Build readline
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake readline-package
+
+      - name: Build libtasn1
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libtasn1-package
+
+      - name: Build libunistring
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libunistring-package
+
+      - name: Build xxhash
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake xxhash-package
+
+      - name: Build zlib-ng
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake zlib-ng-package
+
+      - name: Build openssh
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake openssh-package
+
+      - name: Build openssl
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake openssl-package
+
+      - name: Build packix-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake packix-keyring-package
+
+      - name: Build keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake keyring-package
+
+      - name: Build profile.d
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake profile.d-package
+
+      - name: Build sed
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake sed-package
+
+      - name: Build shell-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake shell-cmds-package
+
+      - name: Build shshd
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake shshd-package
+
+      - name: Build snaputil
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake snaputil-package
+
+      - name: Build sudo
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake sudo-package
+
+      - name: Build tar
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake tar-package
+
+      - name: Build uikittools
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake uikittools-package
+
+      - name: Build vi
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake vi-package
+
+      - name: Build zsh
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake zsh-package
+
+      - name: Build nano
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nano-package
+
+      - name: Build jlutil
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake jlutil-package
+
+      - name: Build curl
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake curl-package
+
+      - name: Build cowsay
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake cowsay-package
+
+      - name: Build file
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake file-package
+
+      - name: Build git
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake git-package
+
+      - name: Build htop
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake htop-package
+
+      - name: Build make
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake make-package
+
+      - name: Build p7zip
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake p7zip-package
+
+      - name: Build gawk
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gawk-package
+
+      - name: Build gettext-localizations
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gettext-localizations-package
+
+      - name: Build gzip
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gzip-package
+
+      - name: Build mpfr4
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake mpfr4-package
+
+      - name: Build pam-modules
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake pam-modules-package
+
+      - name: Build pcre
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake pcre-package
+
+      - name: Build system-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake system-cmds-package
+
+      - name: Build unzip
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake unzip-package
+
+      - name: Build zip
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake zip-package
+
+      - name: Build nickchan-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nickchan-keyring-package
+
+      - name: Build nyuszika7h-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nyuszika7h-keyring-package
+
+      - name: Build amy-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake amy-keyring-package
+
+      - name: Build adv-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake adv-cmds-package
+
+      - name: Build bzip2
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake bzip2-package
+
+      - name: Build iokittools
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake iokittools-package
+
+      - name: Build less
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake less-package
+
+      - name: Build kext-tools
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake kext-tools-package
+
+      - name: Build libarchive
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libarchive-package
+
+      - name: Build network-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake network-cmds-package
+
+      - name: Build lsof
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake lsof-package
+
+      - name: Build plutil
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake plutil-package
+
+      - name: Build text-cmds
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake text-cmds-package
+
+      - name: Build vim
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake vim-package
+
+      - name: Build defaults
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake defaults-package
+
+      - name: Build uuid
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake uuid-package
+
+      - name: Build libksba
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libksba-package
+
+      - name: Build libtommath
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libtommath-package
+
+      - name: Build libtomcrypt
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libtomcrypt-package
+
+      - name: Build rtmpdump
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake rtmpdump-package
+
+      - name: Build libssh2
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libssh2-package
+
+      - name: Build nghttp2
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nghttp2-package
+
+      - name: Build build-essential
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake build-essential-package
+
+      - name: Build jtool2
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake jtool2-package
+
+      - name: Build xar
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake xar-package
+
+      - name: Build berkeleydb
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake berkeleydb-package
+
+      - name: Build libtool
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libtool-package
+          
+      - name: Build libusb
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libusb-package          
+
+      - name: Build libc-ares
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libc-ares-package
+          
+      - name: Build libev
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libev-package  
+
+      - name: Build jansson
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake jansson-package
+          
+      - name: Build libjemalloc
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libjemalloc-package
+
+      - name: Build libevent
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libevent-package
+
+      - name: Build liblzo2
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake liblzo2-package
+
+      - name: Build libxml2
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libxml2-package
+      
+      ## LLVM requires several hours to complete compiling. But every job can be executed for 6 hour.
+      ## https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits
+      ## 
+      ## To solve this problem UPO can make self-hosted runner available to us.
+      ## https://docs.github.com/en/actions/hosting-your-own-runners/about-self-hosted-runners
+      ##
+      ## It's not mandatory because you can always compile your code on your local macOS with appropriate `clang` options.
+      ##
+      # - name: Build llvm
+      #  if: ${{ success() || failure() }}
+      #  working-directory: ./Procursus
+      #  run: |
+      #    MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake llvm-package
+      
+      - name: Build pcre2
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake pcre2-package
+      
+      - name: Build sqlite3
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake sqlite3-package
+
+      - name: Build pinentry
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake pinentry-package
+
+      - name: Build tigisoftware-repo
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake tigisoftware-keyring-package
+
+      - name: Build nebula-keyring
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake nebula-keyring-package
+
+      - name: Build tcpdump
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake tcpdump-package
+          
+      - name: Build fakeroot
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake fakeroot-package
+          
+      - name: Build tapi
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake tapi-package
+
+      - name: Create build dirs
+        run: |
+          mkdir -vp $GITHUB_WORKSPACE/my_repo
+
+      - name: Package bootstrap
+        if: ${{ success() || failure() }}
+        working-directory: Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} SSH_STRAP=1 gmake bootstrap
+
+      - name: Checkout my repo
+        if: ${{ success() || failure() }}
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.MY_PAT }}
+          path: 'my_repo'
+
+      - name: Config git
+        if: ${{ success() || failure() }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '30465144+github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit bootstrap
+        if: ${{ success() || failure() }}
+        working-directory: my_repo
+        run: |
+          mkdir -vp /tmp/${{ matrix.cfver }}/bootstrap && unzstd -d -vvvv ../Procursus/build_strap/$MEMO_TARGET/${{ matrix.cfver }}/bootstrap-ssh.tar.zst -o /tmp/${{ matrix.cfver }}/bootstrap.tar
+          tar -xvf /tmp/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap
+          cp -v ./repos/anfora-repo.gpg /tmp/${{ matrix.cfver }}/bootstrap/private/etc/apt/trusted.gpg.d/
+          tar -cvf ./repos/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
+          git add .
+          git commit -m "Upload bootstrap"
+
+      - name: Commit packages
+        if: ${{ success() || failure() }}
+        working-directory: my_repo
+        run: |
+          rm -vrf ../Procursus/build_dist/$MEMO_TARGET/${{ matrix.cfver }}/work/
+          rsync --progress -r -u -v ../Procursus/build_dist/$MEMO_TARGET/${{ matrix.cfver }}/* ./repos/${{ matrix.cfver }}/debs/
+          git add .
+          git commit -m "Upload packages"
+
+      - name: Push bootstrap and packages
+        if: ${{ success() || failure() }}
+        working-directory: my_repo
+        run: |
+          git push

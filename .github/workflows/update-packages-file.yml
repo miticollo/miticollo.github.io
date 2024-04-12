@@ -1,0 +1,143 @@
+name: update-packages-file
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - repos/**/debs/**
+      - repos/config/*
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  regenerate-repo:
+    runs-on: macos-12
+    env:
+      MEMO_TARGET: iphoneos-arm64
+    steps:
+      - name: Download zstd
+        id: download-zstd
+        run: |
+          dir=$(mktemp -d /tmp/XXXX) && cd "${dir}"
+          curl -LO https://cameronkatri.com/zstd
+          chmod +x ./zstd
+          echo "DIR=${dir}" >> $GITHUB_OUTPUT
+
+      - name: Boostrap Procursus
+        run: |
+          dir="${{ steps.download-zstd.outputs.DIR }}" && cd "${dir}"
+          curl -L https://apt.procurs.us/bootstraps/big_sur/bootstrap-darwin-amd64.tar.zst -o bootstrap.tar.zst
+          ./zstd -dk bootstrap.tar.zst
+          sudo tar -xvpkf ./bootstrap.tar -C / || :
+          cd -
+          rm -vrf "${dir}"
+
+      - name: Add Procusus to PATH
+        run: |
+          PROCURSUS_PATHS=("/opt/procursus/games" "/opt/procursus/sbin" "/opt/procursus/bin" "/opt/procursus/local/sbin" "/opt/procursus/local/bin")
+          for i in "${PROCURSUS_PATHS[@]}";
+          do
+            case ":$PATH:" in
+              *:$i:*) echo "$i is already in PATH, not adding";;
+              *) echo "$i" >> $GITHUB_PATH;;
+            esac
+          done
+          
+          case ":$CPATH:" in
+            *:/opt/procursus/include:*) echo "/opt/procursus/include already in CPATH, not adding";;
+            *) echo "CPATH=$CPATH:/opt/procursus/include" >> $GITHUB_ENV;;
+          esac
+          
+          case ":$LIBRARY_PATH:" in
+            *:/opt/procursus/lib:*) echo "/opt/procursus/lib already in LIBRARY_PATH, not adding";;
+            *) echo "LIBRARY_PATH=$LIBRARY_PATH:/opt/procursus/lib" >> $GITHUB_ENV;;
+          esac
+
+      - name: Create unprivileged user for APT method
+        run: |
+          # Taken from Procursus' apt.postinst
+          set -e
+          getHiddenUserUid()
+          {
+            local __UIDS=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ugr)
+            local __NewUID
+            for __NewUID in $__UIDS
+            do
+                if [[ $__NewUID -lt 499 ]] ; then
+                    break;
+                fi
+            done
+            echo $((__NewUID+1))
+          }
+          
+          if ! id _apt &>/dev/null; then
+            # add unprivileged user for the apt methods
+            sudo dscl . -create /Users/_apt UserShell /usr/bin/false
+            sudo dscl . -create /Users/_apt NSFHomeDirectory /var/empty
+            sudo dscl . -create /Users/_apt PrimaryGroupID -1
+            sudo dscl . -create /Users/_apt UniqueID $(getHiddenUserUid)
+            sudo dscl . -create /Users/_apt RealName "APT Sandbox User"
+          else
+            echo "APT Sandbox User already exists, not creating"
+          fi
+
+      - name: Update bootstrap
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y -o DPkg::Options::=--force-confdef --allow-downgrades dist-upgrade || :
+
+      - name: Install necessary packages on macOS
+        run: |
+          sudo apt-get install -o DPkg::Options::=--force-confdef -y apt-utils zstd lz4 xz-utils gnupg
+
+      - name: Checkout my repo
+        uses: actions/checkout@v4
+
+      - name: 📥 Import GPG keys
+        run: |
+          gpg -v --import ./repos/anfora-repo.gpg
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" > /tmp/gpg-priv.asc
+          echo "${{ secrets.GPG_PASSWORD }}" | gpg --batch --yes --pinentry-mode=loopback --passphrase-fd 0 --import /tmp/gpg-priv.asc
+
+      - name: Config git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config --global user.email "30465144+github-actions[bot]@users.noreply.github.com"
+
+      - name: 📤 Commit Packages & Release files and 🌐 Push
+        run: |
+          chmod +x ./update.sh
+          p=0
+          for repo in "1900" "my"; do
+            ./update.sh "${repo}" ${{ secrets.GPG_PASSWORD }} &
+            pids[$(( p++ ))]=$!
+          done
+          # wait for all pids
+          for pid in ${pids[*]}; do
+            wait $pid
+          done
+          git add .
+          git commit -m "[Bot] Update Packages & Release files" || true
+          git push
+
+      - name: Cleanup
+        run: |
+          gh extension install actions/gh-actions-cache
+          
+          REPO=${{ github.repository }}
+          BRANCH=${{ github.ref }}
+
+          echo "Fetching list of cache key"
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+
+          ## Setting this to not fail the workflow while deleting cache keys. 
+          set +e
+          echo "Deleting caches..."
+          for cacheKey in $cacheKeysForPR
+          do
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+          done
+          echo "Done"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
