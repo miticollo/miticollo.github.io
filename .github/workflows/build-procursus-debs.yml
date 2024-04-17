@@ -33,7 +33,7 @@ jobs:
           dir="${{ steps.download-zstd.outputs.DIR }}" && cd "${dir}"
           curl -L https://apt.procurs.us/bootstraps/big_sur/bootstrap-darwin-amd64.tar.zst -o bootstrap.tar.zst
           ./zstd -dk bootstrap.tar.zst
-          sudo tar -xvpkf ./bootstrap.tar -C / || :
+          sudo tar -xvvpkf ./bootstrap.tar -C / || :
           cd -
           rm -vrf "${dir}"
 
@@ -116,7 +116,7 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["zip"]="https://github.com/miticollo/Procursus.git" ["libgmp10"]="https://github.com/miticollo/Procursus.git" ["gnutls"]="https://github.com/miticollo/Procursus.git" ["for-upstream/updates-apr2024"]="https://github.com/palera1n/Procursus.git" )
+           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["zip"]="https://github.com/miticollo/Procursus.git" ["libgmp10"]="https://github.com/miticollo/Procursus.git" ["gnutls"]="https://github.com/miticollo/Procursus.git" ["palera1n"]="https://github.com/palera1n/Procursus.git" )
            if [ "${#prs[@]}" -ne 0 ]; then
              for branch in "${!prs[@]}"; do
                git remote -v add external_pr "${prs[$branch]}"
@@ -142,6 +142,14 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gnutls-package
       
+      - name: Build palera1n-keyring
+        env:
+          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake palera1n-keyring-package      
+          
       - name: Build libgmp10
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
