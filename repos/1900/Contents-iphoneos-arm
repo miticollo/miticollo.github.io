@@ -76,6 +76,7 @@ etc/apt/trusted.gpg.d/nickchan.gpg			    nickchan-keyring
 etc/apt/trusted.gpg.d/nyuszika7h.gpg			    nyuszika7h-keyring
 etc/apt/trusted.gpg.d/odyssey.gpg			    odyssey-keyring
 etc/apt/trusted.gpg.d/packix.gpg			    packix-keyring
+etc/apt/trusted.gpg.d/palera1n.gpg			    palera1n-keyring
 etc/apt/trusted.gpg.d/tigisoftware-repo.gpg		    tigisoftware-keyring
 etc/dpkg/origins/default				    dpkg
 etc/dpkg/origins/procursus				    dpkg

@@ -1454,6 +1454,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240417
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 232
+Filename: ./debs/cacerts/ca-certificates_20240417_all.deb
+Size: 126028
+MD5sum: 354a83003dd8224a00c404dec648cb71
+SHA1: 28f92837bbf82cde271cc4a9723c6413341f7d5d
+SHA256: bfadabd3df077ac5130e248fda5c8b3ff34513089fa9cae5e946ef8ab96c508e
+SHA512: d2ab1e9784553a3a9bfc1d86681b29ae269972a3055ea268e5d490ca86b83a8af07622e9ca3646aa06b34d3faae8914fcad4d01d578fd5bf1d1307340587601e
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -9555,6 +9574,23 @@ SHA256: 8b7691a8b48197ca6ea8c13c0fcd702ad54c5b3859f0033bd1bc760bdacb3c66
 SHA512: 59a231e9c3f587664684958c5a7376ecfee88fa199faf4aca16086303bd12dd615bcf977b1e69d923b321a0541d9ea1af545d10c307bd7b2b938a82b831cd1a9
 Description: GnuPG keys for the Packix repository
 
+Package: palera1n-keyring
+Architecture: all
+Version: 2024.03.23
+Priority: optional
+Section: Keyrings
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4
+Filename: ./debs/palera1n-keyring/palera1n-keyring_2024.03.23_all.deb
+Size: 1134
+MD5sum: fe79230b1a25f28b53c4fdb40b99c473
+SHA1: 7784fb3cf11a99c83475e880157c5f25ad316809
+SHA256: e154bfd10ab25041c452c1f29afcc4f1fbe5e795f237698d338de16f7a31b6e4
+SHA512: 8b9c8dff0f006ce3a4f9013baa1fc3df01a48bb31b63907347252e67bd27d6c8cce2ed80514d538a6f0ff9ccc90628af31fb0676827381d645c23d69a17999a8
+Homepage: https://repo.palera.in
+Description: GnuPG key for palera1n team's repository
+Author: palera1n team <hello@palera.in>
+
 Package: libpam-modules
 Architecture: iphoneos-arm
 Version: 1000.0
@@ -10738,6 +10774,23 @@ MD5sum: 7efecb548b4bee17be8c44a0ce7db9fb
 SHA1: 5d6d1df684d4f419baef08b09afa32a39dad63bd
 SHA256: c9fc8b6721bd3975f4106274b1e3c536052f8968f14aeaac8e83bd675ba1fd4c
 SHA512: b1a0e07f889801b9392d8139cd4814320a48ab7dc2b243dc4354a57f241c1e2200147f71a746c37c64e328c22d7feb02b70b52979deddbfacf995fbcd135692d
+Description: temporarily assume root priviledges
+
+Package: sudo
+Architecture: iphoneos-arm
+Version: 1.9.15p5-1
+Priority: required
+Essential: yes
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 5876
+Depends: libiosexec1 (>= 1.3.1), libintl8, libpam2
+Filename: ./debs/sudo/sudo_1.9.15p5-1_iphoneos-arm.deb
+Size: 1292284
+MD5sum: 7a18f8cad818028599f59b5463e93d06
+SHA1: e78f3aa685e89a902296a0ce7736eda121cfe896
+SHA256: 331633274e127314a6a36a16a1517cfdd9153cead94de3b84fa5e97bba32e349
+SHA512: 216aee8a6e2cebe9971cdceab80c4912f043d48d4c5612898430086d556ae4773700399bf6c9b0af0ac1cce847683f2627169dfdb6d93f998d1ed21d05f9bfb2
 Description: temporarily assume root priviledges
 
 Package: sudo
