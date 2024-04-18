@@ -143,8 +143,6 @@ jobs:
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake gnutls-package
       
       - name: Build palera1n-keyring
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
