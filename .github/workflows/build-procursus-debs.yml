@@ -430,7 +430,17 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libkernrw-package
+          if [ ${{ matrix.cfver }} -eq 1700 ]; then
+            MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libkernrw-package
+          fi
+
+      - name: Build libkrw
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          if [ ${{ matrix.cfver }} -ge 1800 ]; then
+            MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libkrw-package
+          fi
 
       - name: Build lz4
         if: ${{ success() || failure() }}
