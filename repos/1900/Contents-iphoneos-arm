@@ -990,6 +990,8 @@ usr/include/libdimentio.h				    libdimentio-dev
 usr/include/libintl.h					    libintl-dev
 usr/include/libiosexec.h				    libiosexec-dev
 usr/include/libkernrw.h					    libkernrw-dev
+usr/include/libkrw.h					    libkrw-dev
+usr/include/libkrw_plugin.h				    libkrw-dev
 usr/include/librtmp/amf.h				    librtmp-dev
 usr/include/librtmp/http.h				    librtmp-dev
 usr/include/librtmp/log.h				    librtmp-dev
@@ -1690,6 +1692,9 @@ usr/lib/libjemalloc_pic.a				    libjemalloc-dev
 usr/lib/libkernrw.0.dylib				    libkernrw0
 usr/lib/libkernrw.a					    libkernrw-dev
 usr/lib/libkernrw.dylib					    libkernrw-dev
+usr/lib/libkrw.0.dylib					    libkrw0
+usr/lib/libkrw.dylib					    libkrw-dev
+usr/lib/libkrw/libkrw-tfp0.dylib			    libkrw0-tfp0
 usr/lib/libksba.8.dylib					    libksba8
 usr/lib/libksba.a					    libksba-dev
 usr/lib/libksba.dylib					    libksba-dev
@@ -11197,6 +11202,9 @@ usr/share/doc/libjemalloc2/README.zst			    libjemalloc2
 usr/share/doc/libkernrw-dev/LICENSE			    libkernrw-dev
 usr/share/doc/libkernrw-utils/LICENSE			    libkernrw-utils
 usr/share/doc/libkernrw0/LICENSE			    libkernrw0
+usr/share/doc/libkrw-dev/LICENSE			    libkrw-dev
+usr/share/doc/libkrw0-tfp0/LICENSE			    libkrw0-tfp0
+usr/share/doc/libkrw0/LICENSE				    libkrw0
 usr/share/doc/libksba-dev/AUTHORS			    libksba-dev
 usr/share/doc/libksba-dev/COPYING			    libksba-dev
 usr/share/doc/libksba-dev/NEWS.zst			    libksba-dev
