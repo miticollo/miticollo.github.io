@@ -96,7 +96,7 @@ jobs:
           sudo apt-get install -o DPkg::Options::=--force-confdef -y autoconf automake autopoint \
           bash bison cmake curl docbook-xml docbook-xsl fakeroot findutils flex gawk git gnupg \
           grep groff gzip ldid libtool make ncurses-bin openssl patch pkg-config po4a python3 \
-          sed tar triehash xz-utils asciidoc zstd xmlto gnu-getopt libpython3.9-dev
+          sed tar triehash xz-utils asciidoc zstd xmlto gnu-getopt libpython3.9-dev ninja
 
       - name: Install pip packages
         run: |
