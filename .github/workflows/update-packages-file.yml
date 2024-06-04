@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   regenerate-repo:
-    runs-on: macos-12
+    runs-on: macos-13
     env:
       MEMO_TARGET: iphoneos-arm64
     steps:
@@ -89,7 +89,8 @@ jobs:
 
       - name: Install necessary packages on macOS
         run: |
-          sudo apt-get install -o DPkg::Options::=--force-confdef -y apt-utils zstd lz4 xz-utils gnupg keyboxd
+          sudo apt-get install -o DPkg::Options::=--force-confdef -y apt-utils zstd lz4 xz-utils
+          brew install -v gnupg
 
       - name: Checkout my repo
         uses: actions/checkout@v4
