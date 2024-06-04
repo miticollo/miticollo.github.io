@@ -156,7 +156,7 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake palera1n-keyring-package      
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake palera1n-keyring-package || true    
           
       - name: Build libgmp10
         if: ${{ success() || failure() }}
