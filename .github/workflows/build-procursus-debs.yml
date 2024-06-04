@@ -143,7 +143,7 @@ jobs:
             curl -LO "${1}"
             brew -v install --build-from-source --formula tcl-tk.rb
           }
-          downgrade_tcl_tk 'https://raw.githubusercontent.com/Homebrew/homebrew-core/9607ea9f0b8e47fc3d8ad03ed00b7523077b7443/Formula/tcl-tk.rb'
+          # downgrade_tcl_tk 'https://raw.githubusercontent.com/Homebrew/homebrew-core/9607ea9f0b8e47fc3d8ad03ed00b7523077b7443/Formula/tcl-tk.rb'
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake sqlite3-package      
       
       - name: Build gnutls
