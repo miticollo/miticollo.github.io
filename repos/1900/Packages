@@ -10900,23 +10900,6 @@ Description: temporarily assume root priviledges
 
 Package: sudo
 Architecture: iphoneos-arm
-Version: 1.9.15p5-1
-Priority: required
-Essential: yes
-Section: Administration
-Maintainer: Procursus Team <support@procurs.us>
-Installed-Size: 5876
-Depends: libiosexec1 (>= 1.3.1), libintl8, libpam2
-Filename: ./debs/sudo/sudo_1.9.15p5-1_iphoneos-arm.deb
-Size: 1292284
-MD5sum: 7a18f8cad818028599f59b5463e93d06
-SHA1: e78f3aa685e89a902296a0ce7736eda121cfe896
-SHA256: 331633274e127314a6a36a16a1517cfdd9153cead94de3b84fa5e97bba32e349
-SHA512: 216aee8a6e2cebe9971cdceab80c4912f043d48d4c5612898430086d556ae4773700399bf6c9b0af0ac1cce847683f2627169dfdb6d93f998d1ed21d05f9bfb2
-Description: temporarily assume root priviledges
-
-Package: sudo
-Architecture: iphoneos-arm
 Version: 1.9.15p5
 Priority: required
 Essential: yes
