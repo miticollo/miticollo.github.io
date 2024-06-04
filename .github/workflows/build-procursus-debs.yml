@@ -12,13 +12,13 @@ env:
 
 jobs:
   build:
-    runs-on: macos-12
+    runs-on: macos-13
     strategy:
       matrix:
         cfver: [ 1900 ]
     steps:
       - name: Select Xcode version
-        run: sudo xcode-select -switch '/Applications/Xcode_14.2.app/Contents/Developer'
+        run: sudo xcode-select -switch '/Applications/Xcode_15.2.app/Contents/Developer'
     
       - name: Download zstd
         id: download-zstd
@@ -116,7 +116,7 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["zip"]="https://github.com/miticollo/Procursus.git" ["gnutls"]="https://github.com/miticollo/Procursus.git" ["palera1n"]="https://github.com/palera1n/Procursus.git" )
+           declare -A prs=( ["update/neofetch"]="https://github.com/TheRealKeto/Procursus.git" ["rsync"]="https://github.com/miticollo/Procursus.git" ["gnutls"]="https://github.com/miticollo/Procursus.git" )
            if [ "${#prs[@]}" -ne 0 ]; then
              for branch in "${!prs[@]}"; do
                git remote -v add external_pr "${prs[$branch]}"
