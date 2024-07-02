@@ -840,6 +840,22 @@ SHA256: 3ee0c87b01f4f0d6d5dc2429c8922a5625d7657b2220173716ed878ced00d044
 SHA512: fcd6879acd885766495fb5e16bbeb01d22315c3026f166a007979bfd3e9c7fb5e73de8b669f75295044c12491da7a4273003784f0523ef195e030261e3885784
 Description: Contains an SDK for your platform.
 
+Package: build-essential
+Architecture: iphoneos-arm
+Version: 17.2
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 51500
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/build-essential/build-essential_17.2_iphoneos-arm.deb
+Size: 20668714
+MD5sum: eafb182c566c8457843937530282320e
+SHA1: 98a2324ed4e594847da666941c6566d936e02eb6
+SHA256: 69de6ac0526548aa2caeaa172fbcdc297735153de12e41088b192bf9a654fd45
+SHA512: 19860b6f70057e1586ac9c64e55e9f40fe03a4db3c36e0ba91bbfa059759c4b446564cb4914e7a0b3d5ae517968c8cad0db8d0191f1485c85359737e34926378
+Description: Contains an SDK for your platform.
+
 Package: bzip2
 Architecture: iphoneos-arm
 Version: 1.0.8-1
@@ -1511,6 +1527,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240702
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 228
+Filename: ./debs/cacerts/ca-certificates_20240702_all.deb
+Size: 127958
+MD5sum: 4c4050cdfe3361e6bdf1399916c7342b
+SHA1: 90d66eb172708d9e17025040da1138bc271a4644
+SHA256: dcfc0f975d639633b53e221575cee28215851347c952e2c6f4e6061a7857d6bd
+SHA512: 44929c1fd51290f9998e7ef7b3930abc93787d0dcb2f66f87e99c6ce4bf4adc317c98d9c7472b78c416d4b212047c8557f0e9c2c575955e599e4330210bfeeee
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -2016,6 +2051,29 @@ MD5sum: b17e15dad82dc6302c867d4e86046ffb
 SHA1: 204c79901829c463449a8d5e746f830119e177f0
 SHA256: 30d23f42505f10ee55b541ded7b4093a0056996b5ea12b21d8ec3a7bad298d10
 SHA512: 8ce3eb6e65a4f9cc1cbf573740ee0ec599ae8b3d9d19601dea46f7d8661859b9f5d3e8f7edd8c2147158dc6b64e3f998dcb61a460ba19eb507e342fc63c687bf
+Description: Miscellaneous utilities specific to Debian
+ This package provides a number of small utilities which are used
+ primarily by the installation scripts of Debian packages, although
+ you may use them directly.
+ .
+ The specific utilities included are:
+ add-shell remove-shell run-parts
+
+Package: debianutils
+Architecture: iphoneos-arm
+Version: 5.19
+Priority: required
+Essential: yes
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 352
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/debianutils/debianutils_5.19_iphoneos-arm.deb
+Size: 68082
+MD5sum: 1802f0cde6e4a83589f34b92c54e18e3
+SHA1: 1283d906ee440af5e6f518f29b2a1fa82983557c
+SHA256: c41d431e5dede5437b54b76bb375fdbf165c0431089a36531a32af298607e0c6
+SHA512: b3443cb33d1a787e360f2e2734b02b638422871465191244d7df27930226ee83bbc94e59f74c62e3a8711819cf8bb38cb6242ea1558133e4bda99959f893389e
 Description: Miscellaneous utilities specific to Debian
  This package provides a number of small utilities which are used
  primarily by the installation scripts of Debian packages, although
@@ -3315,6 +3373,26 @@ MD5sum: e438e6468eaba5109f77571269707765
 SHA1: b91ab2ca93ee86a88c5b9c0c8fbd80c9f1047f75
 SHA256: fd7ccb2b4e391dfb0278a83fe8c60064416dfa033ca661ea6efae7b5b07dc39b
 SHA512: 284e9fa34e54add6e24ada25c7f6b7187e8807667b940a548334870f5a90330581cccbaacfcebe53cc5b61475e044682c03de0876bf9a18c45ef72efc49eae39
+Homepage: http://www.gnu.org/software/findutils/
+Description: indexes and searches filesystems
+
+Package: findutils
+Architecture: iphoneos-arm
+Version: 4.9.0-1
+Multi-Arch: foreign
+Priority: important
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1908
+Depends: libiosexec1 (>= 1.3.1), sh, sed, shell-cmds, libintl8
+Conflicts: shell-cmds (<< 207.40.1)
+Replaces: shell-cmds (<< 207.40.1)
+Filename: ./debs/findutils/findutils_4.9.0-1_iphoneos-arm.deb
+Size: 474122
+MD5sum: 3dfdc3fcedc4d991c16ffe0864327123
+SHA1: 8d393fba5cec46b6d95db1cceb8531967c97b048
+SHA256: 112ac27be04d1520ae30a7ba4573da0f143b62958fec9b762833c8670c558cd7
+SHA512: a1e45d4bd162caf81e5e5b3c4986cb7e57a18ece084508566d05f641b80810761f98d1cf2afbc64c89a1a53dd15e749a4e0987cb950743da43bc4ff4f9bcbdd5
 Homepage: http://www.gnu.org/software/findutils/
 Description: indexes and searches filesystems
 
@@ -5492,6 +5570,23 @@ SHA512: df564bfe1533fd0e9120775f753a0582f8744d0346c2da874992fab087fe78233e34bb33
 Homepage: https://c-ares.haxx.se/
 Description: Development files for the c-ares asynchronous name resolver library.
 
+Package: libc-ares-dev
+Architecture: iphoneos-arm
+Version: 1.31.0
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1296
+Depends: libc-ares2 (= 1.31.0)
+Filename: ./debs/libc-ares/libc-ares-dev_1.31.0_iphoneos-arm.deb
+Size: 349732
+MD5sum: 8aa71662b15b60a24182dd365702cb3f
+SHA1: df927102635d48197ad9d0659d1183904e8794ab
+SHA256: c8f490c60ac07107558713277ffea7515d25ee714905bc541ebd60a2e351e661
+SHA512: 8534fbc9a289f2fc490b41f584227981d1c16b9de843af54eda5a9b7ef5b6a0451f22473df80a7606ce92b12b26c67197d19ab9729fd570b6f3839035a607ce4
+Homepage: https://c-ares.haxx.se/
+Description: Development files for the c-ares asynchronous name resolver library.
+
 Package: libc-ares2
 Architecture: iphoneos-arm
 Version: 1.19.0
@@ -5523,6 +5618,23 @@ MD5sum: 6bf39fe87c72126f39f718f924ba6a32
 SHA1: 8f291eb220a05a0aeae91f473ffddff328b6a591
 SHA256: 7a5dc97a9796da3a6418e4f738f739bbfd2f2d2d69bdaa8d380ef52bd2da1018
 SHA512: a38e464b93baef8a46fa49bed5ca10e3cc3faf775f90077c27c7a301320427da079218eeacab085a7473362c6cab4b9289f87181b318cd3bf4180d02bcdfd23b
+Homepage: https://c-ares.haxx.se/
+Description: Shared libraries for the c-ares asynchronous name resolver library.
+
+Package: libc-ares2
+Architecture: iphoneos-arm
+Version: 1.31.0
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 180
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/libc-ares/libc-ares2_1.31.0_iphoneos-arm.deb
+Size: 67258
+MD5sum: 6aefa39dffdb6db52d582570123c88db
+SHA1: d7afae11a5a75dbc00e76c9b7538e8c681e240bb
+SHA256: a40461269ed7c95adeba6764c0c41aae9dd8ced1d119c0cea0e86196bd12600c
+SHA512: 706561797b6e567707072a83f207a3e644882cc6c13a865475a118c9a98b00f8d75c7250dcec7a12573907ed769aa8b220c8033203c5f7a91080886641facee6
 Homepage: https://c-ares.haxx.se/
 Description: Shared libraries for the c-ares asynchronous name resolver library.
 
@@ -6737,6 +6849,24 @@ Description: Kernel R/W API for iOS 14+ (Shared Library)
 
 Package: libkrw-dev
 Architecture: iphoneos-arm
+Version: 1.1.1-2
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 16
+Depends: libkrw0 (= 1.1.1-2)
+Filename: ./debs/libkrw/libkrw-dev_1.1.1-2_iphoneos-arm.deb
+Size: 4080
+MD5sum: f0270d75fe152d2827c88c34e146e884
+SHA1: 1b5c92a7d31fd625ea311f338cadca27b610a137
+SHA256: 2113572c821983ab809cf31668431be1ccd7d499c62354546804c0090c4c7fce
+SHA512: d2809b9c286d0c35dbf66198978bf2ea82d42f6548b7f1212f845921763bc2a801e4f7468e5d07ab8dde62f757c41e737b5285f07db78e06458fda0807744ce2
+Homepage: https://github.com/Siguza/libkrw
+Description: A kernel R/W API for jailbreaks (Development Files)
+Author: Siguza
+
+Package: libkrw-dev
+Architecture: iphoneos-arm
 Version: 1.1.1
 Priority: optional
 Section: Development
@@ -6751,6 +6881,26 @@ SHA256: 870ec7fedfffed8e760a746fcfb3fe1cf9344552aeeeb03f19fdf5351e8b4031
 SHA512: 983e1bd2822446c3d608b9e81d941cd333a41997e91742aabdacb3cd8342562fcec462a8529a6f933b7ab574aed76505a5b8756e8ccf329325818361c917b90b
 Homepage: https://github.com/Siguza/libkrw
 Description: A kernel R/W API for jailbreaks (Development Files)
+Author: Siguza
+
+Package: libkrw0-tfp0
+Architecture: iphoneos-arm
+Version: 1.1.1-2
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 56
+Provides: libkrw0-plugin
+Depends: libiosexec1 (>= 1.3.1)
+Enhances: libkrw0
+Filename: ./debs/libkrw/libkrw0-tfp0_1.1.1-2_iphoneos-arm.deb
+Size: 3872
+MD5sum: 1c31510259ba6f961b6fa504d67824e4
+SHA1: d1790c780a71d82c6996c5f641b13e1a77643b07
+SHA256: 1d72db7abbee1ca25a7e9dcc0552a0a3e511cfa9ace7778ddf9387e6cf154b19
+SHA512: 3c5de42f03c8f69074941eb896d260d8069835440c280a340956bb25e47e3c60c8029cd8cc681737a1361ffbb52384b905f174cf1da93e038cf2af39911fb65f
+Homepage: https://github.com/Siguza/libkrw
+Description: Plugin for libkrw that interfaces with tfp0/hgsp4 (Shared Library)
 Author: Siguza
 
 Package: libkrw0-tfp0
@@ -6770,6 +6920,25 @@ SHA256: 20428667e54abe5d65e981f3422b63a647dcd1016823e1bade95c55f310b3bd0
 SHA512: 9f2424be097a47b78180c05aa19fa4b199749da461900073777c5c88e14708a3d99df4be1790dea1d7f76fb90105fb23f93bb72253bf7bf18452992f139761ab
 Homepage: https://github.com/Siguza/libkrw
 Description: Plugin for libkrw that interfaces with tfp0 (Shared Library)
+Author: Siguza
+
+Package: libkrw0
+Architecture: iphoneos-arm
+Version: 1.1.1-2
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 56
+Provides: libkrw (= 1.1.1-2)
+Depends: libiosexec1 (>= 1.3.1), libkrw0-plugin
+Filename: ./debs/libkrw/libkrw0_1.1.1-2_iphoneos-arm.deb
+Size: 4290
+MD5sum: be9c53e821498c1656bfe012b68087dd
+SHA1: 65db270cd5023ee4c47f17c5895dcb69612bf513
+SHA256: 4fec7c5ab64c62f9f2c3f3c0cc383b640d0389b5e9513e113eddfef704965b9c
+SHA512: 34e659ab41950f3cddb1ea9c2f83b1da6050fec8bfa4b3df27ab6994f38556208c8849603b86bd7b341c7bcb4c4f1dfbf89ff5051764edb51f3a2e7e6a5e6657
+Homepage: https://github.com/Siguza/libkrw
+Description: A kernel R/W API for jailbreaks (Shared Library)
 Author: Siguza
 
 Package: libkrw0
@@ -8337,6 +8506,30 @@ Author: Dylan Araps <dylan.araps@gmail.com>
 
 Package: neofetch
 Architecture: all
+Version: 7.3.11
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 640
+Depends: bash (>= 5.0), awk
+Conflicts: com.matdev.neofetch-ios
+Replaces: com.matdev.neofetch-ios
+Filename: ./debs/neofetch/neofetch_7.3.11_all.deb
+Size: 251486
+MD5sum: 9c4ef3f7b54389ea729ff89d7b098dee
+SHA1: ea9ec7a254cc3200b6d59b3d60be067f7911e217
+SHA256: 278a0e9093589309d6d86163ddd9cd4e4fd6f92c30509e000ca315158e880d28
+SHA512: 6f0bcbf359b35efe8bf23e7d45e9c93692015319fae5e026f41271f176fa4f135858c3e53486731174b4ee993b62e8cbfc7b10daed4299fd0d4bf2bab49789d1
+Homepage: https://github.com/dylanaraps/neofetch
+Description: Shows System Information with Distribution Logo
+ Neoftech is a cross-platform and easy-to-use system information
+ command line script that collects your system information
+ and display it on the terminal next to an image, it could be your
+ distributions logo or any ascii art of your choice.
+Author: Dylan Araps <dylan.araps@gmail.com>
+
+Package: neofetch
+Architecture: all
 Version: 7.3.6
 Priority: optional
 Section: Utilities
@@ -8909,6 +9102,24 @@ Description: secure shell (SSH) client, for secure access to remote machines
 
 Package: openssh-client
 Architecture: iphoneos-arm
+Version: 9.7p1-1
+Priority: important
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 3688
+Depends: libiosexec1 (>= 1.3.1), libssl3, libcrypt2, libmd0
+Conflicts: openssh (<< 1:0)
+Replaces: openssh (<< 1:0)
+Filename: ./debs/openssh/openssh-client_9.7p1-1_iphoneos-arm.deb
+Size: 739710
+MD5sum: 4ae4e247664ba63993e2ea2ddce798fe
+SHA1: e37c8bf90507855ea791a5f92c0d5ba49ba52dce
+SHA256: 15de6cffd2ee03f72e6f25ad8ae1c2574325a15a8e4b1de5cbca9db7a4440710
+SHA512: 77265cea4297da271d3976d15051eb0b40ed778436a0d07c9f29104819c99aaa12df74fe8aac1b09218db98e7ee5935d0383d720f926cc802033921f70392799
+Description: secure shell (SSH) client, for secure access to remote machines
+
+Package: openssh-client
+Architecture: iphoneos-arm
 Version: 9.7p1
 Priority: important
 Section: Networking
@@ -8941,6 +9152,24 @@ MD5sum: 9790de3ac5b2dad45e0f231d3cda98b3
 SHA1: f38b27e0fbcd828237b2f7cc34e8f5e99204149d
 SHA256: fbf0f2c38f27be43386d20c2e3f37bdd5c3a6ca0806aba128f1b5011dd2088b0
 SHA512: 2aba9d596dad57398fb7db53b2d758bff1d67e053616e6959de284d11a0a8fe9a02087e98254a7e34b381202901a1044c53714cca27b24d9bed630f78a598b27
+Description: secure shell (SSH) server, for secure access from remote machines
+
+Package: openssh-server
+Architecture: iphoneos-arm
+Version: 9.7p1-1
+Priority: important
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1452
+Depends: libiosexec1 (>= 1.3.1), libssl3, openssh-client (= 9.7p1-1), openssh-sftp-server, libcrypt2, libpam2, libmd0
+Conflicts: com.midnightchips.localhostssh, openssh (<< 1:0)
+Replaces: openssh (<< 1:0)
+Filename: ./debs/openssh/openssh-server_9.7p1-1_iphoneos-arm.deb
+Size: 381134
+MD5sum: 7f3deee1c02b64d237090d4a6150b2c9
+SHA1: 28b647c18e5ea5fa281991864497468da5226b53
+SHA256: 69d1d0d0ec4daa76180450e9fdff8c04a41922370c8a13c0c6c209a31c18087f
+SHA512: 57d299af7095faaa9000e8d8319269b1d861d406fd9c2b666a6431820952d6ec5d8723fc215e95d9fb636bf9f1e2b5568a76b134a96b7acf652ec95b705dd910
 Description: secure shell (SSH) server, for secure access from remote machines
 
 Package: openssh-server
@@ -8981,6 +9210,24 @@ Description: secure shell (SSH) sftp server module, for SFTP access from remote 
 
 Package: openssh-sftp-server
 Architecture: iphoneos-arm
+Version: 9.7p1-1
+Priority: important
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 160
+Depends: libiosexec1 (>= 1.3.1), libssl3, openssh-client (= 9.7p1-1), libcrypt2, libmd0
+Conflicts: openssh (<< 1:0)
+Replaces: openssh (<< 1:0)
+Filename: ./debs/openssh/openssh-sftp-server_9.7p1-1_iphoneos-arm.deb
+Size: 40560
+MD5sum: 2aaf2b155b4515760b513767b46a278c
+SHA1: 13968470a1ea46421744d290eb31c79c34901d46
+SHA256: b05002f097c91f9b87d572e9dbd3c94eee41f1eccb5ee14b9de29d696011b03c
+SHA512: e41e5625236ad28d4d1c1512e58827749e5996c304c33e3e0eb938761c99beb574491564a9fd115c7275d45c5ad2680453f9d4fd57d075292a7d19eaeb20caba
+Description: secure shell (SSH) sftp server module, for SFTP access from remote machines
+
+Package: openssh-sftp-server
+Architecture: iphoneos-arm
 Version: 9.7p1
 Priority: important
 Section: Networking
@@ -9011,6 +9258,22 @@ MD5sum: f3f4e733aa26b363012a6f99d257ccf9
 SHA1: d821b933eddad77dd333a6c048ea22394deb4532
 SHA256: b68eed7b2d15d1dbc96b012394885162be4aa11b731967eb959b97d14e0b7505
 SHA512: 0ee49bbd97a323ceda6cd5b5bd6b002ee787c7a87687ce18b20767e4369e02e0ae69c409ebb2dfb67d615560fe741dcaeaf1d9ad26a426f46fa85a14e5efe1ac
+Description: secure shell client and server (metapackage)
+
+Package: openssh
+Architecture: iphoneos-arm
+Version: 1:0
+Priority: important
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 8
+Depends: openssh-client, openssh-server, openssh-sftp-server
+Filename: ./debs/openssh/openssh_9.7p1-1_iphoneos-arm.deb
+Size: 3394
+MD5sum: 006f7f3a54f66d57042cec1dd0b0b5e4
+SHA1: 1ed80f97828fab6b602dd8ce38b1594d7c345ad2
+SHA256: 8f8724320884a15ade0ec364cd065332632251188f0245b20b94e3433dbb8dc9
+SHA512: a6a1151743b1e6b8972ee4e68507c6436a63c8ae183e558e2193798a677e3e4ab1076b430913612cc743d5fdbf3954904d573ad7074e002f63e2ff5297b198a2
 Description: secure shell client and server (metapackage)
 
 Package: openssh
@@ -11247,6 +11510,22 @@ SHA256: 14312998f36b4901c5e399e854bd7feca1de1043b95af58b5d579fe1b8101e90
 SHA512: b8a46f10f8e69b9c7d7f2eda37144c12190488595c788decd8e5e67df5490513c5ab30f93a1c4d1ce6d68814e9efabbdf0cb6ab060a304f971625c6159cf3e38
 Description: Extra Command line access for UIKit/LaunchServices/CoreServices
 
+Package: uikittools-extra
+Architecture: iphoneos-arm
+Version: 2.1.7
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 540
+Depends: libiosexec1 (>= 1.3.1), uikittools (= 2.1.7)
+Enhances: uikittools
+Filename: ./debs/uikittools/uikittools-extra_2.1.7_iphoneos-arm.deb
+Size: 37064
+MD5sum: c6a505414abd63176a487d8285ba1d47
+SHA1: 277a04ad6ebc55c5773f159ef616822211d40e89
+SHA256: 44f4ee5cf83ecb0ea5774c3004ce6392c57480ebbc1542a262e59867f48bf020
+SHA512: 592c2c8f13dc3530e3051eaee9e5ada92a8423f1130da74cf61f0e64a1125469bff88844e6d3d6e5e917ad3a7017ef303aa9b5496e672c7b5ad91c0b9e763a29
+Description: Extra Command line access for UIKit/LaunchServices/CoreServices
+
 Package: uikittools
 Architecture: iphoneos-arm
 Version: 2.1.1
@@ -11338,6 +11617,25 @@ SHA256: f72672b8bf0345134575a690c624aec1437e7bc8f485b1ff2f65d591b5285c2a
 SHA512: f766050c802b46001d31bf2988fd90a360aad4a0e2ee3ecc13db72ba03ce3834309994706320e73b3b78988cd0454773a4644e82028b2dd7fa3beba5562a370f
 Description: Command line access for UIKit/LaunchServices/CoreServices
 
+Package: uikittools
+Architecture: iphoneos-arm
+Version: 2.1.7
+Priority: required
+Essential: yes
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 976
+Depends: libiosexec1 (>= 1.3.1)
+Suggests: uikittools-extra (= 2.1.7)
+Breaks: uikittools-extra (<< 2.1.6)
+Filename: ./debs/uikittools/uikittools_2.1.7_iphoneos-arm.deb
+Size: 87134
+MD5sum: 4dd7d7f3649538ab53562f1a173b927d
+SHA1: fc2e4204a6525a52548e386fb53f0262abac839c
+SHA256: 3af596e802cadc2b7090f08f6648622c2f70881d27fcaa79e245e03dd5f719f2
+SHA512: c91d6f736ab0d5798850ded11dae96cba1481842cca9ef26d9ae1e0a7b052b0b8ec39314ceed4a702cb92c35aaaf97b733552106f05abf8e3c39bae9823a46fc
+Description: Command line access for UIKit/LaunchServices/CoreServices
+
 Package: libunrar-dev
 Architecture: iphoneos-arm
 Version: 6.1.4
@@ -11372,6 +11670,25 @@ MD5sum: efc9af14bf295c7bc00e83860cf62919
 SHA1: 00aa33a0e7311516f22fcbf7ae084afbf59787be
 SHA256: ab430d57a5c3ba117e7925868c10b95beeba51ba477b641a84b92e2d3bfb4168
 SHA512: 857bb0866169f8d5112c38df03483247a2e44a4f355bb43bf4925eaf1cb3d5571b458c3340377663d86f1e7de9986a23c47fc9b78527685478461859744e15a8
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version) - development files
+ This package contains the static library for the libunrar library.
+
+Package: libunrar-dev
+Architecture: iphoneos-arm
+Version: 7.0.7
+Multi-Arch: foreign
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1512
+Depends: libunrar5 (= 7.0.7)
+Filename: ./debs/unrar/libunrar-dev_7.0.7_iphoneos-arm.deb
+Size: 615054
+MD5sum: 9fa2113fdd49af44b4007f947aff2877
+SHA1: 41232b5252cc60832d710b471bfc5ae16985cc73
+SHA256: ccc12e1fa218a499a0469974f9dbcc9ceffd4ad25dab2564ba4ffed0b0231499
+SHA512: cd12cbde939e79433e77dfe4e3cb899b7545a9751d199e12f3e55cf82bdd849e6f0069105468e0474453654264aa083674ea8ab9fe1e977384d74b8406da9e94
 Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version) - development files
  This package contains the static library for the libunrar library.
@@ -11414,6 +11731,25 @@ Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version) - shared library
  library for unarchiving .rar files
 
+Package: libunrar5
+Architecture: iphoneos-arm
+Version: 7.0.7
+Multi-Arch: foreign
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 440
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/unrar/libunrar5_7.0.7_iphoneos-arm.deb
+Size: 199052
+MD5sum: 4389412f8170b8d8709ff639656e34b4
+SHA1: ff3d193463c81e3a780bd05644306960e8810b17
+SHA256: 9dd08fd82cfae380b4bddf8713c8147f691249d958540c0753ac60faafb1011c
+SHA512: e2c2931d7363b4207c4a0dc46b5ed75e4095fa63d07a0359535414f7f6ac8005aea7835b9f8caf816c11454bafec1410e454fa0ee62a61730e5bcbae6fac6385
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version) - shared library
+ library for unarchiving .rar files
+
 Package: unrar
 Architecture: iphoneos-arm
 Version: 6.1.4
@@ -11449,6 +11785,26 @@ MD5sum: 5f1d885ceda4eb844ce49d000c2b0b51
 SHA1: 9fa29c6db70edc9cd59a7aff98a0a8bf5f4c9853
 SHA256: 92a79039cf72e6c2e58054d1fc0329766bc13e5118df0775dcb9de0d093d2870
 SHA512: 2dd37257e2826cd96c6c9b23a5fdc0ceba9f0390fc51402a0187a6f5b2e40a5e62ef8d18c015d0dcd7fdf7d224bc0031d8314ef14e52c25b7f91bca1fc07f706
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version)
+ Unrar can extract files from .rar archives. If you want to create .rar
+ archives, install package rar.
+
+Package: unrar
+Architecture: iphoneos-arm
+Version: 7.0.7
+Multi-Arch: foreign
+Priority: optional
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 464
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/unrar/unrar_7.0.7_iphoneos-arm.deb
+Size: 203602
+MD5sum: f551442530781811c6ea282257055c9a
+SHA1: 1829644ff50e13e2baf3bf3ddcbee35ea2d9fe52
+SHA256: 3f28cc77fe2fc832153eb7aa8090ab315123930c97853f4b9907bc7c3894c40d
+SHA512: ebc6efa4ab20db5d04a9841f62133ea181b81ea738771de60651613fbb6e2b81279fca168fa8ce2c55861db23ede97e13a60d00dfdc24c483015701bdf123b49
 Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version)
  Unrar can extract files from .rar archives. If you want to create .rar
