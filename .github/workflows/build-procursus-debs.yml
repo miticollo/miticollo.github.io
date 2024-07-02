@@ -24,14 +24,14 @@ jobs:
         id: download-zstd
         run: |
           dir=$(mktemp -d /tmp/XXXX) && cd "${dir}"
-          curl -LO https://cameronkatri.com/zstd
-          chmod +x ./zstd
+          curl -vLO https://cameronkatri.com/zstd
+          chmod -v +x ./zstd
           echo "DIR=${dir}" >> $GITHUB_OUTPUT
 
       - name: Boostrap Procursus
         run: |
           dir="${{ steps.download-zstd.outputs.DIR }}" && cd "${dir}"
-          curl -L https://apt.procurs.us/bootstraps/big_sur/bootstrap-darwin-amd64.tar.zst -o bootstrap.tar.zst
+          curl -vL https://apt.procurs.us/bootstraps/big_sur/bootstrap-darwin-amd64.tar.zst -o bootstrap.tar.zst
           ./zstd -dk bootstrap.tar.zst
           sudo tar -xvvpkf ./bootstrap.tar -C / || :
           cd -
@@ -102,7 +102,7 @@ jobs:
         run: |
           python -m ensurepip --upgrade
           python -m pip --version
-          python -m pip -vvv install --upgrade pip cmarkgfm commonmark
+          python -m pip -vvv install --upgrade --upgrade-strategy 'eager' pip cmarkgfm commonmark
 
       - name: Checkout Procursus
         uses: actions/checkout@v4
@@ -138,12 +138,6 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-          function downgrade_tcl_tk() {
-            brew -v uninstall --ignore-dependencies tcl-tk
-            curl -LO "${1}"
-            brew -v install --build-from-source --formula tcl-tk.rb
-          }
-          # downgrade_tcl_tk 'https://raw.githubusercontent.com/Homebrew/homebrew-core/9607ea9f0b8e47fc3d8ad03ed00b7523077b7443/Formula/tcl-tk.rb'
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake sqlite3-package      
       
       - name: Build gnutls
@@ -984,11 +978,11 @@ jobs:
         working-directory: my_repo
         run: |
           mkdir -vp /tmp/${{ matrix.cfver }}/bootstrap && unzstd -d -vvvv ../Procursus/build_strap/$MEMO_TARGET/${{ matrix.cfver }}/bootstrap-ssh.tar.zst -o /tmp/${{ matrix.cfver }}/bootstrap.tar
-          tar -xvf /tmp/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap
+          tar -xvvf /tmp/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap
           cp -v ./repos/anfora-repo.gpg /tmp/${{ matrix.cfver }}/bootstrap/private/etc/apt/trusted.gpg.d/
-          tar -cvf ./repos/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
-          git add .
-          git commit -m "Upload bootstrap"
+          tar -cvvf ./repos/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
+          git add -v .
+          git commit -v -m "Upload bootstrap"
 
       - name: Commit packages
         if: ${{ success() || failure() }}
@@ -996,11 +990,12 @@ jobs:
         run: |
           rm -vrf ../Procursus/build_dist/$MEMO_TARGET/${{ matrix.cfver }}/work/
           rsync --progress -r -u -v ../Procursus/build_dist/$MEMO_TARGET/${{ matrix.cfver }}/* ./repos/${{ matrix.cfver }}/debs/
-          git add .
-          git commit -m "Upload packages"
+          git add -v .
+          git commit -v -m "Upload packages"
 
       - name: Push bootstrap and packages
         if: ${{ success() || failure() }}
         working-directory: my_repo
         run: |
-          git push
+          git config http.postBuffer 1048576000
+          git push -v
