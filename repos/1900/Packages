@@ -1546,6 +1546,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240710
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 228
+Filename: ./debs/cacerts/ca-certificates_20240710_all.deb
+Size: 127956
+MD5sum: 873add77a728a7c12124df599f708010
+SHA1: 0ffbdd1ac89556659ac078712a4b42d5c8dd52c0
+SHA256: ae3b2f3ff9c3cc479adc4ea49754dcbeb5e05b263a582241b988b03627da2a57
+SHA512: dcc5666b6ace60f1cb35e37e13937b4950f26feff48ac208e58b710dc7feb5eeabba30ddc36b9c81576f838db949498db739be361279412c0f20ce48bdb34a92
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -11693,6 +11712,25 @@ Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version) - development files
  This package contains the static library for the libunrar library.
 
+Package: libunrar-dev
+Architecture: iphoneos-arm
+Version: 7.0.9
+Multi-Arch: foreign
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1512
+Depends: libunrar5 (= 7.0.9)
+Filename: ./debs/unrar/libunrar-dev_7.0.9_iphoneos-arm.deb
+Size: 614968
+MD5sum: d85c8a54db556910425a1e4aca40bebe
+SHA1: 52fe41aca53727823b8b56f4ecb140b81d61d2b0
+SHA256: e63d25691e9ea0e664283404fdb7ebadee288573d3f07314f05b476b3a9c6a48
+SHA512: ab91b3ad384dc2da38d03b3bb40f0c9d4e38669db50985f851dffd1ad529ff129c0e6024ce7260aa9beef64a8630c477da54000f9c6dd236f13b0598e8cc7a66
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version) - development files
+ This package contains the static library for the libunrar library.
+
 Package: libunrar5
 Architecture: iphoneos-arm
 Version: 6.1.4
@@ -11746,6 +11784,25 @@ MD5sum: 4389412f8170b8d8709ff639656e34b4
 SHA1: ff3d193463c81e3a780bd05644306960e8810b17
 SHA256: 9dd08fd82cfae380b4bddf8713c8147f691249d958540c0753ac60faafb1011c
 SHA512: e2c2931d7363b4207c4a0dc46b5ed75e4095fa63d07a0359535414f7f6ac8005aea7835b9f8caf816c11454bafec1410e454fa0ee62a61730e5bcbae6fac6385
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version) - shared library
+ library for unarchiving .rar files
+
+Package: libunrar5
+Architecture: iphoneos-arm
+Version: 7.0.9
+Multi-Arch: foreign
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 440
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/unrar/libunrar5_7.0.9_iphoneos-arm.deb
+Size: 199070
+MD5sum: d7e5d0d655c6aa486e9f978637bf8f0a
+SHA1: ef6766e721e2723eea41ae6531de83e93c5eeeef
+SHA256: 9f3141e7f0fc25f70a93dc84b9612cb772ff2552834f6bca8c238606a3839512
+SHA512: 7213919047e99b9082c906c6a3b3f0e37425191d78e1560bdd03c37a9dbb386d73a5f6dacc082260889b9185d882230002209573fcd78a40410a233e52544009
 Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version) - shared library
  library for unarchiving .rar files
@@ -11805,6 +11862,26 @@ MD5sum: f551442530781811c6ea282257055c9a
 SHA1: 1829644ff50e13e2baf3bf3ddcbee35ea2d9fe52
 SHA256: 3f28cc77fe2fc832153eb7aa8090ab315123930c97853f4b9907bc7c3894c40d
 SHA512: ebc6efa4ab20db5d04a9841f62133ea181b81ea738771de60651613fbb6e2b81279fca168fa8ce2c55861db23ede97e13a60d00dfdc24c483015701bdf123b49
+Homepage: http://www.rarlab.com/rar_add.htm
+Description: Unarchiver for .rar files (non-free version)
+ Unrar can extract files from .rar archives. If you want to create .rar
+ archives, install package rar.
+
+Package: unrar
+Architecture: iphoneos-arm
+Version: 7.0.9
+Multi-Arch: foreign
+Priority: optional
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 464
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/unrar/unrar_7.0.9_iphoneos-arm.deb
+Size: 203586
+MD5sum: 337ad2168ca11d583add1e941c3fb5f6
+SHA1: 3b10033385d7416f8ab1d01d02fef9c7eed3a93a
+SHA256: bcee82e5849b7055e8ca3a966d803b34484962c8615473ae72dc9c4987f7f476
+SHA512: 71758923bab5b3afc271e9d5fd9361b72e925c2f7c4ec3235a4d2d33e694fb9de2e0fa66effde5a681c117c21ab1b5eefc5f40ff612878778f9a74ddd21bef94
 Homepage: http://www.rarlab.com/rar_add.htm
 Description: Unarchiver for .rar files (non-free version)
  Unrar can extract files from .rar archives. If you want to create .rar
