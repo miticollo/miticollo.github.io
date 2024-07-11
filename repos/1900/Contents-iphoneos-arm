@@ -724,6 +724,7 @@ usr/include/apt-pkg/policy.h				    libapt-pkg-dev
 usr/include/apt-pkg/prettyprinters.h			    libapt-pkg-dev
 usr/include/apt-pkg/progress.h				    libapt-pkg-dev
 usr/include/apt-pkg/proxy.h				    libapt-pkg-dev
+usr/include/apt-pkg/solver3.h				    libapt-pkg-dev
 usr/include/apt-pkg/sourcelist.h			    libapt-pkg-dev
 usr/include/apt-pkg/srcrecords.h			    libapt-pkg-dev
 usr/include/apt-pkg/srvrec.h				    libapt-pkg-dev
@@ -2324,6 +2325,7 @@ usr/libexec/gpg-preset-passphrase			    gpg-agent
 usr/libexec/gpg-protect-tool				    gpg-agent
 usr/libexec/gpg-wks-client				    gpg-wks-client
 usr/libexec/kdumpd					    network-cmds
+usr/libexec/keyboxd					    keyboxd
 usr/libexec/p11-kit/p11-kit-remote			    p11-kit
 usr/libexec/p11-kit/p11-kit-server			    p11-kit
 usr/libexec/p11-kit/trust-extract-compat		    p11-kit
@@ -11563,6 +11565,12 @@ usr/share/doc/idn2/AUTHORS				    idn2
 usr/share/doc/idn2/COPYING				    idn2
 usr/share/doc/idn2/NEWS.zst				    idn2
 usr/share/doc/idn2/README.zst				    idn2
+usr/share/doc/keyboxd/AUTHORS				    keyboxd
+usr/share/doc/keyboxd/COPYING				    keyboxd
+usr/share/doc/keyboxd/NEWS.zst				    keyboxd
+usr/share/doc/keyboxd/README.zst			    keyboxd
+usr/share/doc/keyboxd/THANKS.zst			    keyboxd
+usr/share/doc/keyboxd/TODO.zst				    keyboxd
 usr/share/doc/launchctl/LICENSE				    launchctl
 usr/share/doc/ldid/COPYING				    ldid
 usr/share/doc/less/COPYING				    less
@@ -16065,6 +16073,7 @@ usr/share/man/man3/CURLINFO_CERTINFO.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONDITION_UNMET.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONNECT_TIME.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONNECT_TIME_T.3.zst	    libcurl4-openssl-dev
+usr/share/man/man3/CURLINFO_CONN_ID.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONTENT_LENGTH_DOWNLOAD.3.zst   libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONTENT_LENGTH_DOWNLOAD_T.3.zst libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_CONTENT_LENGTH_UPLOAD.3.zst	    libcurl4-openssl-dev
@@ -16096,6 +16105,7 @@ usr/share/man/man3/CURLINFO_PROTOCOL.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_PROXYAUTH_AVAIL.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_PROXY_ERROR.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_PROXY_SSL_VERIFYRESULT.3.zst    libcurl4-openssl-dev
+usr/share/man/man3/CURLINFO_QUEUE_TIME_T.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_REDIRECT_COUNT.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_REDIRECT_TIME.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_REDIRECT_TIME_T.3.zst	    libcurl4-openssl-dev
@@ -16125,6 +16135,8 @@ usr/share/man/man3/CURLINFO_TLS_SESSION.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_TLS_SSL_PTR.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_TOTAL_TIME.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLINFO_TOTAL_TIME_T.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/CURLINFO_USED_PROXY.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/CURLINFO_XFER_ID.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLMOPT_CHUNK_LENGTH_PENALTY_SIZE.3.zst libcurl4-openssl-dev
 usr/share/man/man3/CURLMOPT_CONTENT_LENGTH_PENALTY_SIZE.3.zst libcurl4-openssl-dev
 usr/share/man/man3/CURLMOPT_MAXCONNECTS.3.zst		    libcurl4-openssl-dev
@@ -16337,6 +16349,7 @@ usr/share/man/man3/CURLOPT_PROXY_TLSAUTH_TYPE.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_PROXY_TLSAUTH_USERNAME.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_PROXY_TRANSFER_MODE.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_PUT.3.zst			    libcurl4-openssl-dev
+usr/share/man/man3/CURLOPT_QUICK_EXIT.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_QUOTE.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_RANDOM_FILE.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_RANGE.3.zst			    libcurl4-openssl-dev
@@ -16362,6 +16375,7 @@ usr/share/man/man3/CURLOPT_SASL_IR.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SEEKDATA.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SEEKFUNCTION.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SERVER_RESPONSE_TIMEOUT.3.zst    libcurl4-openssl-dev
+usr/share/man/man3/CURLOPT_SERVER_RESPONSE_TIMEOUT_MS.3.zst libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SERVICE_NAME.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SHARE.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SOCKOPTDATA.3.zst		    libcurl4-openssl-dev
@@ -16371,6 +16385,8 @@ usr/share/man/man3/CURLOPT_SOCKS5_GSSAPI_NEC.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SOCKS5_GSSAPI_SERVICE.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SSH_AUTH_TYPES.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SSH_COMPRESSION.3.zst	    libcurl4-openssl-dev
+usr/share/man/man3/CURLOPT_SSH_HOSTKEYDATA.3.zst	    libcurl4-openssl-dev
+usr/share/man/man3/CURLOPT_SSH_HOSTKEYFUNCTION.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SSH_HOST_PUBLIC_KEY_MD5.3.zst    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SSH_HOST_PUBLIC_KEY_SHA256.3.zst libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_SSH_KEYDATA.3.zst		    libcurl4-openssl-dev
@@ -21196,6 +21212,7 @@ usr/share/man/man3/curl_global_cleanup.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_global_init.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_global_init_mem.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_global_sslset.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/curl_global_trace.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_mime_addpart.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_mime_data.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/curl_mime_data_cb.3.zst		    libcurl4-openssl-dev
@@ -21213,6 +21230,7 @@ usr/share/man/man3/curl_multi_add_handle.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_assign.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_cleanup.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_fdset.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/curl_multi_get_handles.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_info_read.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_init.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_perform.3.zst		    libcurl4-openssl-dev
@@ -22086,6 +22104,7 @@ usr/share/man/man3/libarchive.3.zst			    libarchive-dev
 usr/share/man/man3/libarchive_changes.3.zst		    libarchive-dev
 usr/share/man/man3/libarchive_internals.3.zst		    libarchive-dev
 usr/share/man/man3/libcurl-easy.3.zst			    libcurl4-openssl-dev
+usr/share/man/man3/libcurl-env-dbg.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/libcurl-env.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/libcurl-errors.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/libcurl-multi.3.zst			    libcurl4-openssl-dev

@@ -168,6 +168,32 @@ Description: package management related utility programs
     needed to publish an archive of Debian packages
   * apt-sortpkgs is a Packages/Sources file normalizer.
 
+Package: apt-utils
+Architecture: iphoneos-arm
+Version: 2.9.4-1
+Priority: standard
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1268
+Pre-Depends: dpkg (>= 1.14.25-8)
+Depends: libiosexec1 (>= 1.3.1), apt (=2.9.4-1), libdb18.1
+Conflicts: apt7 (<<1:0), apt1.4 (<<1:0), apt (<<2.0.0)
+Filename: ./debs/apt/apt-utils_2.9.4-1_iphoneos-arm.deb
+Size: 326462
+MD5sum: e9371d7b5f53f0de157cbfff96f403b8
+SHA1: 24f9367f405a5783c4ef3440b226bee233bf48c3
+SHA256: 0c324c2150547ec2d7a6e28645da73b63dca89fcbebee719377c6b209e9c1f63
+SHA512: 43c83f74e0b18d6ec715897820b44121b774514e5e77eff063d6e0980173793fed9cdc9762cb7fd1844d8a23f5919dbf9c505d474e18f93554160385ae2b9c66
+Description: package management related utility programs
+ This package contains some less used commandline utilities related
+ to package management with APT.
+ .
+  * apt-extracttemplates is used by debconf to prompt for configuration
+    questions before installation.
+  * apt-ftparchive is used to create Packages and other index files
+    needed to publish an archive of Debian packages
+  * apt-sortpkgs is a Packages/Sources file normalizer.
+
 Package: apt
 Architecture: iphoneos-arm
 Version: 2.5.6
@@ -260,6 +286,29 @@ Description: commandline package manager
  managing as well as querying information about packages
  as a low-level access to all features of the libapt-pkg library.
 
+Package: apt
+Architecture: iphoneos-arm
+Version: 2.9.4-1
+Priority: required
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4924
+Provides: apt1.8 (= 1:0), apt-lib (= 1:0), libapt (=1:0), apt-key (= 1:0)
+Pre-Depends: dpkg (>= 1.14.25-8), system-cmds (>= 854.40.2-2)
+Depends: libiosexec1 (>= 1.3.1), libapt-pkg6.0 (= 2.9.4-1), libgnutls30, gpgv, dpkg (>= 1.19.0), coreutils, procursus-keyring
+Conflicts: apt7 (<<1:0), apt1.4 (<<1:0), apt1.8, libapt-pkg5.0 (<<1:0), libapt (<<1:0), apt-key (<<1:0)
+Replaces: apt1.8, apt1.4, libapt, libapt-pkg5.0, apt-lib, apt-key
+Filename: ./debs/apt/apt_2.9.4-1_iphoneos-arm.deb
+Size: 1416822
+MD5sum: 56a2247c33cdb26328eb6fb5d9d71d6c
+SHA1: 68dd5423fc479b6b3989c6e5db7d59dd1c609077
+SHA256: b4884a79f2eab8da5e0e51a09914a1cb09691063af6ad761c78fffee37446263
+SHA512: f70bea3187f130c1288f5738e0d129f8c88ff1a0e0a61ac91aef40f560ce52ce87b87729593c08fa14da1f2685c28504358d36c9ac9bbd8dfdc01cf27140ce93
+Description: commandline package manager
+ This package provides commandline tools for searching and
+ managing as well as querying information about packages
+ as a low-level access to all features of the libapt-pkg library.
+
 Package: libapt-pkg-dev
 Architecture: iphoneos-arm
 Version: 2.5.6
@@ -339,6 +388,27 @@ MD5sum: f06ea4fdbf1bfca61fb97323f8b54a45
 SHA1: 89e5f68c394b1e298dcb918da87415a3edd675fd
 SHA256: b38d25090ea07c0af814c5f8cdfefe55350faea31bca14b7dbf3ec89e448e719
 SHA512: 49986f5993bc1a5dbdd0e670a983c6b8a58f9221970736b3dfe849c0c32ce6b8d6feea4a999c6d3d6277fb4d546eaf541bf63f2ef00c7efe5fc291c80a8ad80a
+Description: development files for APT's libapt-pkg and libapt-inst
+ This package contains the header files and libraries for
+ developing with APT's libapt-pkg Debian package manipulation
+ library and the libapt-inst deb/tar/ar library.
+
+Package: libapt-pkg-dev
+Architecture: iphoneos-arm
+Version: 2.9.4-1
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 632
+Depends: libapt-pkg6.0 (=2.9.4-1), libgcrypt20-dev, liblz4-dev, liblzma-dev, libxxhash-dev, libzstd-dev, libiosexec-dev
+Conflicts: apt7 (<<1:0), apt1.4 (<<1:0), apt (<<2.0.0), apt-dev (<< 1:0)
+Replaces: apt-dev (<< 1:0)
+Filename: ./debs/apt/libapt-pkg-dev_2.9.4-1_iphoneos-arm.deb
+Size: 124386
+MD5sum: dcabec3024e931e7079d76103b4225b8
+SHA1: 6f483d50033de5d92337e7c53f2631af6209f78a
+SHA256: 8843b82e82b77c3dfa9e052546026923d7e93ff0e2ceb37c0735ae4772ed48f1
+SHA512: 2e83089fce6f1133b2628252b2f38c9715513a21d358aa17bb8e1dfd94cb4ccc2c6131f86580438f7f9d91b372696761b6ca89e73caec6246cfcad6b5f41f05b
 Description: development files for APT's libapt-pkg and libapt-inst
  This package contains the header files and libraries for
  developing with APT's libapt-pkg Debian package manipulation
@@ -427,6 +497,28 @@ MD5sum: 6454b31c98a8ebb442d87e894f05e8b0
 SHA1: 26a66d4cff073b10fa88c3c71ac66bd584f8401e
 SHA256: 1e3847273dab6b52f450182230af23fc2e822d40ab90ee4512b61b95838c4c1c
 SHA512: 91fc8d5d07e7cb5c3573002b7cf8069af7c8b21f7052fe8c8200ded8a9dd4a9ade1d0bb023d72ce8aea6a93eab7d8796052da7cea01ed1f30b135e7873440f90
+Description: commandline package manager
+ This package provides commandline tools for searching and
+ managing as well as querying information about packages
+ as a low-level access to all features of the libapt-pkg library.
+
+Package: libapt-pkg6.0
+Architecture: iphoneos-arm
+Version: 2.9.4-1
+Priority: required
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 3068
+Provides: libapt-pkg (=2.9.4-1)
+Depends: libiosexec1 (>= 1.3.1), libgcrypt20, liblz4-1, liblzma5 (>= 5.2.5), libxxhash0, libzstd1
+Conflicts: apt7 (<<1:0), apt1.4 (<<1:0), apt1.8 (<<1:0), libapt-pkg5.0 (<<1:0), libapt (<<1:0), apt-key (<<1:0), apt (<< 2.1.10-2)
+Replaces: apt1.8, apt1.4, libapt, libapt-pkg5.0, apt-lib, apt-key, apt (<< 2.1.10-2)
+Filename: ./debs/apt/libapt-pkg6.0_2.9.4-1_iphoneos-arm.deb
+Size: 1152182
+MD5sum: 5f4d34aafeb7dd28611c0ca16c4d8858
+SHA1: 3258e6e602cb3910988f910a18233c8b81383639
+SHA256: 1eea5621b96412b5058c41fdb9f2411a0ff65fd6fb60a8eab1d9f9895973138f
+SHA512: d94c6e924ccd3c3e95a97db19ffc1a60c582a02316772215656813a3ebf2ee76a7d347a5940c05a5eae599623cf881e1a625f0b6f4e028ba8aa635131c8563fb
 Description: commandline package manager
  This package provides commandline tools for searching and
  managing as well as querying information about packages
@@ -1565,6 +1657,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240711
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 228
+Filename: ./debs/cacerts/ca-certificates_20240711_all.deb
+Size: 127958
+MD5sum: 44eeba4d1443ffe245b8336f96651433
+SHA1: 2baa0389a63fc59c71062106c3594749b35f70c9
+SHA256: 0aaeb0f1651687cd166f4cab3c7cafb8c778a3622ecacad932562e0a0aa0a1dc
+SHA512: 069bcda1e0395eda52991495fca6f3d9305813e302aa75aecf54cd4b81df1828bf74ef20dbca9526e68c319b2551675cc15781a35e81b878f165ece3de1ef4af
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -1847,6 +1958,26 @@ Description: command line tool for transferring data with URL syntax
  .
  curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a busload of other useful tricks.
 
+Package: curl
+Architecture: iphoneos-arm
+Version: 8.7.1
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 364
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.7.1), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Filename: ./debs/curl/curl_8.7.1_iphoneos-arm.deb
+Size: 214804
+MD5sum: e78e4bd551901a66ec036d653a2c273d
+SHA1: 090056b82030331fd703ffe4f4d01cc3ebef410a
+SHA256: 3d1f09d1f59c519bd298e5b25c3ff9b61ebc57d495a75b6b43a4a5b29a83f383
+SHA512: 63943ea52caa1af153cb0b8e1b63e9c8c80242c0a341a1c1efab25629c55d9399f928951b4f720834685babe1f1f54a9cef96d2fdad4aaa5d803bc4d6d6e8244
+Homepage: http://curl.haxx.se/
+Description: command line tool for transferring data with URL syntax
+ curl is a command line tool for transferring data with URL syntax, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a busload of other useful tricks.
+
 Package: libcurl4-openssl-dev
 Architecture: iphoneos-arm
 Version: 7.88.1
@@ -1934,6 +2065,35 @@ Description: development files and documentation for libcurl (OpenSSL flavour)
  .
  SSL support is provided by OpenSSL.
 
+Package: libcurl4-openssl-dev
+Architecture: iphoneos-arm
+Version: 8.7.1
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4628
+Provides: libcurl-dev (= 8.7.1)
+Depends: libcurl4 (= 8.7.1), libidn2-dev, libssl-dev, libssh2-dev, libnghttp2-dev, librtmp-dev
+Conflicts: curl (<< 8.7.1)
+Replaces: curl (<< 8.7.1)
+Filename: ./debs/curl/libcurl4-openssl-dev_8.7.1_iphoneos-arm.deb
+Size: 1833040
+MD5sum: e76bc1cee6a1a5264e98ddbbdd63fff2
+SHA1: 0897e6bdd76364927eb92fc36eb7424a186ae0b8
+SHA256: 47ded3bb78fc657dbd02e2c58ed897aefef38565189fc3bc00c3a3f3390bf1c4
+SHA512: 96daf94665aa4064d56e46423dbae9a3c3409e0c1e9c238fd1eec7bdaece4808ea6ed1e91e5eb2cc4662940400c9c445853d9c5a838a02ed90decf79d3313bc0
+Homepage: http://curl.haxx.se/
+Description: development files and documentation for libcurl (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ .
+ This package provides the development files (ie. includes, static library, manual pages) that allow one to build software which uses libcurl.
+ .
+ SSL support is provided by OpenSSL.
+
 Package: libcurl4
 Architecture: iphoneos-arm
 Version: 7.88.1
@@ -2002,6 +2162,32 @@ MD5sum: c19b3a8968f24c46ea6df490cb93e800
 SHA1: bf1924d408c44dedbdbe3a45a399060e679ab00c
 SHA256: 29af070c2a8ac8459d1dc4b7570846e5e9e18bc55487e65797a73448d6d31814
 SHA512: b9c51a7a8b478eb26c523128b65204719e2c6beeddaae28f4aad9acf24bd5dbce8e29a3bebcedf3bb86bb0fafbd3c8aa74893f8feea81e7ae1e83cd9bfc0699b
+Homepage: http://curl.haxx.se/
+Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ . 
+ SSL support is provided by OpenSSL
+
+Package: libcurl4
+Architecture: iphoneos-arm
+Version: 8.7.1
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 616
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.7.1), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Conflicts: curl (<< 8.7.1)
+Replaces: curl (<< 8.7.1)
+Filename: ./debs/curl/libcurl4_8.7.1_iphoneos-arm.deb
+Size: 293160
+MD5sum: 7ce8e490706346308ad807c8134e10e9
+SHA1: e0dc36d1610460a972473db56a1280f008a19c46
+SHA256: 289ce18cf767af32279b1d671c8df64a637e7550101be6aca8918276d65ed0fc
+SHA512: 941829f3010cf4eee9af69f373d1efe8c727ca4ce7a4e4aa93b3b8a6c45ac7eb9e08b349432c06763b66f124e332769010af1a87004e54493433faa6768d3c93
 Homepage: http://curl.haxx.se/
 Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
  libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
@@ -3917,6 +4103,35 @@ Description: GNU privacy guard - network certificate management service
  among other tools.  Unless this package is installed, the parts of
  the GnuPG suite that try to interact with the network will fail.
 
+Package: dirmngr
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 668
+Depends: libiosexec1 (>= 1.3.1), gpgconf (= 2.4.5), libassuan0, libgcrypt20, libgnutls30, libgpg-error0, libksba8, libnpth0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/dirmngr_2.4.5_iphoneos-arm.deb
+Size: 294074
+MD5sum: c3390e231714b84a048f5f00cc55a08d
+SHA1: c1ef0bee1b5717bff70ab06aa4669c5f6821882e
+SHA256: 947ffd1d678ba8ff920a524494190d53b24bd01de912da9be2d45b62a2c16ffe
+SHA512: ab5621ec9d223f76e4caf74d7fcd495adb20fd1d6ba1f866a363173215c03f0b062a9bbd9ea34ff860a41fbb8e56c90b88ce5b942d64b490fd9b55e932a66290
+Description: GNU privacy guard - network certificate management service
+ dirmngr is a server for managing and downloading OpenPGP and X.509
+ certificates, as well as updates and status signals related to those
+ certificates.  For OpenPGP, this means pulling from the public
+ HKP/HKPS keyservers, or from LDAP servers.  For X.509 this includes
+ Certificate Revocation Lists (CRLs) and Online Certificate Status
+ Protocol updates (OCSP).  It is capable of using Tor for network
+ access.
+ .
+ dirmngr is used for network access by gpg, gpgsm, and dirmngr-client,
+ among other tools.  Unless this package is installed, the parts of
+ the GnuPG suite that try to interact with the network will fail.
+
 Package: gnupg-utils
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -3977,6 +4192,36 @@ Description: GNU privacy guard - utility programs
   * kbxutil -- list, export, import Keybox data
   * watchgnupg -- watch socket-based logs
 
+Package: gnupg-utils
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 812
+Depends: libiosexec1 (>= 1.3.1), libassuan0, libgcrypt20, libgpg-error0, libksba8, libnpth0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gnupg-utils_2.4.5_iphoneos-arm.deb
+Size: 185922
+MD5sum: 77c8e9e2a8c0887f73c65ea3cf0278ec
+SHA1: 7ebe54a27f1eb3848a67fafacd5e1f416687d821
+SHA256: 6476d4430de4b33aa37030277c8dc4bd7b45748bd47e93d814d3b8f4b9082f15
+SHA512: 08ae04480bd247e24ee3afaf03af3ef865eed0d6237e85bc98daf81cddab4e98891fdc4806b15e8649d52322a845b3ada53bfbd5ac30fd180c61e5f41520137f
+Description: GNU privacy guard - utility programs
+ GnuPG is GNU's tool for secure communication and data storage.
+ .
+ This package contains several useful utilities for manipulating
+ OpenPGP data and other related cryptographic elements.  It includes:
+ .
+  * addgnupghome -- create .gnupg home directories
+  * applygnupgdefaults -- run gpgconf --apply-defaults for all users
+  * gpgparsemail -- parse an e-mail message into annotated format
+  * gpgsplit -- split a sequence of OpenPGP packets into files
+  * gpgtar -- encrypt or sign files in an archive
+  * kbxutil -- list, export, import Keybox data
+  * watchgnupg -- watch socket-based logs
+
 Package: gnupg
 Architecture: all
 Version: 2.3.6
@@ -4018,6 +4263,31 @@ MD5sum: c56cac2254cbdacb34d19595cde23999
 SHA1: 870929c51cf32ac910148f8ffaa971c418326db3
 SHA256: 84435c23d58befa4455aacbe2bd869f94f1145c40b13a11bb9aeeeaf3c90788b
 SHA512: 663ef257c0cd8140dea8397f6f7cb5eddcacf992864c71418fbebd4dd52b9c900cc839beee0f56b39c04f552fbd08dce00a9b92f9921d9a547b11b14fedbc1c2
+Description: GNU privacy guard - a free PGP replacement
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the full suite of GnuPG tools for cryptographic
+ communications and data storage.
+
+Package: gnupg
+Architecture: all
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4556
+Depends: dirmngr (= 2.4.5), gnupg-utils (= 2.4.5), gpg (= 2.4.5), gpg-agent (= 2.4.5), gpg-wks-client (= 2.4.5), gpg-wks-server (= 2.4.5), gpgconf(= 2.4.5), gpgsm (= 2.4.5), gpgv (= 2.4.5), scdaemon (= 2.4.5), pinentry
+Conflicts: gnupg2
+Replaces: gnupg2
+Filename: ./debs/gnupg/gnupg_2.4.5_all.deb
+Size: 1049384
+MD5sum: b15d2499ffad873e8ab5e14de7f405cc
+SHA1: 3e84c63a0d778dccb2e8af1f93b2507be6a36b2c
+SHA256: 86f149d1b49b06e9f6cca07c1a230ddeeb56a0ce69c6f50b5538c5e9a62e6850
+SHA512: ba41842c7218c252b25282b2ac051e38a95ba298e31aec7a75eb73cf4482aae09e609b6924e45e303ac3746dc097c0a86d75eed25c8bad435fe305e6e09a2252
 Description: GNU privacy guard - a free PGP replacement
  GnuPG is GNU's tool for secure communication and data storage.
  It can be used to encrypt data and to create digital signatures.
@@ -4085,6 +4355,35 @@ Description: GNU privacy guard - cryptographic agent
  secret-key operations with any part of the modern GnuPG suite will
  fail.
 
+Package: gpg-agent
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 884
+Depends: libiosexec1 (>= 1.3.1), gpgconf (= 2.4.5), gpg (= 2.4.5), dirmngr (= 2.4.5), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpg-agent_2.4.5_iphoneos-arm.deb
+Size: 293934
+MD5sum: 4a2bebb1ab8629897714e3b8ce4d6238
+SHA1: ea482ff51467dcc8c1a3b80d3cae4ea0af5d748e
+SHA256: 51dcf8909c8743dd2c75226badcd7b711606c6679a2b05bc380e27c6a95f40a4
+SHA512: 62defc631971a51aff9ed281bbfa9594176719235b5b53650df217d6f7f5732933761e9a6a18d905266778dd68f1b02a6d79b8d9e3b0b0ba8a4538e7f9d4f1d3
+Description: GNU privacy guard - cryptographic agent
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the agent program gpg-agent which handles all
+ secret key material for OpenPGP and S/MIME use.  The agent also
+ provides a passphrase cache, which is used by pre-2.1 versions of
+ GnuPG for OpenPGP operations.  Without this package, trying to do
+ secret-key operations with any part of the modern GnuPG suite will
+ fail.
+
 Package: gpg-wks-client
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -4132,6 +4431,37 @@ MD5sum: 762de577a411660c5c1c7a3740cd2c12
 SHA1: f7b6b51f0b863a2572e561e48de66b248d77c99d
 SHA256: ec7093362870ae9a3b785bffcadfd0e86ba6cee07c0f668c38937580760226ec
 SHA512: 2bb1ab6d1bcf66bd9610e9e8a4f7dd3681346c420ed804b95ff290433ec36eda9628d0db35a760e5bd18760438ec1d04f0509b5066b6af3b553f4e8cd0bc5361
+Description: GNU privacy guard - Web Key Service client
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package provides the GnuPG client for the Web Key Service
+ protocol.
+ .
+ A Web Key Service is a service that allows users to upload keys per
+ mail to be verified over https as described in
+ https://tools.ietf.org/html/draft-koch-openpgp-webkey-service
+ .
+ For more information see: https://wiki.gnupg.org/WKS
+
+Package: gpg-wks-client
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 340
+Depends: libiosexec1 (>= 1.3.1), gpgconf (= 2.4.5), gpg (= 2.4.5), dirmngr (= 2.4.5), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpg-wks-client_2.4.5_iphoneos-arm.deb
+Size: 158426
+MD5sum: 91d7812e582e47843bcc7f51b2b2c916
+SHA1: a0f4ee73e4cd85ba8e6724fdc4dcda7602aad17d
+SHA256: 33f354c236a04245df38faccb63f27e9c8bab012bd25bfaa42fd277d5a524744
+SHA512: c7e89c25735c3c79cbea7d1365f6736f6caf16e82849b20afa66c78e157054e0652004524bc061663e636a08839964e5e54011864283a513a42f843dde09cc1c
 Description: GNU privacy guard - Web Key Service client
  GnuPG is GNU's tool for secure communication and data storage.
  It can be used to encrypt data and to create digital signatures.
@@ -4209,6 +4539,37 @@ Description: GNU privacy guard - Web Key Service server
  .
  For more information see: https://wiki.gnupg.org/WKS
 
+Package: gpg-wks-server
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 300
+Depends: libiosexec1 (>= 1.3.1), gpgconf (= 2.4.5), gpg (= 2.4.5), libgcrypt20 (>= 1.10.3), libgpg-error0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpg-wks-server_2.4.5_iphoneos-arm.deb
+Size: 146006
+MD5sum: af0c2a3c96e536e76dbff958a69d4cf3
+SHA1: 916f128310f2b32fbb439b6ff86b80cca4f87d47
+SHA256: 666f8a7a66689d172426c2f30b9d787fc58dab44e73f8281e5ef518ff50b8207
+SHA512: f9327f34689334e0b826c28dba739f91f1e264ccbe58a4d83222f069916f1f2c6c433ac5526e2b5c258a08f90e31cb2e51fc6af5a1aac96aa03c376130bd9036
+Description: GNU privacy guard - Web Key Service server
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package provides the GnuPG server for the Web Key Service
+ protocol.
+ .
+ A Web Key Service is a service that allows users to upload keys per
+ mail to be verified over https as described in
+ https://tools.ietf.org/html/draft-koch-openpgp-webkey-service
+ .
+ For more information see: https://wiki.gnupg.org/WKS
+
 Package: gpg
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -4253,6 +4614,34 @@ MD5sum: 8dd7f56252ced301e71b937979166ad7
 SHA1: be130c0689fd7172e0ade78b38d7d0ced5383550
 SHA256: 6e11525d2afec56365f5d945158bc3c39b520d2de6e11eb428fe60de6503d1ff
 SHA512: ff36c32e1ffb0e5ac28d1016a83e9772f443ee64ad66ce4440729924fd72aa91cbd7cd2df8beca7e1c96ad5c941ae7f2db3c41e71d37bc0e3854938c99e21d0d
+Description: GNU Privacy Guard -- minimalist public key operations
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains /usr/bin/gpg itself, and is useful on its own
+ only for public key operations (encryption, signature verification,
+ listing OpenPGP certificates, etc).  If you want full capabilities
+ (including secret key operations, network access, etc), please
+ install the "gnupg" package, which pulls in the full suite of tools.
+
+Package: gpg
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1144
+Depends: libiosexec1 (>= 1.3.1), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libreadline8, libintl8, libsqlite3-1 (>= 3.14.0)
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpg_2.4.5_iphoneos-arm.deb
+Size: 623218
+MD5sum: a53e14f530c2df8f0761b57bb858be32
+SHA1: 88b362443985a6785892112aed1e3f6a5abd2864
+SHA256: 43f7ede7d93b5d666c16c1c6c78cd2d1295ad29484740b62d539248e56ae65f3
+SHA512: d347062796416f5db02a286652a0379070b2c2c2fa75888ff0730baf68ad3dbeb8180630f88cd39b73696d271ddfe7818efae095285fb71788bc9d4e5cc5932b
 Description: GNU Privacy Guard -- minimalist public key operations
  GnuPG is GNU's tool for secure communication and data storage.
  It can be used to encrypt data and to create digital signatures.
@@ -4313,6 +4702,30 @@ Description: GNU privacy guard - core configuration utilities
  config files for tools in the GnuPG suite, to launch or terminate
  per-user daemons (if installed), etc.
 
+Package: gpgconf
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 464
+Depends: libiosexec1 (>= 1.3.1), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libreadline8, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpgconf_2.4.5_iphoneos-arm.deb
+Size: 181064
+MD5sum: 7d9053bc046c9bf6b04452190d6cc6a9
+SHA1: 37cf95592ee107bad2a27217cc690244da7774e0
+SHA256: 3cd0a8806afb832fd2b4bf1798176cb9e53fa090ffb74153f528f45922d1aa8c
+SHA512: 07c911259d0aaf1453d8a4ce65734e2a9c8efb8b7e1f6b4cf63c2931b92d78fb335630590d80fc3828c862125007a6a9fea690d06c8156c2bd8324ddd9a88d73
+Description: GNU privacy guard - core configuration utilities
+ GnuPG is GNU's tool for secure communication and data storage.
+ .
+ This package contains core utilities used by different tools in the
+ suite offered by GnuPG.  It can be used to programmatically edit
+ config files for tools in the GnuPG suite, to launch or terminate
+ per-user daemons (if installed), etc.
+
 Package: gpgsm
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -4355,6 +4768,32 @@ MD5sum: 8a26976597bd7ddc99c96ba32e778d9c
 SHA1: 192487b7d4962cfc70dab081f5728ac7c5e851b0
 SHA256: 1124e7191f2521d120a89dc063898892039909a1454eba3db4ff3eaa2402b188
 SHA512: 0fdcaa376d2200698b467ad1a5db11c59e1ac58db1406b9d7d192a0054482bddc63bdf853c28dd3cec9492c0e9b60b5c5cb9b00c3a188fec2621e1de935d416a
+Description: GNU privacy guard - S/MIME version
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the gpgsm program. gpgsm is a tool to provide
+ digital encryption and signing services on X.509 certificates and the
+ CMS protocol. gpgsm includes complete certificate management.
+
+Package: gpgsm
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 620
+Depends: libiosexec1 (>= 1.3.1), gpgconf (= 2.4.5), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libksba8, libreadline8, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpgsm_2.4.5_iphoneos-arm.deb
+Size: 313086
+MD5sum: b28a8957eebea02cec336c57b70a039d
+SHA1: 4d771c6bc04b1b05d0a9b8f77908e590e7c8fdaf
+SHA256: f2ed46b4a59d6af97c61699d7d3375b1d4903a936ddc578c4518a09a8681ce14
+SHA512: 0895826f09fb5d01645a43560089c525ddaf39223411425653351e5b2a27e5bb6a241dc079c4e21554f47c6acfecf52b9cf698420a757f33a1e02237c0411bfb
 Description: GNU privacy guard - S/MIME version
  GnuPG is GNU's tool for secure communication and data storage.
  It can be used to encrypt data and to create digital signatures.
@@ -4415,6 +4854,49 @@ Description: GNU privacy guard - signature verification tool
  used to make the signature are valid. There are no configuration
  files and only a few options are implemented.
 
+Package: gpgv
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 480
+Depends: libiosexec1 (>= 1.3.1), libassuan0, libgcrypt20 (>= 1.10.3), libgpg-error0, libintl8, libnpth0
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/gpgv_2.4.5_iphoneos-arm.deb
+Size: 239798
+MD5sum: 3deb97009db010a4d9b8b13e04f061ab
+SHA1: d8cf9562aeeb9796dff721098815898edad47944
+SHA256: cefca841da32a675b709e5f86c0e558d58a35b61c5f1b8623f9ac1b169de4011
+SHA512: b6e64b93ac446584a6e87009ed0682fd2ec779b0d6f5db3df2ba7ffca03fef919d28fcbe5b548e08c2c4e4dc242901df1788ff10585eb3c5793a93d649e1ebaa
+Description: GNU privacy guard - signature verification tool
+ GnuPG is GNU's tool for secure communication and data storage.
+ .
+ gpgv is actually a stripped-down version of gpg which is only able
+ to check signatures. It is somewhat smaller than the fully-blown gpg
+ and uses a different (and simpler) way to check that the public keys
+ used to make the signature are valid. There are no configuration
+ files and only a few options are implemented.
+
+Package: keyboxd
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 336
+Depends: libiosexec1 (>= 1.3.1), libsqlite3-1 (>= 3.14.0), libnpth0 (>= 1.7), libgcrypt20, libassuan0 (>= 2.5.1), libgpg-error0 (>= 1.46)
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/keyboxd_2.4.5_iphoneos-arm.deb
+Size: 158072
+MD5sum: 0b1ee7fb196d53c6b9bd88db8c132bf1
+SHA1: 4317cb1f5a5463fe883bc8610c94f7e8d310c75e
+SHA256: 3772bd8b570883f87ce8a432c2faec9a115bfdb762d7543541f91b9f546dc276
+SHA512: 5f0f54634d7297ffb2f4bed8e261647ff49374dca8d14f4b43dfee1cd56fb7b055ef3d4d6f9cb455eb764c698e26b8668cb48a4dae099052042fdf83ed016c18
+Description: GNU Privacy Guard -- public key material service
+
 Package: scdaemon
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -4456,6 +4938,31 @@ MD5sum: 58020a3de371f49f216a7afcff81ee01
 SHA1: c1608cd886f41be230e03131a991d17ec7c5d914
 SHA256: 73a191e37dcf3c5ac4d66a15c4a96df1d5344893c37aa1af11f401d7115117ee
 SHA512: f806c17e47b1540a842fd5a4d92546b1b8a0202842bfed8560d402bbc05b285c60824f05f73d859508225a8e76c64b0e59a40da20871eca074a7c0e2dd61cda7
+Description: GNU privacy guard - smart card support
+ GnuPG is GNU's tool for secure communication and data storage.
+ It can be used to encrypt data and to create digital signatures.
+ It includes an advanced key management facility and is compliant
+ with the proposed OpenPGP Internet standard as described in RFC4880.
+ .
+ This package contains the smart card program scdaemon, which is used
+ by gpg-agent to access OpenPGP smart cards.
+
+Package: scdaemon
+Architecture: iphoneos-arm
+Version: 2.4.5
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 816
+Depends: libiosexec1 (>= 1.3.1), gpg-agent (= 2.4.5), libassuan0, libgcrypt20, libgpg-error0, libksba8, libnpth0, libusb-1.0-0, libintl8
+Conflicts: gnupg2, gnupg (<< 2.4.5)
+Replaces: gnupg2
+Filename: ./debs/gnupg/scdaemon_2.4.5_iphoneos-arm.deb
+Size: 374968
+MD5sum: d9d8da8b7d555b1acd104b13c8b1e349
+SHA1: 250c3ab9afc02f3bf2b124543f27fa08aaf0cdb3
+SHA256: 946bf2999855fe039b609091906537e4a52c979a0ffd046917d8c301547b41b9
+SHA512: 5003d64332330952a63ab12700a64a237b3c5cc4bb2eaeb6c715794c846c199b28ef3268a206fd2f9910b8d406da14a7c420f598840adbae7a1e1de57e403c6d
 Description: GNU privacy guard - smart card support
  GnuPG is GNU's tool for secure communication and data storage.
  It can be used to encrypt data and to create digital signatures.
@@ -4518,6 +5025,44 @@ MD5sum: 56c4c43e9af062dd50b123c45cd93a11
 SHA1: 6abea594db97098d69f52dbbc6066d791519614b
 SHA256: 32a2036e80d8761827f05013454a59356a138bc920149dcdc5304b69749cbe83
 SHA512: b2dfad09cee5f5b591e12c68fb48096ca2540353b9d74dd51974dbfaa8c8cfe341b76fde09312627be81ec99715be46f6e91320b19434a0b78b50eb9f8a24f40
+Description: GNU TLS library - commandline utilities
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains a commandline interface to the GNU TLS library, which
+ can be used to set up secure connections from e.g. shell scripts, debugging
+ connection issues or managing certificates.
+ .
+ Useful utilities include:
+  - TLS termination: gnutls-cli, gnutls-serv
+  - key and certificate management: certtool, ocsptool, p11tool
+  - credential management: srptool, psktool
+
+Package: gnutls-bin
+Architecture: iphoneos-arm
+Version: 3.8.6
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1348
+Depends: libiosexec1 (>= 1.3.1), libgnutls30 (>= 3.8.6), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/gnutls-bin_3.8.6_iphoneos-arm.deb
+Size: 320156
+MD5sum: ef55189863f72130a9efbfaa6442c48c
+SHA1: 39ef77ed9b39d98a32367c635ef5519143ee7f20
+SHA256: f55603eb793e388ee1a4607c5164465b12cdb4a0126fdd41b01627233735ea3c
+SHA512: a1621f8ef682f459ea4ebb833ae88b96b1f0a7a7a2ce3ff55d7fc633dcc94d6efceff7d9b4fb65deb174c7f38d93bec7a0fab4d10349a767be2f97edd6b722ca
 Description: GNU TLS library - commandline utilities
  GnuTLS is a portable library which implements the Transport Layer
  Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
@@ -4605,6 +5150,38 @@ Description: GNU TLS library - development files
  .
  This package contains the GnuTLS development files.
 
+Package: libgnutls30-dev
+Architecture: iphoneos-arm
+Version: 3.8.6
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 516
+Depends: libgnutls30 (>= 3.8.6), libgnutlsxx30 (>= 3.8.6), libp11-kit-dev, libtasn1-6-dev, nettle-dev, libidn2-dev
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutls30-dev_3.8.6_iphoneos-arm.deb
+Size: 184872
+MD5sum: 76c6ae85ee76fa0cdc129ef37285be08
+SHA1: b09e9c6067ec3841dd1c548d26d5d7c32fa623fb
+SHA256: 7bcc005c328f549de088ce99bfc24f1d0a94bf9cf13d9efb416610a2307740cd
+SHA512: 17b65363876427281a08deaa07436df5c43a5939bb2fd761ddc4a6bd9f14174bd2ce0d67890e16fec2c47981c02949436094828dd041987f4b838e3ba79c885a
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - development files
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the GnuTLS development files.
+
 Package: libgnutls30
 Architecture: iphoneos-arm
 Version: 3.8.0
@@ -4673,6 +5250,40 @@ Description: GNU TLS library - main runtime library
  .
  This package contains the main runtime library.
 
+Package: libgnutls30
+Architecture: iphoneos-arm
+Version: 3.8.6
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1940
+Provides: gnutls (= 1:0)
+Depends: libiosexec1 (>= 1.3.1), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Replaces: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutls30_3.8.6_iphoneos-arm.deb
+Size: 948754
+MD5sum: 75077628c75e76d98eb4b271304f7c14
+SHA1: 2ddd209f8050d899bf52f78590af8d590f8f79bc
+SHA256: 3a5a2c3417cc388cab3d8eeafe9780d60948ef1f64218b744d108d9daa3f9b2b
+SHA512: d79ef91f1d1b359f4cd37e5ccb804a63e180e0af200f042349a2fa36d197a5e31db1de4ef5296e524faa04c9b2fec7f03896b11503b09ff3a8e9b2f5a03888b6
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - main runtime library
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the main runtime library.
+
 Package: libgnutlsxx30
 Architecture: iphoneos-arm
 Version: 3.8.0
@@ -4720,6 +5331,38 @@ MD5sum: e2d61f24bc6e61284c8de8f8234add4c
 SHA1: e980c808039e6002583f912b5aada3c4c966b010
 SHA256: 2382825f2ece3b3722fd5c7c81c72c22db632e0d1ff8f92e52dac6189107b2f0
 SHA512: 805e5d978c5dea79b67d65c336eaa6c8e07897e1807e4f9f31e40dac599aa1f8364d2362e18853d4d97b52d4eacd08389cd7084e0219f6666700fd4be0f7c784
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - C++ runtime library
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the C++ runtime libraries.
+
+Package: libgnutlsxx30
+Architecture: iphoneos-arm
+Version: 3.8.6
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 200
+Depends: libiosexec1 (>= 1.3.1), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libgnutls30 (= 3.8.6), libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutlsxx30_3.8.6_iphoneos-arm.deb
+Size: 124050
+MD5sum: 61817f2ce4adb54568b1f4da8f2dcab9
+SHA1: 776b7eb365f42868f664c50c26c5bd1781bb2d75
+SHA256: d49014ca55e7232f68d83890b0f0d9b58768876f45fbe9475ff0cf3e6c64dd34
+SHA512: e5a319c1455436a6a45562dbf14ba02c8ef52f6ad46ba4eff06caa115c105f2f2c63466667305a790bee1ee440f80142b082742fbbd160ce2aec8ae2ae1bcdf3
 Homepage: http://www.gnu.org/software/gnutls/
 Description: GNU TLS library - C++ runtime library
  GnuTLS is a portable library which implements the Transport Layer
@@ -8809,6 +9452,28 @@ Description: library implementing HTTP/2 protocol (shared library)
  .
  This package installs a shared library.
 
+Package: libnghttp2-14
+Architecture: iphoneos-arm
+Version: 1.61.0
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 196
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/nghttp2/libnghttp2-14_1.61.0_iphoneos-arm.deb
+Size: 72658
+MD5sum: 9fc9d61aef5c45e1c721175b05f6f808
+SHA1: eaa76f7aa37af703de66c4678d7cb0eda24a86a0
+SHA256: 94950ee84a3d0ad8ba75d44cb83d7e58e390bbf31113b5d36967abd86e8f79b1
+SHA512: f3575273af029262332f79c01d2f41a30191f3303aad84bc2ca8d873417111ee089973884092fe3660337978396a2d4872e42350109ea796ec602b3a1fd7bd8f
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (shared library)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs a shared library.
+
 Package: libnghttp2-dev
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -8823,6 +9488,28 @@ MD5sum: a7d32a4f82f80b85ca38203291708bd9
 SHA1: a978427498e0a92320896590eb6a0b8ffcf04cd8
 SHA256: 55dddf864847fa4f48c60eb39f96f7fe82bc36ee3d7e563ef0ca0d91ce98264d
 SHA512: a177c0e662aacc9b870a7d1cdb712fe4e88aa718b88ca64767659bf39b3f829fcbe5eca8b8ae837bb9cf10df5e7c4edc400a9484b1233e6821a0888d0b7e75f7
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (development files)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs development files.
+
+Package: libnghttp2-dev
+Architecture: iphoneos-arm
+Version: 1.61.0
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 732
+Depends: libnghttp2-14 (= 1.61.0)
+Filename: ./debs/nghttp2/libnghttp2-dev_1.61.0_iphoneos-arm.deb
+Size: 276090
+MD5sum: 578dcbf7428dc78ffe3b20e6691f5be2
+SHA1: ddce8243e0319be9a11bd32783652ecbe6a01d63
+SHA256: 3aa50231d8abdd101ac183077472cbafc7b743d2269b4ae76ec7db85a592c85f
+SHA512: 30a98e80d67eb9e303cadf447fd3e58077263f1e2414eeb46983fea6aa85ff984511611683a7730cd19e2414cb2ec0730befb41a75f741dfd3486ccc33badc48
 Homepage: https://nghttp2.org/
 Description: library implementing HTTP/2 protocol (development files)
  This is an implementation of the Hypertext Transfer Protocol version
@@ -8851,6 +9538,26 @@ Description: client implementing HTTP/2 protocol
  gives access to many low-level and advanced aspects of the protocol
  and therefore is useful for debugging.
 
+Package: nghttp2-client
+Architecture: iphoneos-arm
+Version: 1.61.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 268
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.61.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-client_1.61.0_iphoneos-arm.deb
+Size: 88906
+MD5sum: afd33318cd3331cebabf544178ba34b4
+SHA1: 3ac10a9f63265db0ed5f8b61ade6ae68bc87d4bc
+SHA256: 69889b038ae36fdf9fbbc5552548414d80458ab067ec562abefaade876eb80a0
+SHA512: 3ac4ea1021181d24369ba3a5cd083ed94d1b6a54a5affa6477b489e9181f3d0d6684d2e24f268887acf1fd9bbd797fd928d1291a9c4b4b507c820bc7f7a7be69
+Homepage: https://nghttp2.org/
+Description: client implementing HTTP/2 protocol
+ This is a command line client implementing the HTTP/2 protocol. It
+ gives access to many low-level and advanced aspects of the protocol
+ and therefore is useful for debugging.
+
 Package: nghttp2-proxy
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -8871,6 +9578,26 @@ Description: reverse proxy implementing HTTP/2 protocol
  HTTP/1.1 fallback for clients that do not support it. It can be used
  as a frontend in front of web servers that do not support HTTP/2.
 
+Package: nghttp2-proxy
+Architecture: iphoneos-arm
+Version: 1.61.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 956
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.61.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libngtcp2-16, libnghttp3-9
+Filename: ./debs/nghttp2/nghttp2-proxy_1.61.0_iphoneos-arm.deb
+Size: 380368
+MD5sum: ded2ba6a334baf127f9db1383f40182d
+SHA1: 6377da8d912d95ae137d92cd2838b6c1194135f2
+SHA256: 3803c2571c25b19797682b30c843c252762547e225ce90163d39b606cd82b881
+SHA512: f847840408ae6a5c00b92b5f64f848ccf3b02fa395b61aedcd811fbee1eb589d6c0f5afc4ec183087f456a985a1f4bf99561e5e7676afe913cb5f5283adee8ec
+Homepage: https://nghttp2.org/
+Description: reverse proxy implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ as a frontend in front of web servers that do not support HTTP/2.
+
 Package: nghttp2-server
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -8885,6 +9612,26 @@ MD5sum: 34a4e913d4d850b68b342f39e267280a
 SHA1: 4b1f6cdfee5aab60655868cfef7cf2c9824e7d8a
 SHA256: 823aba8e2dad520624ceb9b84ca19c9754e61d3e56501ce33cc275f46163e1d7
 SHA512: e6b9534228306da645044d0e2d33fd9eb35f1e4e8c741821a5dc052f848dca6e143e648f96e6d84b5137b3c2e7e883726dfbb7a16ab929280f8d3bd8d8c3243c
+Homepage: https://nghttp2.org/
+Description: server implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ to serve files from a local directory.
+
+Package: nghttp2-server
+Architecture: iphoneos-arm
+Version: 1.61.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 200
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.61.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-server_1.61.0_iphoneos-arm.deb
+Size: 64462
+MD5sum: 01277cff690b7e22af42656786a6a54e
+SHA1: f8102502e97f44912b0fb520b70e9951d4044938
+SHA256: c07943666f468815d189f069d83e674f8cb3268df5767ab7fb94f5d02037dc61
+SHA512: cd1fba740789b757540daa0023aadb6c54f9e5fb705c8d3e3f99057a227018902d5b7913e0290ec23007ffb57755cb646e39140368030bae50918a54ba777f40
 Homepage: https://nghttp2.org/
 Description: server implementing HTTP/2 protocol
  This is a standalone server implementing the HTTP/2 protocol with
@@ -10884,6 +11631,28 @@ Description: fast, versatile, remote (and local) file-copying tool
 
 Package: librtmp-dev
 Architecture: iphoneos-arm
+Version: 2.4+20151223.gitfa8646d.1-1
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 288
+Depends: libgnutls30-dev, nettle-dev, libgmp-dev, librtmp1 (= 2.4+20151223.gitfa8646d.1-1)
+Filename: ./debs/rtmpdump/librtmp-dev_2.4+20151223.gitfa8646d.1-1_iphoneos-arm.deb
+Size: 159644
+MD5sum: 0cb34f7bd3df2927f1423f13309cba43
+SHA1: 13a92ade7ea3bb9daa3f654e3a754cd6f34c9538
+SHA256: 8ed73a90bc5f4da8444de439c038801010896d1f2ae093f8701cbbb8234f52c0
+SHA512: 1c10d6aae97d08ecbb9b74fb9f079b9e13722b6d4ed5679e8b1c6daa8cde7d1988f784691acffa0628eb724e6ac1eccad764a081aeb9a5448a46e93cf5ef6e7d
+Description: toolkit for RTMP streams (development files)
+ A small dumper for media content streamed over the RTMP protocol (like BBC's
+ iPlayer high quality streams). Supplying an RTMP URL will result in a dumped
+ flv file, which can be played/transcoded with standard tools.
+ .
+ This package contains the development libraries, header files needed by
+ programs that want to compile with librtmp.
+
+Package: librtmp-dev
+Architecture: iphoneos-arm
 Version: 2.4+20151223.gitfa8646d.1
 Priority: standard
 Section: Development
@@ -10906,6 +11675,28 @@ Description: toolkit for RTMP streams (development files)
 
 Package: librtmp1
 Architecture: iphoneos-arm
+Version: 2.4+20151223.gitfa8646d.1-1
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 184
+Depends: libiosexec1 (>= 1.3.1), libgnutls30, libhogweed6, libnettle8, libgmp10
+Filename: ./debs/rtmpdump/librtmp1_2.4+20151223.gitfa8646d.1-1_iphoneos-arm.deb
+Size: 74538
+MD5sum: fb4d5705eff82ce8c9f2e3642cde9adb
+SHA1: 00bc06cc2e69530185b0f2af05962762edb76e76
+SHA256: 6a15eeb1996916815223612df4475934829558ac44ada8ade47e5233738fdc0d
+SHA512: 8ab5f2e25bb5f33f4a6bb8670676430fb8c74ff2fb2bbe46433054aadc4320b8f739052881097a5cbbe74e348112bae3115ac677555ce882561a4ff7095693ff
+Description: toolkit for RTMP streams (shared library)
+ A small dumper for media content streamed over the RTMP protocol (like BBC's
+ iPlayer high quality streams). Supplying an RTMP URL will result in a dumped
+ flv file, which can be played/transcoded with standard tools.
+ .
+ This package contains the shared libraries, header files needed by
+ programs that want to use librtmp.
+
+Package: librtmp1
+Architecture: iphoneos-arm
 Version: 2.4+20151223.gitfa8646d.1
 Priority: standard
 Section: Libraries
@@ -10925,6 +11716,25 @@ Description: toolkit for RTMP streams (shared library)
  .
  This package contains the shared libraries, header files needed by
  programs that want to use librtmp.
+
+Package: rtmpdump
+Architecture: iphoneos-arm
+Version: 2.4+20151223.gitfa8646d.1-1
+Priority: standard
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 372
+Depends: libiosexec1 (>= 1.3.1), libgnutls30, libhogweed6, libnettle8, libgmp10, librtmp1
+Filename: ./debs/rtmpdump/rtmpdump_2.4+20151223.gitfa8646d.1-1_iphoneos-arm.deb
+Size: 59444
+MD5sum: 5ed656af3040edf47a04ee5fef652601
+SHA1: d7884678af5e67cbc957bee4dfd9bf9d489e9761
+SHA256: 7da1a24fcf7ded2d8f1e3ba4b5c42026c087ac3a80bdab4a78dc1bec1462b3de
+SHA512: 547b78c0f7f3337d5b1812f69c1afada80291483de9cccc312548ddd30aff8a04e342c7a9cf4fb4a89b90685fb0406eed00e1441a5f0488a1d8b699aedee5614
+Description: small dumper for media content streamed over the RTMP protocol
+ A small dumper for media content streamed over the RTMP protocol (like BBC's
+ iPlayer high quality streams). Supplying an RTMP URL will result in a dumped
+ flv file, which can be played/transcoded with standard tools.
 
 Package: rtmpdump
 Architecture: iphoneos-arm
