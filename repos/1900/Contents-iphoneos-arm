@@ -1137,6 +1137,7 @@ usr/include/nettle/ctr.h				    nettle-dev
 usr/include/nettle/curve25519.h				    nettle-dev
 usr/include/nettle/curve448.h				    nettle-dev
 usr/include/nettle/des.h				    nettle-dev
+usr/include/nettle/drbg-ctr.h				    nettle-dev
 usr/include/nettle/dsa-compat.h				    nettle-dev
 usr/include/nettle/dsa.h				    nettle-dev
 usr/include/nettle/eax.h				    nettle-dev
@@ -1671,6 +1672,7 @@ usr/lib/libhistory.8.dylib				    libreadline8
 usr/lib/libhistory.dylib				    libreadline-dev
 usr/lib/libhogweed.6.6.dylib				    libhogweed6
 usr/lib/libhogweed.6.8.dylib				    libhogweed6
+usr/lib/libhogweed.6.9.dylib				    libhogweed6
 usr/lib/libhogweed.6.dylib				    libhogweed6
 usr/lib/libhogweed.a					    nettle-dev
 usr/lib/libhogweed.dylib				    nettle-dev
@@ -1728,6 +1730,7 @@ usr/lib/libncursesw.a					    libncurses-dev
 usr/lib/libncursesw.dylib				    libncurses-dev
 usr/lib/libnettle.8.6.dylib				    libnettle8
 usr/lib/libnettle.8.8.dylib				    libnettle8
+usr/lib/libnettle.8.9.dylib				    libnettle8
 usr/lib/libnettle.8.dylib				    libnettle8
 usr/lib/libnettle.a					    nettle-dev
 usr/lib/libnettle.dylib					    nettle-dev
@@ -12490,6 +12493,7 @@ usr/share/locale/ca/LC_MESSAGES/gnupg2.mo		    gnupg
 usr/share/locale/ca/LC_MESSAGES/grep.mo			    grep
 usr/share/locale/ca/LC_MESSAGES/libapt-pkg6.0.mo	    libapt-pkg6.0
 usr/share/locale/ca/LC_MESSAGES/nano.mo			    nano
+usr/share/locale/ca/LC_MESSAGES/popt.mo			    libpopt0
 usr/share/locale/ca/LC_MESSAGES/sudo.mo			    sudo
 usr/share/locale/ca/LC_MESSAGES/sudoers.mo		    sudo
 usr/share/locale/ca/LC_MESSAGES/tar.mo			    tar
@@ -13465,6 +13469,7 @@ usr/share/locale/ka/LC_MESSAGES/diffutils.mo		    diffutils
 usr/share/locale/ka/LC_MESSAGES/grep.mo			    grep
 usr/share/locale/ka/LC_MESSAGES/libidn2.mo		    libidn2-0
 usr/share/locale/ka/LC_MESSAGES/nano.mo			    nano
+usr/share/locale/ka/LC_MESSAGES/popt.mo			    libpopt0
 usr/share/locale/ka/LC_MESSAGES/sudo.mo			    sudo
 usr/share/locale/ka/LC_MESSAGES/sudoers.mo		    sudo
 usr/share/locale/ka/LC_MESSAGES/tar.mo			    tar
@@ -13809,6 +13814,7 @@ usr/share/locale/pt_BR/LC_MESSAGES/libapt-pkg6.0.mo	    libapt-pkg6.0
 usr/share/locale/pt_BR/LC_MESSAGES/libidn2.mo		    libidn2-0
 usr/share/locale/pt_BR/LC_MESSAGES/make.mo		    make
 usr/share/locale/pt_BR/LC_MESSAGES/nano.mo		    nano
+usr/share/locale/pt_BR/LC_MESSAGES/popt.mo		    libpopt0
 usr/share/locale/pt_BR/LC_MESSAGES/sudo.mo		    sudo
 usr/share/locale/pt_BR/LC_MESSAGES/sudoers.mo		    sudo
 usr/share/locale/pt_BR/LC_MESSAGES/tar.mo		    tar
@@ -13937,6 +13943,7 @@ usr/share/locale/ru_RU/LC_MESSAGES/LC_MESSAGES		    gettext-localizations
 usr/share/locale/ru_RU/LC_MONETARY			    gettext-localizations
 usr/share/locale/ru_RU/LC_NUMERIC			    gettext-localizations
 usr/share/locale/ru_RU/LC_TIME				    gettext-localizations
+usr/share/locale/si/LC_MESSAGES/popt.mo			    libpopt0
 usr/share/locale/sk/LC_MESSAGES/apt-utils.mo		    apt-utils
 usr/share/locale/sk/LC_MESSAGES/apt.mo			    apt
 usr/share/locale/sk/LC_MESSAGES/coreutils.mo		    coreutils

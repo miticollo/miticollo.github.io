@@ -6407,6 +6407,26 @@ Description: BSD editline and history libraries (development files)
  .
  It slightly resembles GNU readline.
 
+Package: libedit-dev
+Architecture: iphoneos-arm
+Version: 3.1-20240517
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 552
+Depends: libedit0 (= 3.1-20240517), libncurses-dev (>= 6.0)
+Filename: ./debs/libedit/libedit-dev_3.1-20240517_iphoneos-arm.deb
+Size: 251660
+MD5sum: 514bba3b09134c59dddaeda5d55b9185
+SHA1: e0ed8e5ded197c9b68a0706d10ed593605e25028
+SHA256: 8c297eccf57517a5d2f81f045314e0ae18222ef657f49d65030528afc1d044dd
+SHA512: b788b3e0daac9d748835ff4ad9c6414482b7ac0cf322a8fe60e29174359dae3e582d33e9a37dde6d8860b0930e4c53d217f0703def00451fa4ff610f95ced3d8
+Description: BSD editline and history libraries (development files)
+ Command line editor library provides generic line editing,
+ history, and tokenization functions.
+ .
+ It slightly resembles GNU readline.
+
 Package: libedit0
 Architecture: iphoneos-arm
 Version: 3.1-20210910
@@ -6461,6 +6481,26 @@ MD5sum: d280a8fea6fe95f2f4ca87928749619f
 SHA1: 771fb1c424b3e51465e0d1c69e6ff740200d3e3b
 SHA256: fe8428dd1c523dd5727a9ea13d1ded6e9efa95cf01d652bd3159905437834f29
 SHA512: ca92e2fae098bcd7320859f3d3b02f323113118b3c79b524271c53c24fbff936fe8600a0be859377cfbdd7951e8bd5902b775bab345583f1c31cd1e7f9c20044
+Description: BSD editline and history libraries
+ Command line editor library provides generic line editing,
+ history, and tokenization functions.
+ .
+ It slightly resembles GNU readline.
+
+Package: libedit0
+Architecture: iphoneos-arm
+Version: 3.1-20240517
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 216
+Depends: libiosexec1 (>= 1.3.1), libncursesw6 (>= 6.0)
+Filename: ./debs/libedit/libedit0_3.1-20240517_iphoneos-arm.deb
+Size: 79650
+MD5sum: 979eccab180bbd9ddb9fd8686de7a8c9
+SHA1: f1ea3e37b77e46983b04a345591604e58a327447
+SHA256: 1f7f9bb76de29d6220a4c1867b89740ac48e01659162d0710f853a17627a152c
+SHA512: 4da25fcdf96b9322b9afa771a02b00438322a390926e6f38a20b1c5ca4ae8ea3a9f2ec135d8153ab753a6123aaaf3166670cd8d4b3574acbc78ef0f493952eb9
 Description: BSD editline and history libraries
  Command line editor library provides generic line editing,
  history, and tokenization functions.
@@ -9426,6 +9466,23 @@ Author: Dylan Araps <dylan.araps@gmail.com>
 
 Package: libhogweed6
 Architecture: iphoneos-arm
+Version: 3.10
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 336
+Depends: libiosexec1 (>= 1.3.1), libgmp10, libnettle8 (= 3.10)
+Filename: ./debs/nettle/libhogweed6_3.10_iphoneos-arm.deb
+Size: 216226
+MD5sum: 79cc09cc257e8ae0086e4de51ac8f16c
+SHA1: 073d4ee1334a58213a5095da5b46b914f6ec6d3b
+SHA256: 983177459d038265405add1968055d9b29207509c6c4553a8468ebf15a65d27d
+SHA512: 1cc06a97b9d9f0097e58e7db4946503a71487d98bb957fc9e8a89d5ef818eefcd88f1ac0be4ab8faf7c3b7cd5e1ad8b529daa0abc7e0a4cd4d0b08cb6e63a9e6
+Homepage: http://www.lysator.liu.se/~nisse/nettle/
+Description: low level cryptographic library (public-key cryptos)
+
+Package: libhogweed6
+Architecture: iphoneos-arm
 Version: 3.8.1
 Priority: optional
 Section: Libraries
@@ -9460,6 +9517,23 @@ Description: low level cryptographic library (public-key cryptos)
 
 Package: libnettle8
 Architecture: iphoneos-arm
+Version: 3.10
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 364
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/nettle/libnettle8_3.10_iphoneos-arm.deb
+Size: 190640
+MD5sum: 0e662e3b4af8ae3b84c3f7b091d87e13
+SHA1: 5306f6254ae1bf07c3af23576422dd01c2fa5de9
+SHA256: 40f7685c8228acd901beba84117b542e86d2b265f2268753e1496f8c90a53bdc
+SHA512: 5687db00c4626d2e11a920344554db60a9921b3b85835db0b8eaaf6ef264b828cbd8eeac3eb5bf26a4382ab471cbeec201876c37fa406cdc7b6f92602a286d55
+Homepage: http://www.lysator.liu.se/~nisse/nettle/
+Description: low level cryptographic library (symmetric and one-way cryptos)
+
+Package: libnettle8
+Architecture: iphoneos-arm
 Version: 3.8.1
 Priority: optional
 Section: Libraries
@@ -9491,6 +9565,25 @@ SHA256: 503adead00c906ed6f2b0315b8f84a75c4f93ca47d1d7a0870d8e7d7db762276
 SHA512: 195fdbbc465546b343da4acc5d76ba6cc22bf13ca8facc12eebea66c8ccc4bea8be4210ee71f1c96720f98c6e0612bd9f344ef4c10f2e61f4f7f42a1b37b516c
 Homepage: http://www.lysator.liu.se/~nisse/nettle/
 Description: low level cryptographic library (symmetric and one-way cryptos)
+
+Package: nettle-bin
+Architecture: iphoneos-arm
+Version: 3.10
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 488
+Depends: libiosexec1 (>= 1.3.1), libgmp10, libnettle8, libhogweed6
+Conflicts: nettle
+Replaces: nettle
+Filename: ./debs/nettle/nettle-bin_3.10_iphoneos-arm.deb
+Size: 50964
+MD5sum: 61cddbd05254ae631ad131f96cb4ebb7
+SHA1: 37d37c6978b23b28145aadb1d806d18a57f66073
+SHA256: 37029f880b1bc64fb08b0c2815403fda861f3149697210c379842ce66d604ffa
+SHA512: f1f23dd70d4cbe01c3fa40ea80f8576b0cdef1e21ff6f05885481f89984e074821ae134d036046547a65323e62e50a7b5c5e9202aaa8c18e5d3a11c4bfae5d43
+Homepage: http://www.lysator.liu.se/~nisse/nettle/
+Description: low level cryptographic library (binary tools)
 
 Package: nettle-bin
 Architecture: iphoneos-arm
@@ -9529,6 +9622,25 @@ SHA256: 86f839b7bfb76cf92cd1023768e759c7b606cb9e165913b80e592a511f319978
 SHA512: 530e177ea82d984a1226f5b8e9eda29f2864b9591947b5aa5dacae36f111e50fd76c368f5b2147080cf21c0b1a6901d67744876d1776054372dae93354d075fa
 Homepage: http://www.lysator.liu.se/~nisse/nettle/
 Description: low level cryptographic library (binary tools)
+
+Package: nettle-dev
+Architecture: iphoneos-arm
+Version: 3.10
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4208
+Depends: libnettle8 (= 3.10), libhogweed6 (= 3.10)
+Conflicts: nettle
+Replaces: nettle
+Filename: ./debs/nettle/nettle-dev_3.10_iphoneos-arm.deb
+Size: 1421484
+MD5sum: d0822b70af14f64adfcb4fbeca00fabe
+SHA1: 01b12bf46b8f210e4f1438644a3d3c1d262d2c34
+SHA256: 1aa43d75ff992ae1bf1a6303f1a312fdbf25749ceee15fa708eaa4c9f390fa94
+SHA512: 1a53e9ecc4a2efde3538a228395ed3eb9adda40ad1976fd73da130e125db8b5d5d385e726eefbd9cf393db7c6ac23e1f6e8a49b1739319e941e81b9387e538c8
+Homepage: http://www.lysator.liu.se/~nisse/nettle/
+Description: low level cryptographic library (development files)
 
 Package: nettle-dev
 Architecture: iphoneos-arm
@@ -10685,6 +10797,33 @@ Description: library for loading and coordinating access to PKCS#11 modules - de
  This package contains the documentation and development headers required
  to build applications using the p11-kit library.
 
+Package: libp11-kit-dev
+Architecture: iphoneos-arm
+Version: 0.25.4
+Multi-Arch: foreign
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 680
+Depends: libp11-kit0 (>= 0.25.4), libintl-dev, libffi-dev
+Conflicts: p11-kit (<< 0.25.4)
+Filename: ./debs/p11-kit/libp11-kit-dev_0.25.4_iphoneos-arm.deb
+Size: 96502
+MD5sum: 04f056f92fe0eea818dfc31d6601e531
+SHA1: f25c633dba8baf2a7fec991ede1808aaff989258
+SHA256: 1609eaad000530141311284dd48f803ffa1a171d522031d296f2b53fecd35e85
+SHA512: e5ac689650aad4735a4c0b876a6bd1dc100c75be7d1ca0aabbd661f85d1b2a565232f15f5fd740747d49b57decccc33881c611390c7b3dfbd17c098b922117a6
+Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
+Description: library for loading and coordinating access to PKCS#11 modules - development
+ The p11-kit library provides a way to load and enumerate Public-Key
+ Cryptography Standard #11 modules, along with a standard configuration
+ setup for installing PKCS#11 modules so that they're discoverable. It
+ also solves problems with coordinating the use of PKCS#11 by different
+ components or libraries living in the same process.
+ .
+ This package contains the documentation and development headers required
+ to build applications using the p11-kit library.
+
 Package: libp11-kit0
 Architecture: iphoneos-arm
 Version: 0.24.1
@@ -10758,6 +10897,34 @@ MD5sum: 27f2d65729746cca6e3543f8e2f4eeb9
 SHA1: b16eee9a2877ec95e1f6badea567495ce0c8f9ca
 SHA256: 8bcdfb2751aba6d7a43e7ce69a28c212de50c85de2cd91e74fce80521815784a
 SHA512: eaad522607a81df419c9435d993ee50af87d8d5c032a79f75c843bf6827ce0bac420a6feb16df969ebc6406fdc89faaaf60098bf86cf6e25a1f19f563909ca30
+Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
+Description: library for loading and coordinating access to PKCS#11 modules - runtime
+ The p11-kit library provides a way to load and enumerate Public-Key
+ Cryptography Standard #11 modules, along with a standard configuration
+ setup for installing PKCS#11 modules so that they're discoverable. It
+ also solves problems with coordinating the use of PKCS#11 by different
+ components or libraries living in the same process.
+ .
+ This package contains the shared library required for applications loading
+ and accessing PKCS#11 modules.
+
+Package: libp11-kit0
+Architecture: iphoneos-arm
+Version: 0.25.4
+Multi-Arch: foreign
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1156
+Depends: libiosexec1 (>= 1.3.1), libintl8, libffi8, ca-certificates
+Conflicts: p11-kit (<< 0.25.4)
+Replaces: p11-kit (<< 0.25.4)
+Filename: ./debs/p11-kit/libp11-kit0_0.25.4_iphoneos-arm.deb
+Size: 245532
+MD5sum: 99270cd4ee94163506a783f331f8cfbf
+SHA1: d5819dcb274bf54a8a335163ad941f1aab32c778
+SHA256: f9bac7b325689149f1076be52b657295ee77966927ea7784675346c14ec59e71
+SHA512: 1a647160c2ad807a8c511ceaab7687762bac5ef2bc6d489d8dd2416c58cbbfadb0306720f9fb88ecaf72f37143293dfcd988353004f548c2f9a53e8bd90af85d
 Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
 Description: library for loading and coordinating access to PKCS#11 modules - runtime
  The p11-kit library provides a way to load and enumerate Public-Key
@@ -10853,6 +11020,34 @@ Description: p11-glue proxy and trust modules
  This package contains the p11-kit proxy module and the system trust
  policy module.
 
+Package: p11-kit-modules
+Architecture: iphoneos-arm
+Version: 0.25.4
+Multi-Arch: foreign
+Priority: optional
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1152
+Depends: libiosexec1 (>= 1.3.1), libp11-kit0 (= 0.25.4), libtasn1-6, libintl8, libffi8, ca-certificates
+Conflicts: p11-kit (<< 0.25.4)
+Replaces: p11-kit (<< 0.25.4)
+Filename: ./debs/p11-kit/p11-kit-modules_0.25.4_iphoneos-arm.deb
+Size: 196674
+MD5sum: fdee804df3a70c1ca184d65cd727f3f4
+SHA1: 97941c4cb88090c113c8040f03d37edd1b0f0f6e
+SHA256: 6a1980934f47a8bf8e27bbc4b519a1964ba704bcb34e2e3de46b6b0ec4a474e1
+SHA512: 0e405f690966afe2bd0b1f4d237dc59d0ceab8146c06291da4c51a1638752934c7ba74057893f41abadf00db9799861ba136be39ce12cc043cf7c03d0812484c
+Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
+Description: p11-glue proxy and trust modules
+ The p11-kit library provides a way to load and enumerate Public-Key
+ Cryptography Standard #11 modules, along with a standard configuration
+ setup for installing PKCS#11 modules so that they're discoverable. It
+ also solves problems with coordinating the use of PKCS#11 by different
+ components or libraries living in the same process.
+ .
+ This package contains the p11-kit proxy module and the system trust
+ policy module.
+
 Package: p11-kit
 Architecture: iphoneos-arm
 Version: 0.24.1
@@ -10918,6 +11113,31 @@ MD5sum: 5827be68c921b8e3b4d2f23995010148
 SHA1: 186ea4dab28ba3f11fb9f87ad9d74271370ad303
 SHA256: d6e9785ebc6b41456981424f394be3736eafe264c1dc746a95d724af22ce56f2
 SHA512: 14b494c4c0fba36bbc15c5b2789ae4b09d858e0fbbd5f89f5a5e5cd450a9cbcbf8110c5822974ac430b6b1c1b269dccc3e021d136ac910e7bce1becc305ba113
+Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
+Description: p11-glue utilities
+ The p11-kit library provides a way to load and enumerate Public-Key
+ Cryptography Standard #11 modules, along with a standard configuration
+ setup for installing PKCS#11 modules so that they're discoverable. It
+ also solves problems with coordinating the use of PKCS#11 by different
+ components or libraries living in the same process.
+ .
+ This package contains the p11-kit tool for listing PKCS#11 modules.
+
+Package: p11-kit
+Architecture: iphoneos-arm
+Version: 0.25.4
+Multi-Arch: foreign
+Priority: optional
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 656
+Depends: libiosexec1 (>= 1.3.1), libp11-kit0 (>= 0.25.4), p11-kit-modules (>= 0.25.4), libtasn1-6, libintl8, ca-certificates
+Filename: ./debs/p11-kit/p11-kit_0.25.4_iphoneos-arm.deb
+Size: 129786
+MD5sum: 270a6947920737b39397ee43c3702797
+SHA1: 5627392a495f7b497eb6642afbfa9f6d789326de
+SHA256: 8469f0e61082cc7a45b596cbb18aae86d54d59a63569ce4687380b9a8407f4c5
+SHA512: 7ee9baa52d3220c33158561e50de4438363ede9368d06596f54bebef556656bd1be474902a66873ecbc21485d4d3f810c94cc88e1bd7b2beed4f4ca4bf99933f
 Homepage: https://p11-glue.github.io/p11-glue/p11-kit.html
 Description: p11-glue utilities
  The p11-kit library provides a way to load and enumerate Public-Key
@@ -11896,6 +12116,29 @@ Description: lib for parsing cmdline parameters - development files
  .
  This package contains the popt static library and header file.
 
+Package: libpopt-dev
+Architecture: iphoneos-arm
+Version: 1.19
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 148
+Depends: libpopt0
+Filename: ./debs/popt/libpopt-dev_1.19_iphoneos-arm.deb
+Size: 77818
+MD5sum: ab84594ae9d92361e3b4fb0cc8f30abd
+SHA1: 34402609fb0ea5aa597f8a6e9c828bd7fb2efd0e
+SHA256: e0d7eecc89afd8f2212bc525bde2f1074086efd4b749db6334c02b51350486e3
+SHA512: 50b4aa7935f4e03a961fe12e7a9d5e6b68cfd29e9af8e4bb7b10d91180903cfe2c083bf9d8f6220780ddfc3175e881dcf935b5b0cfacc46128fc790d83a7e924
+Description: lib for parsing cmdline parameters - development files
+ Popt was heavily influenced by the getopt() and getopt_long() functions,
+ but it allows more powerful argument expansion. It can parse arbitrary
+ argv[] style arrays and automatically set variables based on command
+ line arguments. It also allows command line arguments to be aliased via
+ configuration files and includes utility functions for parsing arbitrary
+ strings into argv[] arrays using shell-like rules.
+ .
+ This package contains the popt static library and header file.
+
 Package: libpopt0
 Architecture: iphoneos-arm
 Version: 1.18
@@ -11909,6 +12152,29 @@ MD5sum: bf3c6bb7732a622eb1c5ea30d42a5708
 SHA1: d0438aca7ac34ccac5f5a8cf9d348e538a601b27
 SHA256: 7854dfa83d66a4db54f5879de45a88ef201f36d70cfbce812a895962cc0a27ef
 SHA512: f38563ad90b6026f5ce7ac79848df0fae673943e8b38a6fcd590b47ef5d0f90e504d32ffc76858f8255deea25c198075b75bfad8a5ad321ef015b4b3ff109d34
+Description: lib for parsing cmdline parameters
+ Popt was heavily influenced by the getopt() and getopt_long() functions,
+ but it allows more powerful argument expansion. It can parse arbitrary
+ argv[] style arrays and automatically set variables based on command
+ line arguments. It also allows command line arguments to be aliased via
+ configuration files and includes utility functions for parsing arbitrary
+ strings into argv[] arrays using shell-like rules.
+ .
+ This package contains the runtime library.
+
+Package: libpopt0
+Architecture: iphoneos-arm
+Version: 1.19
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 240
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/popt/libpopt0_1.19_iphoneos-arm.deb
+Size: 45194
+MD5sum: 656ed3e7c26e9b6f2f354446123a56fd
+SHA1: 91567d1684df956db5d471f523ffc474206a92e0
+SHA256: f0fdd628b713370e167915cb115892b3b60aeffd98a66a30894cee11cdd071fd
+SHA512: 3dbbff6fe4113f70db9eb38c29e13128bba8d09d5d3549872481d4a31fc6ed7ccfae73c5979059d8b1b4512dc8b4d9ab20a5493f4768559ac08e877ccaba2214
 Description: lib for parsing cmdline parameters
  Popt was heavily influenced by the getopt() and getopt_long() functions,
  but it allows more powerful argument expansion. It can parse arbitrary
