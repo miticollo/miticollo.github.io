@@ -2289,6 +2289,29 @@ Description: Miscellaneous utilities specific to Debian
 
 Package: debianutils
 Architecture: iphoneos-arm
+Version: 5.20
+Priority: required
+Essential: yes
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 352
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/debianutils/debianutils_5.20_iphoneos-arm.deb
+Size: 68152
+MD5sum: 506cc290192d6965a98d794aa8c0bd60
+SHA1: 377beca953f9ec18f3c2ed19afdc86b21ee52b81
+SHA256: 7dfcb67b2492e6f1d9dc2d888bd91f5e8282f877c3dd28c2c604d9e277a7e107
+SHA512: 171b29371384f3f1f768138f3c201ee6a460c6da9579a522d1bc3ccbae471086d55e456f4eca10ce883ab190fe9de26918350101779110f20506eb48ca475f5d
+Description: Miscellaneous utilities specific to Debian
+ This package provides a number of small utilities which are used
+ primarily by the installation scripts of Debian packages, although
+ you may use them directly.
+ .
+ The specific utilities included are:
+ add-shell remove-shell run-parts
+
+Package: debianutils
+Architecture: iphoneos-arm
 Version: 5.7-1
 Priority: required
 Essential: yes
@@ -9001,6 +9024,32 @@ Description: multiple precision floating-point computation developers tools
  ANSI/IEEE-754 standard for double-precision floating-point arithmetic
  (53-bit mantissa).
 
+Package: libmpfr-dev
+Architecture: iphoneos-arm
+Version: 4.2.1
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1764
+Depends: libmpfr6 (= 4.2.1), libgmp-dev
+Filename: ./debs/mpfr4/libmpfr-dev_4.2.1_iphoneos-arm.deb
+Size: 653134
+MD5sum: 86fa46aac4c1a45f1fb78077f3841ee6
+SHA1: 5ac4b87bbc9ce1c385dc708455f8416c2caa66f0
+SHA256: bf177733faa017434d5db969a4ee2bb4a276db1015748ded7ab42fba330d2672
+SHA512: 8f905c3c43dde07c2d0a1e38a0c4cbed229c9d1d6b08c54cfd7f7b6eb3b3edcdf4007b404fb0c986382093bbb4413b5691423a93686e7bcc39a4b03a2396e2d3
+Homepage: https://www.mpfr.org
+Description: multiple precision floating-point computation developers tools
+ This development package provides the header files and the symbolic
+ links to allow compilation and linking of programs that use the libraries
+ provided in the libmpfr4 package.
+ .
+ MPFR provides a library for multiple-precision floating-point computation
+ with correct rounding.  The computation is both efficient and has a
+ well-defined semantics. It copies the good ideas from the
+ ANSI/IEEE-754 standard for double-precision floating-point arithmetic
+ (53-bit mantissa).
+
 Package: libmpfr6
 Architecture: iphoneos-arm
 Version: 4.1.0
@@ -9015,6 +9064,28 @@ MD5sum: 65955eb5dae427e57bd319d5e5c54e6d
 SHA1: 534881451698198918d11c54f49465062a572b69
 SHA256: 517215a1d1759203daebc068743ce4a8eee9e238c3d4ff6d8a8d080d964b3358
 SHA512: 039ca9642d0f204424fb7dcc8dd4bb96ee4784148c65667d7077e8d3876f5f6b37c355c752e7722abce992fcb6ad0021c6aa7475e193da00007aae4cb8bd8838
+Homepage: https://www.mpfr.org
+Description: multiple precision floating-point computation
+ MPFR provides a library for multiple-precision floating-point computation
+ with correct rounding.  The computation is both efficient and has a
+ well-defined semantics. It copies the good ideas from the
+ ANSI/IEEE-754 standard for double-precision floating-point arithmetic
+ (53-bit mantissa).
+
+Package: libmpfr6
+Architecture: iphoneos-arm
+Version: 4.2.1
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 528
+Depends: libiosexec1 (>= 1.3.1), libgmp10
+Filename: ./debs/mpfr4/libmpfr6_4.2.1_iphoneos-arm.deb
+Size: 253920
+MD5sum: d09aaee6fdb34c7f16ae3cede9f6dbf8
+SHA1: 93b1580d8a70ea04fbf90a58e440a0c3dfd2010f
+SHA256: e59a9a9c36757fa612913a67dd3d57f41ab8517b0897ac6e311f4678fffeea50
+SHA512: 491657f7b848e3793ec4e2803251cbaf74d07b7c04878582e83000d285624c3737f294b57108de9ec2da6fdc92e1337e487f056a9328dc97f3a713ee282dc5c4
 Homepage: https://www.mpfr.org
 Description: multiple precision floating-point computation
  MPFR provides a library for multiple-precision floating-point computation
@@ -9076,6 +9147,24 @@ SHA256: 05cc3c03fce50c259aa4f28e11c07aef9030ec57fa63eba6e9fdae86cd06d414
 SHA512: e1161c60b0f0b18b2181f113d03b0c2adc9d6545a60b48b37b42edecbd1577e3b0dc9f56e98b32eaa0a15a8a3b59983829d331a904097f6dc84d08385ae3e05f
 Description: developer's libraries for ncurses
 
+Package: libncurses-dev
+Architecture: iphoneos-arm
+Version: 6.5
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2752
+Depends: libncursesw6 (= 6.5)
+Conflicts: ncurses (<< 6.5)
+Replaces: ncurses (<< 6.5)
+Filename: ./debs/ncurses/libncurses-dev_6.5_iphoneos-arm.deb
+Size: 1102652
+MD5sum: b0a9405568f292ba26ccc21f18798d7b
+SHA1: c1d8827038996c55fbbe55f255adee7c63ff1683
+SHA256: ebfa11dd18ab356e756a01ecd77f4948079801064019ff85db12ced6b9c6f4c2
+SHA512: a0208b53b2630cc64bd846cd044e0226f36b7254c6abfeaf628b9c8a4ccb8892b1c4dac36e548e0e85aaa3da14a8858dd692c09176835a6e7ee1ce958db54972
+Description: developer's libraries for ncurses
+
 Package: libncursesw6
 Architecture: iphoneos-arm
 Version: 6.4
@@ -9093,6 +9182,25 @@ MD5sum: 76bf1b81b4c7e6adac5ed35b70054577
 SHA1: b4203d033f53f15837b0a302888b120b0c88cde9
 SHA256: da79a3cc53d993dc0b2c8f145767ec88458ecf65e28c08160be25cdefbd8f6e6
 SHA512: 3e763ac6732e7d5a44393dc56539ce8168fdca033bc0aececa8ef57eba2cd65afb1dc5f32ca26fea4b87d434a8055ee3bb8eec69d664fb0bde5ae94c154956e0
+Description: shared libraries for terminal handling (wide character support)
+
+Package: libncursesw6
+Architecture: iphoneos-arm
+Version: 6.5
+Priority: required
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 784
+Provides: ncurses (= 6.5)
+Depends: libiosexec1 (>= 1.3.1), ncurses-term (= 6.5)
+Conflicts: ncurses (<< 6.5)
+Replaces: ncurses (<< 6.5)
+Filename: ./debs/ncurses/libncursesw6_6.5_iphoneos-arm.deb
+Size: 398104
+MD5sum: 025b52c21f20f758ce125d2642167da9
+SHA1: 8e3895914c6c67a3ccf5a72157ca225634dea8ad
+SHA256: 4fc39d4c609a7f6df9efe0dfc08ed78c18aa5c4c992462161635711a51d0fc59
+SHA512: 4a261ad46b168c6554000486a75a8c407be32b5ee87f67c0f76c22ceacf8e6463ba718f04a2ad02b2df4f294783fe7e387be2057f359a5ce9c260ebbb22df36e
 Description: shared libraries for terminal handling (wide character support)
 
 Package: ncurses-bin
@@ -9113,6 +9221,24 @@ SHA256: 398d41b19c59c54d4ac7e56e7590b58e5886ede557d948d601e93cf3d1a21fd6
 SHA512: c604b4e673cb881dc82aca2b1a6f246f87b86505119737f58f9b685d6e82e35bc4f844cf8fa65efa43238c83498b29730583e704f3036d634c95e450ab0d6b09
 Description: terminal-related programs and man pages
 
+Package: ncurses-bin
+Architecture: iphoneos-arm
+Version: 6.5
+Priority: important
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 972
+Depends: libiosexec1 (>= 1.3.1), libncursesw6 (= 6.5)
+Conflicts: ncurses (<< 6.5)
+Replaces: ncurses (<< 6.5)
+Filename: ./debs/ncurses/ncurses-bin_6.5_iphoneos-arm.deb
+Size: 375838
+MD5sum: e202d575514890ef9d01dcf39c254a03
+SHA1: 929f9580d1b267af6935e6777ad2878efab9931c
+SHA256: dd3343fcf39bb8ad9704498eb8e6b79de1fedd51f36bf18a4b19e8690fba9225
+SHA512: 96766b4b9332954a1b098613c9c23104a7b2b7cbeec23365412abab81e0ab9eebd4e0ce4fdc593b4216e9c8a64ca3d50b80a4737a9db50762738f0f7b07f9459
+Description: terminal-related programs and man pages
+
 Package: ncurses-doc
 Architecture: all
 Version: 6.4
@@ -9131,6 +9257,24 @@ SHA256: 2c86f1a1c7d6d70553cadcc28c8fdb471f21de9aa436f6febccbf6d70f8c08d9
 SHA512: 63e80359e451d3b7419a91dfd8f3540a90cfb63d701c0b23de73701c3d565e0752aa41e3f3991c69cbd229ebb34f11653ab03c94e1064991f05694117fb44145
 Description: developer's guide and documentation for ncurses
 
+Package: ncurses-doc
+Architecture: all
+Version: 6.5
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 768
+Depends: libncursesw6 (= 6.5)
+Conflicts: ncurses (<< 6.5)
+Replaces: ncurses (<< 6.5)
+Filename: ./debs/ncurses/ncurses-doc_6.5_all.deb
+Size: 545998
+MD5sum: 625fcca29fb7da0e5f143099c761e8fd
+SHA1: bb00a0c0328835c2091fa83bcaaeae45eb109829
+SHA256: eaed3875f79b3490aa8e09fdf2b88a7d26f80f8d3abcb3ea7aca6c2d7c3de96e
+SHA512: e7995854f7db6ed634ff33eedfe4f6556cedfc287a99b5dd0d3119d517726ffc9f7349dae9aca16d9e56093a22dc0370e241d53a06d43e874b689815641af324
+Description: developer's guide and documentation for ncurses
+
 Package: ncurses-term
 Architecture: all
 Version: 6.4
@@ -9147,6 +9291,24 @@ MD5sum: de91f6f558ef4df356633fa5750629c0
 SHA1: ac6c57c149c7ddfe45b2037785fa59b271e2ea8a
 SHA256: 0dde021b9f402b05db2463817a7b6d7f5f6025072cd6b46d9543a8d6631bba5c
 SHA512: 7fbae024ce85acb20eda6eebdac0e4e56ccf940b86eb6b05dbb66cd6ea0a08c00736c57e17b3e8f60f16aceec23b755fcf7363dccfe38fe65a0250ed0792e3dc
+Description: This package contains terminfo data files to support most types of terminals.
+
+Package: ncurses-term
+Architecture: all
+Version: 6.5
+Priority: required
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1576
+Depends: libncursesw6 (= 6.5)
+Conflicts: ncurses (<< 6.5)
+Replaces: ncurses (<< 6.5)
+Filename: ./debs/ncurses/ncurses-term_6.5_all.deb
+Size: 275240
+MD5sum: 681ae370ab2c63fde9f386b83708a660
+SHA1: 1c244c39e6f226d52bae03d9b86a5f73ccb7f73f
+SHA256: 27858f682bed3bbb63ba8cf2d4785f1a827f405d58985784897094dbc3938601
+SHA512: 7bcfcf5e2c86b2695a6faff5752b3ade3bfe48c740a776e3cabee0ea91d058a2e291f907a6967b73f033b0d2fb257a354caeffef858d9e17c2f88ec111b1478d
 Description: This package contains terminfo data files to support most types of terminals.
 
 Package: nebula-keyring
@@ -10148,6 +10310,28 @@ Description: Secure Sockets Layer toolkit - development files
  It contains development libraries, header files, and manpages for libssl
  and libcrypto.
 
+Package: libssl-dev
+Architecture: iphoneos-arm
+Version: 3.2.2
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 15944
+Depends: libssl3 (= 3.2.2)
+Filename: ./debs/openssl/libssl-dev_3.2.2_iphoneos-arm.deb
+Size: 6554392
+MD5sum: 11ec38764829b576b48aea168ba9c013
+SHA1: d8e75e057014648076a4bcb8b42334559aa78f73
+SHA256: 0d9f2388788c4f824469eec79e69ad79a95dc802e190d2ed3e3815f029a48581
+SHA512: 6a86fed09ca4a12089845925a38dcf6b549eec5e12d7da2068c75fed3328029871d0d4eddaebf6440259ac74006955e5f766497fab4c35127a1d0a0743462309
+Description: Secure Sockets Layer toolkit - development files
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains development libraries, header files, and manpages for libssl
+ and libcrypto.
+
 Package: libssl-doc
 Architecture: all
 Version: 3.0.10
@@ -10198,6 +10382,25 @@ MD5sum: 83f33c8c052e14aa84c7e804b20eedaf
 SHA1: 96383a431e0ffbbbd08256d65cabd4c71754ce3a
 SHA256: 8c43dc6e01477426bee4148c46ce15c8bb976bfee06a9ed46628a1fe252b4a19
 SHA512: d28718f7cac79decc1badada837f2a7a2c8414d38f3ca92a81e6ef74cd05f1a0289121785845a7008a819be37ee04622542e770ba0ea64a24885b12ae7fc48cf
+Description: Secure Sockets Layer toolkit - development documentation
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains manpages and demo files for libssl and libcrypto.
+
+Package: libssl-doc
+Architecture: all
+Version: 3.2.2
+Section: Documentation
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4304
+Filename: ./debs/openssl/libssl-doc_3.2.2_all.deb
+Size: 3165822
+MD5sum: 24b528f6174b7fbbbd4c7d5609466192
+SHA1: c769705967ccc436d992c1f21326d08c3181b1bb
+SHA256: 0cf59e5fcb4591106d6c8dc8deb8e1a59411afb3c36dc55a52bc345dcafb0e37
+SHA512: 2c0d24e08df452703a7d9d441e8704b4bdfbe1f7a0f7180318b6a4f4f267393833b9f0f6f73c4ff9a942b1fa7ddd0c1eb0bf41f25b24682835f65e7e65891bd8
 Description: Secure Sockets Layer toolkit - development documentation
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -10261,6 +10464,27 @@ MD5sum: f7cf45794c73dd92664a65439cdc1f86
 SHA1: 8b0e9f4c1a9dda77dddf45fb58d55dadbffebe24
 SHA256: 7cfd37f47f7b1873100c486ed4578fe1b48e22aa7da5cbe6158d66a3a1058ea5
 SHA512: ab439be6bb038ddd846865a9de0628bf3b420dd4b63cb3d876c2b4536296f4ec5bcf125b6e0d345a07112b365a5814775631887cd644340157cdbdf729f3317a
+Description: Secure Sockets Layer toolkit - shared libraries
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It provides the libssl and libcrypto shared libraries.
+
+Package: libssl3
+Architecture: iphoneos-arm
+Version: 3.2.2
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 5060
+Depends: libiosexec1 (>= 1.3.1), ca-certificates
+Filename: ./debs/openssl/libssl3_3.2.2_iphoneos-arm.deb
+Size: 2502960
+MD5sum: fe95c23e6c888d23c9140edcb2b8328b
+SHA1: 8cc7df76ff8d975e215f8d1a9e0817e6ed6db212
+SHA256: d4c7b5df625a957ea625c674d84d5f0cf6eb02a0d305694a0eebdfe32a84bfed
+SHA512: 14eb4ac09e9655b9e00eb8fcb22f66ea934e3fbf8b91108e3a2b33e1c788c3760af3d55fd66bdf411b4c683695a779c2ce6c1ef45b2184d855daa7f68e204183
 Description: Secure Sockets Layer toolkit - shared libraries
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -10338,6 +10562,34 @@ MD5sum: 124f914e1028bac4c770c703b5973db4
 SHA1: 68bbb6fb38edb5a54cb74d4849404dda7d916f29
 SHA256: 12e390f05731bc908141b51176a9f42f2209b94723858b8f409c80dca602ec7e
 SHA512: 26958b2941ced55f0c04caaa837647095e198e5ed8f603a97bc4e14141ce9278bb8bad35b6bf36450a11b1d66717e44ff4153b422033902bb346a90d16f8a7ce
+Description: Secure Sockets Layer toolkit - cryptographic utility
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains the general-purpose command line binary /usr/bin/openssl,
+ useful for cryptographic operations such as:
+  * creating RSA, DH, and DSA key parameters;
+  * creating X.509 certificates, CSRs, and CRLs;
+  * calculating message digests;
+  * encrypting and decrypting with ciphers;
+  * testing SSL/TLS clients and servers;
+  * handling S/MIME signed or encrypted mail.
+
+Package: openssl
+Architecture: iphoneos-arm
+Version: 3.2.2
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 888
+Depends: libiosexec1 (>= 1.3.1), libssl3 (= 3.2.2)
+Filename: ./debs/openssl/openssl_3.2.2_iphoneos-arm.deb
+Size: 352996
+MD5sum: 60a3296c612488a820802f9224d3010f
+SHA1: 3c0f3fd2516e320f304dae50b200354b2afd9b57
+SHA256: 932bdca86639892d4ace4ad8581c164370e4f5f0a5645725ad30fa8007b5608e
+SHA512: 2af6a07389b4df4492c9a217a9bf087329c878e49278ade78b948e363732ca87cadb3c60c79e7eb2d84128ba2ef216bf810b4b96de5595bb2bfe84f0a545359d
 Description: Secure Sockets Layer toolkit - cryptographic utility
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -10691,6 +10943,36 @@ MD5sum: 117872bac9224c9682401e9d426e429d
 SHA1: dc961c82f6e47774a99edce076feb7f4cb3facba
 SHA256: 7c18eae698af5cd9420ad475b3d7595eb60cedc833372090ce6a2343a064bf47
 SHA512: 85dae97b7d89686e6a240e7012ba9e4e2d4b1f48c908c8502c3178f06016f3841e398ffd5d6a0cd8ca0618d1affde0a3cf6af6be9d6844a636091693857db825
+Description: 7z and 7za file archivers with high compression ratio
+ .
+ p7zip is the Unix command-line port of 7-Zip, a file archiver that handles the 7z format which features very high compression ratios.
+ .
+ p7zip provides utilities to pack and unpack 7z archives within a shell or using a GUI (such as Ark, File  Roller or Nautilus).
+ .
+ Installing p7zip-full allows File Roller to use the very efficient 7z compression format for packing and unpacking files and directories. Additionally, it provides the 7z and 7za commands.
+ .
+ List of supported formats:
+ . 
+  - Packing / unpacking: 7z, ZIP, GZIP, BZIP2, XZ and TAR
+  - Unpacking only: APM, ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT,
+    HFS, ISO, LZH, LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, NTFS, RPM, SquashFS, UDF,
+    VHD, WIM, XAR and Z.
+
+Package: p7zip
+Architecture: iphoneos-arm
+Version: 17.05
+Multi-Arch: foreign
+Priority: optional
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 9056
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/p7zip/p7zip_17.05_iphoneos-arm.deb
+Size: 4010050
+MD5sum: d72f4f8b4197998a6aa6c1e17673ed4e
+SHA1: 90618aaed62733c690c3cfe706c45588da7c93ad
+SHA256: 80f4210c52ac5eca838d0e49871442240ae29a7035e225d92eb56a2033208338
+SHA512: 542ba9b650222ab748da62d38b6ea071dde93e28ebb074d2708269887f37af7ebf86a02aeed62c9b184f99d9b5d967403ae5d20238b397f23f74788e82c1158e
 Description: 7z and 7za file archivers with high compression ratio
  .
  p7zip is the Unix command-line port of 7-Zip, a file archiver that handles the 7z format which features very high compression ratios.
@@ -13257,6 +13539,33 @@ Description: XZ-format compression library - development files
  format, use the p7zip package instead.) This package provides the
  development library needed to build programs using liblzma.
 
+Package: liblzma-dev
+Architecture: iphoneos-arm
+Version: 5.4.7
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 928
+Depends: liblzma5 (>= 5.4.7)
+Conflicts: xz (<<1:0), lzma (<<3:0)
+Replaces: xz, lzma
+Filename: ./debs/xz/liblzma-dev_5.4.7_iphoneos-arm.deb
+Size: 361252
+MD5sum: 29f8e4d9321b86a37d55c0d490692c51
+SHA1: 225355ad92236978faa690f2cabe0286373ba5a8
+SHA256: 3df4ddb6ea0b690d2cdba2af9a097879344120828df8a2c801cecb30f13e5950
+SHA512: 48d045fb641974450a157964c0e533d0238f85064e7a79dd25ad3277cb1b075eb5247d880f0f4dd0f43acd365519e40c9b7671417263aca4420cefe9bcac7eb6
+Homepage: https://tukaani.org/xz/
+Description: XZ-format compression library - development files
+ XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
+ compression format, which provides memory-hungry but powerful
+ compression (often better than bzip2) and fast, easy decompression.
+ .
+ The native format of liblzma is XZ; it also supports raw (headerless)
+ streams and the older LZMA format used by lzma. (For 7-Zip's related
+ format, use the p7zip package instead.) This package provides the
+ development library needed to build programs using liblzma.
+
 Package: liblzma5
 Architecture: iphoneos-arm
 Version: 5.4.1
@@ -13299,6 +13608,32 @@ MD5sum: 8eed7e71f949eb24cdf7e218211514b2
 SHA1: de7b75f7f3d0324618a3d0003c19afb51be7a3a0
 SHA256: 811e904e4dda2b7a62a3c3472a8b4ea278ad73193130ba9418215d90be565068
 SHA512: 047c8052ff40505d3e84453243fe73a5b1aa4ae1c805f015969ddfa8f1515423cb8a8cf3a56efe1f70c446c550160ee99359d661c0ad5a8a36b24a4106b0320a
+Homepage: https://tukaani.org/xz/
+Description: XZ-format compression library
+ XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
+ compression format, which provides memory-hungry but powerful
+ compression (often better than bzip2) and fast, easy decompression.
+ .
+ The native format of liblzma is XZ; it also supports raw (headerless)
+ streams and the older LZMA format used by lzma. (For 7-Zip's related
+ format, use the p7zip package instead.)
+
+Package: liblzma5
+Architecture: iphoneos-arm
+Version: 5.4.7
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 236
+Depends: libiosexec1 (>= 1.3.1)
+Conflicts: xz (<<1:0), lzma (<<3:0)
+Replaces: xz, lzma
+Filename: ./debs/xz/liblzma5_5.4.7_iphoneos-arm.deb
+Size: 119638
+MD5sum: 91684ca5d35569f0d6636f0b2a2cb6dd
+SHA1: b661f002705233fcf538eb60acc999543a7a733c
+SHA256: 6e85dfe46efaccaa22de4cf56dae50b3ae1d44580af6cab95e08e1be75eb8e0f
+SHA512: 7d06c92a9d82a2c2f882ead755cd5be065ef40c0b3b87fe404da03dc009c22df11fa09cf0022b22a6bd17b920551ba19cd36036044642f0e8b3750acc56245e7
 Homepage: https://tukaani.org/xz/
 Description: XZ-format compression library
  XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
@@ -13385,6 +13720,44 @@ Description: XZ-format compression utilities
   * improved support for multithreading (not used in xz-utils);
   * support for flushing the encoder.
 
+Package: xz-utils
+Architecture: iphoneos-arm
+Version: 5.4.7
+Priority: standard
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 972
+Provides: xz (=1:0), lzma (=3:0)
+Depends: libiosexec1 (>= 1.3.1), liblzma5 (>= 5.4.7), libintl8
+Conflicts: xz (<<1:0), lzma (<<3:0)
+Replaces: xz, lzma
+Filename: ./debs/xz/xz-utils_5.4.7_iphoneos-arm.deb
+Size: 225406
+MD5sum: b78fb17300823c83bcb5dc949442f1fc
+SHA1: b1169d669001d82dce8ff06ffe3766f54aa6554c
+SHA256: b3779c9b96e7f687b5dea9c8c3b9df30beca61110178952be7b1e57d59a145ed
+SHA512: cbdda6d662506590651573205bcd3c17d34c800f12c780ae72d96e3fbed7f40f011018570a85c7cf7d56dbe15970123436199e48efb4624eae640c34f7514dbc
+Homepage: https://tukaani.org/xz/
+Description: XZ-format compression utilities
+ XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
+ compression format, which provides memory-hungry but powerful
+ compression (often better than bzip2) and fast, easy decompression.
+ .
+ This package provides the command line tools for working with XZ
+ compression, including xz, unxz, xzcat, xzgrep, and so on. They can
+ also handle the older LZMA format, and if invoked via appropriate
+ symlinks will emulate the behavior of the commands in the lzma
+ package.
+ .
+ The XZ format is similar to the older LZMA format but includes some
+ improvements for general use:
+ .
+  * 'file' magic for detecting XZ files;
+  * crc64 data integrity check;
+  * limited random-access reading support;
+  * improved support for multithreading (not used in xz-utils);
+  * support for flushing the encoder.
+
 Package: xzdec
 Architecture: iphoneos-arm
 Version: 5.4.1
@@ -13438,6 +13811,43 @@ MD5sum: fff1ba983bf4db47fbff982d096dfaef
 SHA1: b2f4a531c12b67975d85b33970b78672da503f86
 SHA256: 156360de96a695377faaecc5e6fa69539cfecd4bde357a3be634819343b86d31
 SHA512: 3171ce991b79a99fd108c858dd975126409f5d82ede95ce4a5ebba31d3ad048ae8a3a945fa702ad0601e1e2a87ef3904e3b62667bcbb9f033c823ab8dde855bc
+Homepage: https://tukaani.org/xz/
+Description: XZ-format compression utilities - tiny decompressors
+ XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
+ compression format, which provides memory-hungry but powerful
+ compression (often better than bzip2) and fast, easy decompression.
+ .
+ This package provides the xzdec and lzmadec utilities, which write
+ the decompressed version of a compressed file to standard output. The
+ binaries are very small, so they can be easily stored on small media
+ with some compressed files, and they are linked statically against
+ liblzma so they can be used on machines without a compatible version
+ of liblzma installed. However, they have:
+ .
+   * no compression support;
+   * no support for writing to a file other than standard output;
+   * no translated messages;
+   * been optimized for size rather than speed.
+ .
+ For a full-featured xzcat command without these limitations, use
+ the xz-utils package instead.
+
+Package: xzdec
+Architecture: iphoneos-arm
+Version: 5.4.7
+Priority: optional
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 288
+Depends: libiosexec1 (>= 1.3.1)
+Conflicts: xz (<<1:0), lzma (<<3:0)
+Replaces: xz, lzma
+Filename: ./debs/xz/xzdec_5.4.7_iphoneos-arm.deb
+Size: 67620
+MD5sum: f8b3883e57adb5ef7101caa4b1f5b68c
+SHA1: dfa1fed696e2a84d07b8a9e6f7058d69f6306f2a
+SHA256: d6ffcbfd0d973d2c514704719c776856e5843ee567de22f5dd920dfc4c48ac58
+SHA512: e5eccdcf4037e06ccf9b6390a1f22b6b1576b2d38289ccc1fe76e89a60ae3bff3827e1a4af4e08f7c0b5e0b5bc316a5228cbba3a8126087ef7d5c36959deebc5
 Homepage: https://tukaani.org/xz/
 Description: XZ-format compression utilities - tiny decompressors
  XZ is the successor to the Lempel-Ziv/Markov-chain Algorithm
@@ -13680,6 +14090,25 @@ Description: fast lossless compression algorithm -- development files
  .
  This package contains the headers and static library.
 
+Package: libzstd-dev
+Architecture: iphoneos-arm
+Version: 1.5.6
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1428
+Depends: libzstd1 (= 1.5.6), liblzma-dev, liblz4-dev
+Filename: ./debs/zstd/libzstd-dev_1.5.6_iphoneos-arm.deb
+Size: 758904
+MD5sum: b249faef2c120c35d88456d606f3ed26
+SHA1: 3866e8b992b23d8487d8848350134d9904596a0a
+SHA256: cf10089ceb1147b92c73ccffb1353e808365840174bddd918745c8af92966300
+SHA512: e35b2538e2b18174399765714b92c2851e5e4e8d4e05fb17fa0eae171caab2f0ca1b0443bc7f0e8a31d36fc50207c92cb10c82c096680c49a2a0e6afa1e73321
+Description: fast lossless compression algorithm -- development files
+ Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
+ real-time compression scenarios at zlib-level compression ratio.
+ .
+ This package contains the headers and static library.
+
 Package: libzstd1
 Architecture: iphoneos-arm
 Version: 1.5.4
@@ -13712,6 +14141,25 @@ MD5sum: 5304c8e1560c31e24ff3983394e76aef
 SHA1: 64f8875ae136f8fa656326b924506c4177a42cdb
 SHA256: 5996796db4fb470e2713f8a5f92355a9daf0a0dd1a68a730d6ec3573fa57d86d
 SHA512: 98f1e8a55775d6d3688394b439a76412c7620e837ab30c731adc582056fd9f280ff2e263913b88bc4f432561a4941fdcc9ccde7129f5985401891c2b247596e8
+Description: fast lossless compression algorithm
+ Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
+ real-time compression scenarios at zlib-level compression ratio.
+ .
+ This package contains the shared library.
+
+Package: libzstd1
+Architecture: iphoneos-arm
+Version: 1.5.6
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 556
+Depends: libiosexec1 (>= 1.3.1), liblz4-1, liblzma5 (>= 5.2.5)
+Filename: ./debs/zstd/libzstd1_1.5.6_iphoneos-arm.deb
+Size: 231144
+MD5sum: 98361844849fdf2a46ebecfe53d7db3f
+SHA1: 87c92f287c97176df99632472427324554661e36
+SHA256: 9cff6f5296b0b8ee3832e9722f4b967d232c23c7e1be9e78a14d8007c19cdc7c
+SHA512: eb29c37313c978875cc09783417396aaadf3f130eaa4487f5f1a0efb731a4ade091ce2c58c0760806f060f1131cb0f841dcd6cadc4bb7418805b74b24f130376
 Description: fast lossless compression algorithm
  Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
  real-time compression scenarios at zlib-level compression ratio.
@@ -13752,6 +14200,26 @@ MD5sum: c3d96648175071d8e438d75085af640e
 SHA1: d91d212a1761feae78d338c9c296593f4da8a030
 SHA256: 1b8e16274c7ca3b1bb9926b4bbf0cdc548968b366fee071a5db7cca2bbc093c1
 SHA512: 5dd82a73da2d02775365f58866b3dabd069245a85973b558efdb27cf402724deb59defcd14d5bd3f633cb06be02e1e881711cb878b1ac41c256b8c943fe6d046
+Description: fast lossless compression algorithm -- CLI tool
+ Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
+ real-time compression scenarios at zlib-level compression ratio.
+ .
+ This package contains the CLI program implementing zstd.
+
+Package: zstd
+Architecture: iphoneos-arm
+Version: 1.5.6
+Priority: standard
+Section: Archiving
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 748
+Depends: libiosexec1 (>= 1.3.1), libzstd1 (= 1.5.6), liblz4-1, liblzma5 (>= 5.2.5)
+Filename: ./debs/zstd/zstd_1.5.6_iphoneos-arm.deb
+Size: 304176
+MD5sum: 6aeb217a5909cb8c1c7e8bce56c6cb36
+SHA1: 17ac0cb3e700a79fa1f8ac63391987f0273cbaf7
+SHA256: c3e3f79929f6a1b25945554f944fa48153fe8403cee730571ee4dce909958678
+SHA512: 9c6655f0f7ba4f5b604c67af86cf345af282e3a11a812bea575a2c3e18f80fc73893698102eb0d76572cadf625b3d0bf8d1c6b9f79b7e527926691b9e278d314
 Description: fast lossless compression algorithm -- CLI tool
  Zstd, short for Zstandard, is a fast lossless compression algorithm, targeting
  real-time compression scenarios at zlib-level compression ratio.

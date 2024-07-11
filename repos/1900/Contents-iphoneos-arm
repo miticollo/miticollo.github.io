@@ -1838,6 +1838,7 @@ usr/lib/libz-ng.a					    libz-ng-dev
 usr/lib/libz-ng.dylib					    libz-ng-dev
 usr/lib/libzstd.1.5.4.dylib				    libzstd1
 usr/lib/libzstd.1.5.5.dylib				    libzstd1
+usr/lib/libzstd.1.5.6.dylib				    libzstd1
 usr/lib/libzstd.1.dylib					    libzstd1
 usr/lib/libzstd.a					    libzstd-dev
 usr/lib/libzstd.dylib					    libzstd-dev
@@ -15962,8 +15963,16 @@ usr/share/man/man3/CMS_unsigned_get_attr_count.3ssl.zst	    libssl-doc
 usr/share/man/man3/CMS_verify.3ssl.zst			    libssl-doc
 usr/share/man/man3/CMS_verify_receipt.3ssl.zst		    libssl-doc
 usr/share/man/man3/COLORS.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_BLACK.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_BLUE.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_CYAN.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_GREEN.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_MAGENTA.3x.zst			    ncurses-doc
 usr/share/man/man3/COLOR_PAIR.3x.zst			    ncurses-doc
 usr/share/man/man3/COLOR_PAIRS.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_RED.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_WHITE.3x.zst			    ncurses-doc
+usr/share/man/man3/COLOR_YELLOW.3x.zst			    ncurses-doc
 usr/share/man/man3/COLS.3x.zst				    ncurses-doc
 usr/share/man/man3/COMP_CTX_free.3ssl.zst		    libssl-doc
 usr/share/man/man3/COMP_CTX_get_method.3ssl.zst		    libssl-doc
@@ -16995,6 +17004,7 @@ usr/share/man/man3/ENGINE_unregister_RSA.3ssl.zst	    libssl-doc
 usr/share/man/man3/ENGINE_unregister_ciphers.3ssl.zst	    libssl-doc
 usr/share/man/man3/ENGINE_unregister_digests.3ssl.zst	    libssl-doc
 usr/share/man/man3/ENGINE_up_ref.3ssl.zst		    libssl-doc
+usr/share/man/man3/ERR.3x.zst				    ncurses-doc
 usr/share/man/man3/ERR_FATAL_ERROR.3ssl.zst		    libssl-doc
 usr/share/man/man3/ERR_GET_LIB.3ssl.zst			    libssl-doc
 usr/share/man/man3/ERR_GET_REASON.3ssl.zst		    libssl-doc
@@ -18007,6 +18017,7 @@ usr/share/man/man3/EVP_whirlpool.3ssl.zst		    libssl-doc
 usr/share/man/man3/EXTENDED_KEY_USAGE_free.3ssl.zst	    libssl-doc
 usr/share/man/man3/EXTENDED_KEY_USAGE_new.3ssl.zst	    libssl-doc
 usr/share/man/man3/EXT_UTF8STRING.3ssl.zst		    libssl-doc
+usr/share/man/man3/FALSE.3x.zst				    ncurses-doc
 usr/share/man/man3/GENERAL_NAMES_free.3ssl.zst		    libssl-doc
 usr/share/man/man3/GENERAL_NAMES_new.3ssl.zst		    libssl-doc
 usr/share/man/man3/GENERAL_NAME_dup.3ssl.zst		    libssl-doc
@@ -18110,6 +18121,8 @@ usr/share/man/man3/NCONF_get_section_names.3ssl.zst	    libssl-doc
 usr/share/man/man3/NCONF_load.3ssl.zst			    libssl-doc
 usr/share/man/man3/NCONF_new.3ssl.zst			    libssl-doc
 usr/share/man/man3/NCONF_new_ex.3ssl.zst		    libssl-doc
+usr/share/man/man3/NCURSES_SCREEN_CB.3x.zst		    ncurses-doc
+usr/share/man/man3/NCURSES_WINDOW_CB.3x.zst		    ncurses-doc
 usr/share/man/man3/NETSCAPE_CERT_SEQUENCE_free.3ssl.zst	    libssl-doc
 usr/share/man/man3/NETSCAPE_CERT_SEQUENCE_new.3ssl.zst	    libssl-doc
 usr/share/man/man3/NETSCAPE_SPKAC_free.3ssl.zst		    libssl-doc
@@ -18214,6 +18227,7 @@ usr/share/man/man3/OCSP_sendreq_nbio.3ssl.zst		    libssl-doc
 usr/share/man/man3/OCSP_sendreq_new.3ssl.zst		    libssl-doc
 usr/share/man/man3/OCSP_set_max_response_length.3ssl.zst    libssl-doc
 usr/share/man/man3/OCSP_single_get0_status.3ssl.zst	    libssl-doc
+usr/share/man/man3/OK.3x.zst				    ncurses-doc
 usr/share/man/man3/OPENSSL_Applink.3ssl.zst		    libssl-doc
 usr/share/man/man3/OPENSSL_FILE.3ssl.zst		    libssl-doc
 usr/share/man/man3/OPENSSL_FUNC.3ssl.zst		    libssl-doc
@@ -19422,6 +19436,7 @@ usr/share/man/man3/RSA_size.3ssl.zst			    libssl-doc
 usr/share/man/man3/RSA_test_flags.3ssl.zst		    libssl-doc
 usr/share/man/man3/RSA_verify.3ssl.zst			    libssl-doc
 usr/share/man/man3/RSA_verify_ASN1_OCTET_STRING.3ssl.zst    libssl-doc
+usr/share/man/man3/SCREEN.3x.zst			    ncurses-doc
 usr/share/man/man3/SCRYPT_PARAMS_free.3ssl.zst		    libssl-doc
 usr/share/man/man3/SCRYPT_PARAMS_new.3ssl.zst		    libssl-doc
 usr/share/man/man3/SCT_LIST_free.3ssl.zst		    libssl-doc
@@ -20194,6 +20209,7 @@ usr/share/man/man3/SSL_set_security_callback.3ssl.zst	    libssl-doc
 usr/share/man/man3/SSL_set_security_level.3ssl.zst	    libssl-doc
 usr/share/man/man3/SSL_set_session.3ssl.zst		    libssl-doc
 usr/share/man/man3/SSL_set_session_id_context.3ssl.zst	    libssl-doc
+usr/share/man/man3/SSL_set_session_secret_cb.3ssl.zst	    libssl-doc
 usr/share/man/man3/SSL_set_shutdown.3ssl.zst		    libssl-doc
 usr/share/man/man3/SSL_set_split_send_fragment.3ssl.zst	    libssl-doc
 usr/share/man/man3/SSL_set_srp_server_param.3ssl.zst	    libssl-doc
@@ -20276,6 +20292,7 @@ usr/share/man/man3/TLSv1_2_server_method.3ssl.zst	    libssl-doc
 usr/share/man/man3/TLSv1_client_method.3ssl.zst		    libssl-doc
 usr/share/man/man3/TLSv1_method.3ssl.zst		    libssl-doc
 usr/share/man/man3/TLSv1_server_method.3ssl.zst		    libssl-doc
+usr/share/man/man3/TRUE.3x.zst				    ncurses-doc
 usr/share/man/man3/TS_ACCURACY_dup.3ssl.zst		    libssl-doc
 usr/share/man/man3/TS_ACCURACY_free.3ssl.zst		    libssl-doc
 usr/share/man/man3/TS_ACCURACY_new.3ssl.zst		    libssl-doc
@@ -20378,6 +20395,7 @@ usr/share/man/man3/UI_string_types.3ssl.zst		    libssl-doc
 usr/share/man/man3/UP.3x.zst				    ncurses-doc
 usr/share/man/man3/USERNOTICE_free.3ssl.zst		    libssl-doc
 usr/share/man/man3/USERNOTICE_new.3ssl.zst		    libssl-doc
+usr/share/man/man3/WINDOW.3x.zst			    ncurses-doc
 usr/share/man/man3/X509V3_EXT_d2i.3ssl.zst		    libssl-doc
 usr/share/man/man3/X509V3_EXT_i2d.3ssl.zst		    libssl-doc
 usr/share/man/man3/X509V3_add1_i2d.3ssl.zst		    libssl-doc
@@ -21135,6 +21153,7 @@ usr/share/man/man3/attr_get.3x.zst			    ncurses-doc
 usr/share/man/man3/attr_off.3x.zst			    ncurses-doc
 usr/share/man/man3/attr_on.3x.zst			    ncurses-doc
 usr/share/man/man3/attr_set.3x.zst			    ncurses-doc
+usr/share/man/man3/attr_t.3x.zst			    ncurses-doc
 usr/share/man/man3/attroff.3x.zst			    ncurses-doc
 usr/share/man/man3/attron.3x.zst			    ncurses-doc
 usr/share/man/man3/attrset.3x.zst			    ncurses-doc
@@ -21150,6 +21169,7 @@ usr/share/man/man3/bkgd.3x.zst				    ncurses-doc
 usr/share/man/man3/bkgdset.3x.zst			    ncurses-doc
 usr/share/man/man3/bkgrnd.3x.zst			    ncurses-doc
 usr/share/man/man3/bkgrndset.3x.zst			    ncurses-doc
+usr/share/man/man3/bool.3x.zst				    ncurses-doc
 usr/share/man/man3/boolcodes.3x.zst			    ncurses-doc
 usr/share/man/man3/boolfnames.3x.zst			    ncurses-doc
 usr/share/man/man3/boolnames.3x.zst			    ncurses-doc
@@ -21162,8 +21182,10 @@ usr/share/man/man3/can_change_color.3x.zst		    ncurses-doc
 usr/share/man/man3/can_change_color_sp.3x.zst		    ncurses-doc
 usr/share/man/man3/cbreak.3x.zst			    ncurses-doc
 usr/share/man/man3/cbreak_sp.3x.zst			    ncurses-doc
+usr/share/man/man3/cchar_t.3x.zst			    ncurses-doc
 usr/share/man/man3/ceiling_panel.3x.zst			    ncurses-doc
 usr/share/man/man3/chgat.3x.zst				    ncurses-doc
+usr/share/man/man3/chtype.3x.zst			    ncurses-doc
 usr/share/man/man3/clear.3x.zst				    ncurses-doc
 usr/share/man/man3/clearok.3x.zst			    ncurses-doc
 usr/share/man/man3/clrtobot.3x.zst			    ncurses-doc
@@ -22041,16 +22063,24 @@ usr/share/man/man3/instr.3x.zst				    ncurses-doc
 usr/share/man/man3/intrflush.3x.zst			    ncurses-doc
 usr/share/man/man3/intrflush_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/inwstr.3x.zst			    ncurses-doc
+usr/share/man/man3/is_cbreak.3x.zst			    ncurses-doc
+usr/share/man/man3/is_cbreak_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/is_cleared.3x.zst			    ncurses-doc
+usr/share/man/man3/is_echo.3x.zst			    ncurses-doc
+usr/share/man/man3/is_echo_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/is_idcok.3x.zst			    ncurses-doc
 usr/share/man/man3/is_idlok.3x.zst			    ncurses-doc
 usr/share/man/man3/is_immedok.3x.zst			    ncurses-doc
 usr/share/man/man3/is_keypad.3x.zst			    ncurses-doc
 usr/share/man/man3/is_leaveok.3x.zst			    ncurses-doc
 usr/share/man/man3/is_linetouched.3x.zst		    ncurses-doc
+usr/share/man/man3/is_nl.3x.zst				    ncurses-doc
+usr/share/man/man3/is_nl_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/is_nodelay.3x.zst			    ncurses-doc
 usr/share/man/man3/is_notimeout.3x.zst			    ncurses-doc
 usr/share/man/man3/is_pad.3x.zst			    ncurses-doc
+usr/share/man/man3/is_raw.3x.zst			    ncurses-doc
+usr/share/man/man3/is_raw_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/is_scrollok.3x.zst			    ncurses-doc
 usr/share/man/man3/is_subwin.3x.zst			    ncurses-doc
 usr/share/man/man3/is_syncok.3x.zst			    ncurses-doc
@@ -22857,6 +22887,7 @@ usr/share/man/man3/set_top_row.3x.zst			    ncurses-doc
 usr/share/man/man3/setcchar.3x.zst			    ncurses-doc
 usr/share/man/man3/setscrreg.3x.zst			    ncurses-doc
 usr/share/man/man3/setsyx.3x.zst			    ncurses-doc
+usr/share/man/man3/setterm.3x.zst			    ncurses-doc
 usr/share/man/man3/setupterm.3x.zst			    ncurses-doc
 usr/share/man/man3/sha1.3.zst				    libmd-dev
 usr/share/man/man3/sha2.3.zst				    libmd-dev
@@ -22956,6 +22987,9 @@ usr/share/man/man3/tigetstr_sp.3x.zst			    ncurses-doc
 usr/share/man/man3/time.3am.zst				    gawk
 usr/share/man/man3/timeout.3x.zst			    ncurses-doc
 usr/share/man/man3/tiparm.3x.zst			    ncurses-doc
+usr/share/man/man3/tiparm_s.3x.zst			    ncurses-doc
+usr/share/man/man3/tiscan_s.3x.zst			    ncurses-doc
+usr/share/man/man3/tls_session_secret_cb_fn.3ssl.zst	    libssl-doc
 usr/share/man/man3/tok_end.3.zst			    libedit-dev
 usr/share/man/man3/tok_init.3.zst			    libedit-dev
 usr/share/man/man3/tok_line.3.zst			    libedit-dev
@@ -23321,6 +23355,7 @@ usr/share/man/man7/OSSL_PROVIDER-base.7ssl.zst		    libssl-doc
 usr/share/man/man7/OSSL_PROVIDER-default.7ssl.zst	    libssl-doc
 usr/share/man/man7/OSSL_PROVIDER-legacy.7ssl.zst	    libssl-doc
 usr/share/man/man7/OSSL_PROVIDER-null.7ssl.zst		    libssl-doc
+usr/share/man/man7/OSSL_STORE-winstore.7ssl.zst		    libssl-doc
 usr/share/man/man7/RAND.7ssl.zst			    libssl-doc
 usr/share/man/man7/RSA-PSS.7ssl.zst			    libssl-doc
 usr/share/man/man7/RSA.7ssl.zst				    libssl-doc
@@ -23999,6 +24034,7 @@ usr/share/terminfo/76					    ncurses-term
 usr/share/terminfo/78					    ncurses-term
 usr/share/terminfo/a/Apple_Terminal			    ncurses-term
 usr/share/terminfo/a/ansi				    ncurses-term
+usr/share/terminfo/a/ansi+apparrows			    ncurses-term
 usr/share/terminfo/a/ansi+arrows			    ncurses-term
 usr/share/terminfo/a/ansi+cpr				    ncurses-term
 usr/share/terminfo/a/ansi+csr				    ncurses-term
@@ -24083,6 +24119,7 @@ usr/share/terminfo/k/konsole-xf3x			    ncurses-term
 usr/share/terminfo/k/konsole-xf4x			    ncurses-term
 usr/share/terminfo/l/linux				    ncurses-term
 usr/share/terminfo/l/linux+decid			    ncurses-term
+usr/share/terminfo/l/linux+kbs				    ncurses-term
 usr/share/terminfo/l/linux+sfkeys			    ncurses-term
 usr/share/terminfo/l/linux-16color			    ncurses-term
 usr/share/terminfo/l/linux-basic			    ncurses-term
@@ -24113,6 +24150,7 @@ usr/share/terminfo/p/pcansi-43-m			    ncurses-term
 usr/share/terminfo/p/pcansi-m				    ncurses-term
 usr/share/terminfo/p/pcansi-mono			    ncurses-term
 usr/share/terminfo/p/putty				    ncurses-term
+usr/share/terminfo/p/putty+cursor			    ncurses-term
 usr/share/terminfo/p/putty+fnkeys			    ncurses-term
 usr/share/terminfo/p/putty+fnkeys+esc			    ncurses-term
 usr/share/terminfo/p/putty+fnkeys+linux			    ncurses-term
@@ -24224,6 +24262,8 @@ usr/share/terminfo/v/vt100+4bsd				    ncurses-term
 usr/share/terminfo/v/vt100+enq				    ncurses-term
 usr/share/terminfo/v/vt100+fnkeys			    ncurses-term
 usr/share/terminfo/v/vt100+keypad			    ncurses-term
+usr/share/terminfo/v/vt100+noapp			    ncurses-term
+usr/share/terminfo/v/vt100+noapp+pc			    ncurses-term
 usr/share/terminfo/v/vt100+pfkeys			    ncurses-term
 usr/share/terminfo/v/vt100-am				    ncurses-term
 usr/share/terminfo/v/vt100-bm				    ncurses-term
@@ -24261,6 +24301,7 @@ usr/share/terminfo/v/vt220-nam				    ncurses-term
 usr/share/terminfo/v/vt220-old				    ncurses-term
 usr/share/terminfo/v/vt220-w				    ncurses-term
 usr/share/terminfo/v/vt52				    ncurses-term
+usr/share/terminfo/v/vt52+arrows			    ncurses-term
 usr/share/terminfo/v/vt52+keypad			    ncurses-term
 usr/share/terminfo/v/vt52-basic				    ncurses-term
 usr/share/terminfo/x/xterm				    ncurses-term
@@ -24274,6 +24315,8 @@ usr/share/terminfo/x/xterm+alt+title			    ncurses-term
 usr/share/terminfo/x/xterm+alt1049			    ncurses-term
 usr/share/terminfo/x/xterm+alt47			    ncurses-term
 usr/share/terminfo/x/xterm+app				    ncurses-term
+usr/share/terminfo/x/xterm+app+pc			    ncurses-term
+usr/share/terminfo/x/xterm+decedit			    ncurses-term
 usr/share/terminfo/x/xterm+direct			    ncurses-term
 usr/share/terminfo/x/xterm+direct16			    ncurses-term
 usr/share/terminfo/x/xterm+direct2			    ncurses-term
