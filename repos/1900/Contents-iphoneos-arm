@@ -22627,6 +22627,7 @@ usr/share/man/man3/pcre2_set_glob_escape.3.zst		    libpcre2-dev
 usr/share/man/man3/pcre2_set_glob_separator.3.zst	    libpcre2-dev
 usr/share/man/man3/pcre2_set_heap_limit.3.zst		    libpcre2-dev
 usr/share/man/man3/pcre2_set_match_limit.3.zst		    libpcre2-dev
+usr/share/man/man3/pcre2_set_max_pattern_compiled_length.3.zst libpcre2-dev
 usr/share/man/man3/pcre2_set_max_pattern_length.3.zst	    libpcre2-dev
 usr/share/man/man3/pcre2_set_max_varlookbehind.3.zst	    libpcre2-dev
 usr/share/man/man3/pcre2_set_newline.3.zst		    libpcre2-dev

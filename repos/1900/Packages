@@ -4045,6 +4045,30 @@ Description: fast, scalable, distributed revision control system
  revision tracking capabilities, not dependent on network access or a
  central server.
 
+Package: git
+Architecture: iphoneos-arm
+Version: 2.39.5
+Priority: optional
+Section: Data_Storage
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 22688
+Depends: libiosexec1 (>= 1.3.1), libcurl4, libssl3, libintl8, libpcre2-8-0, libidn2-0, firmware (>= 14.0) | libexpat1, pager
+Filename: ./debs/git/git_2.39.5_iphoneos-arm.deb
+Size: 7304504
+MD5sum: 13fecfab4ec089d2e6d5baf10cc511d6
+SHA1: 8f603d5208a08c0bd1d3179cbfb136137266fdf0
+SHA256: 8d0139a8cbe22df4a51c3ba78fff08aaa30824534c5a8209e2886ec754bc51f7
+SHA512: acbb38c3be1dd20c8b2dc60fd7414f97c83b2f96711b8575388bf23d4c521a2e2b71c167bbddbb694e24fda41d1a4add048a034a30c2d533d8110dbef6737bc3
+Description: fast, scalable, distributed revision control system
+ Git is popular version control system designed to handle very large
+ projects with speed and efficiency; it is used for many high profile
+ open source projects, most notably the Linux kernel.
+ .
+ Git falls in the category of distributed source code management tools.
+ Every Git working directory is a full-fledged repository with full
+ revision tracking capabilities, not dependent on network access or a
+ central server.
+
 Package: dirmngr
 Architecture: iphoneos-arm
 Version: 2.3.6
@@ -10988,6 +11012,30 @@ Description: New Perl Compatible Regular Expression Library - 16 bit runtime fil
  .
  This package contains the 16 bit runtime library.
 
+Package: libpcre2-16-0
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 524
+Depends: libiosexec1 (>= 1.3.1)
+Conflicts: pcre2 (<<1:0), libpcre2 (<< 10.44)
+Filename: ./debs/pcre2/libpcre2-16-0_10.44_iphoneos-arm.deb
+Size: 214240
+MD5sum: 6c85c3bbfbc5aa457fb290b2ac0c3e16
+SHA1: 45d2dca76f5832c8c3f34d42d869e0bbc821cbe1
+SHA256: 873424cafffc0ef5555adfb9428c0986e362b256f5950494d1aa6766059d1b0f
+SHA512: f2b5b524b508ae3b9242c80dd3e27bd8b13ec8ba78cdc63af1339385480724e9bb86822cf4d02b049d0106d49fe6f936c49f30c28ac742e5c24359dc41e1bf33
+Description: New Perl Compatible Regular Expression Library - 16 bit runtime files
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the 16 bit runtime library.
+
 Package: libpcre2-32-0
 Architecture: iphoneos-arm
 Version: 10.40-1
@@ -11052,6 +11100,30 @@ MD5sum: 115ac84d0153b4d7db67da0ace9a3229
 SHA1: 17396ba2080b9e6a05615d592b42eae4790bab94
 SHA256: c05121ee68ebe75ace1b418a16d77811f65430cd0c2313f7b32c00e1d4ec69b8
 SHA512: c40d5a2dafdc00d00b1e8a80a1b82506be686fa0458924e162f47d8b068dd8fb765f92097312db836a05cd183d7eb953d50ba6d4e06d4cf43f280c191084eb24
+Description: New Perl Compatible Regular Expression Library - 32 bit runtime files
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the 32 bit runtime library.
+
+Package: libpcre2-32-0
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 508
+Depends: libiosexec1 (>= 1.3.1)
+Conflicts: pcre2 (<<1:0), libpcre2 (<< 10.44)
+Filename: ./debs/pcre2/libpcre2-32-0_10.44_iphoneos-arm.deb
+Size: 203760
+MD5sum: 7977310783f41d26ba1df408ce6cd37a
+SHA1: 6115fbfb242778f9e7da5fce5d7f764e349e610d
+SHA256: ccd28b7582dd0be3827d1791d5140a0f76392bd6ac1b3ddc3f4010d6d786de67
+SHA512: 15dcd38b784b1eb9c4e44b8db67be3a62251b7591b7a52c974457f49e635135de8a4a54ae78e87656afdb0ff36c472b7f099591755a127a0a224a2bca20e8c2e
 Description: New Perl Compatible Regular Expression Library - 32 bit runtime files
  This is PCRE2, the new implementation of PCRE, a library of functions
  to support regular expressions whose syntax and semantics are as
@@ -11138,6 +11210,32 @@ Description: New Perl Compatible Regular Expression Library- 8 bit runtime files
  .
  This package contains the 8 bit runtime library.
 
+Package: libpcre2-8-0
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 556
+Provides: pcre2 (= 1:0), libpcre2 (= 10.44)
+Depends: libiosexec1 (>= 1.3.1)
+Conflicts: pcre2 (<< 1:0), libpcre2 (<< 1:0)
+Replaces: pcre2, libpcre2
+Filename: ./debs/pcre2/libpcre2-8-0_10.44_iphoneos-arm.deb
+Size: 228116
+MD5sum: 4b48aff8e3df18c665e6589068a05ca7
+SHA1: 4d75541e01a22c7fdbc52908230042faeddd48b8
+SHA256: 9b6cb25e9d9b9f92a66ef76cab8d11a61b77ae1572737a2a2ac484dab871f81f
+SHA512: 161a67247a34829c4d53e9791076d08ad8d7e0b8d6238f9fef2ba7f1881c9044e0217e5f065ca99621f0bdc8b48a543f566ca8b40697fda575ba6ff715701b53
+Description: New Perl Compatible Regular Expression Library- 8 bit runtime files
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the 8 bit runtime library.
+
 Package: libpcre2-dev
 Architecture: iphoneos-arm
 Version: 10.40-1
@@ -11202,6 +11300,30 @@ MD5sum: 34ad775d08ea75c4d06d307cfd01d359
 SHA1: df7d1e1b2c2367ed27f4803accba5baa0b70c343
 SHA256: 7e344ca242e28b877425d282bb5c5031ebb01a770b3433f9818ff6af0a7e9f6c
 SHA512: 5370bc6cd5c4a561fbc08f233884fad7235d8eef2b983357027c8ca287708b9f1df52a539af45b9d351510ba788d7a38f663c052c9fdddf8f1176ea7c7c9aba1
+Description: New Perl Compatible Regular Expression Library - development files
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the development files, including headers,
+ static libraries, and documentation.
+
+Package: libpcre2-dev
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 3260
+Conflicts: pcre2 (<<1:0), libpcre2 (<< 10.44)
+Filename: ./debs/pcre2/libpcre2-dev_10.44_iphoneos-arm.deb
+Size: 1881638
+MD5sum: f8e49d61c519c18ee89878f0029ef060
+SHA1: 37358c23825e295ef6b6b218e94d4c7497f2ef72
+SHA256: bc06d94b46f4de4394586ad064753cb782865815f2f742f43f475b9c7646bc24
+SHA512: 006ab68f93614876b71ab195c0e0f64d799f4117c7725d9a07e7165336bbb7da5a1b025dab76eb83d4d0ce32397c2afaec32cdccb10c7f0dcb27c212ea65f763
 Description: New Perl Compatible Regular Expression Library - development files
  This is PCRE2, the new implementation of PCRE, a library of functions
  to support regular expressions whose syntax and semantics are as
@@ -11283,6 +11405,30 @@ Description: New Perl Compatible Regular Expression Library - posix-compatible r
  .
  This package contains the runtime library for the posix-compatible API.
 
+Package: libpcre2-posix3
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 100
+Depends: libiosexec1 (>= 1.3.1), libpcre2-8-0 (>= 10.44)
+Conflicts: pcre2 (<< 1:0), libpcre2 (<< 10.44)
+Filename: ./debs/pcre2/libpcre2-posix3_10.44_iphoneos-arm.deb
+Size: 26140
+MD5sum: a1ac72ccfec6f9d203846e976311fa3a
+SHA1: e1c377d41c7a5a220e54920b939984dc7293a71d
+SHA256: df833bba115d8f4bdb160efafa6327b24a8855da4d0e1ab79f212323c3db00cf
+SHA512: c8955f022caa521dd01071994a3cbefd3c01dc985446d79b5366295528db0d18a15e296d11f33bb3c62e4fd2742674098477ac9e4bb2997786575baa4351c367
+Description: New Perl Compatible Regular Expression Library - posix-compatible runtime files
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the runtime library for the posix-compatible API.
+
 Package: pcre2-utils
 Architecture: iphoneos-arm
 Version: 10.40-1
@@ -11356,6 +11502,34 @@ MD5sum: b22500348d09e232d9f3d650775477be
 SHA1: 0f384c0085f2d24a9ce2a6655c91c1eaf32cf4c6
 SHA256: ed32dc8d9ac2a8952328e7db8977924fd85ccb099aeb8658c9699464ef5265b4
 SHA512: 460cc645dca21426fbdb3bba330e91ad9cef4fb8d947b09d92a92094d4bc6b6d7a47670988b9e395a4c35df26f1bfbe45355a0cd6fdf55c3960fe0465621d2ce
+Description: New Perl Compatible Regular Expression Library - utilities
+ This is PCRE2, the new implementation of PCRE, a library of functions
+ to support regular expressions whose syntax and semantics are as
+ close as possible to those of the Perl 5 language. New projects
+ should use this library in preference to the older library.
+ .
+ This package contains the utilities pcre2grep (like grep with PCRE)
+ and pcre2test (a test program for the library, but also useful for
+ experimenting with regular expressions). Both programs are also
+ useful examples of programming with libpcre2.
+
+Package: pcre2-utils
+Architecture: iphoneos-arm
+Version: 10.44
+Multi-Arch: foreign
+Priority: standard
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 396
+Depends: libiosexec1 (>= 1.3.1), libpcre2-8-0 (= 10.44), libpcre2-16-0 (= 10.44), libpcre2-32-0 (= 10.44), libpcre2-posix3 (= 10.44)
+Conflicts: pcre2 (<< 1:0), libpcre2 (<< 10.44)
+Replaces: pcre2
+Filename: ./debs/pcre2/pcre2-utils_10.44_iphoneos-arm.deb
+Size: 148132
+MD5sum: 5e01bad477a7702d6c04aebb34e8206e
+SHA1: f5bb7dfe404fc321620a029a1c31291cee4d95f2
+SHA256: c6db2bc80887b83a9b0d0d2595ca66554c6a2e42dce20489314a60f5b41e2986
+SHA512: f36e2a14f817a75a2e7561d15072554223c33e91393848cbbd0126339e6e49dbd055319765c31688c44dcfd9644ddd232d6aaba1e8764b19787d84b3904ebab6
 Description: New Perl Compatible Regular Expression Library - utilities
  This is PCRE2, the new implementation of PCRE, a library of functions
  to support regular expressions whose syntax and semantics are as
