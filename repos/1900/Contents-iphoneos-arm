@@ -1521,6 +1521,8 @@ usr/lib/bash/tty					    bash
 usr/lib/bash/uname					    bash
 usr/lib/bash/unlink					    bash
 usr/lib/bash/whoami					    bash
+usr/lib/cmake/zlib-ng/zlib-ng-config-version.cmake	    libz-ng-dev
+usr/lib/cmake/zlib-ng/zlib-ng-config.cmake		    libz-ng-dev
 usr/lib/cmake/zlib-ng/zlib-ng-release.cmake		    libz-ng-dev
 usr/lib/cmake/zlib-ng/zlib-ng.cmake			    libz-ng-dev
 usr/lib/engines-3/capi.dylib				    libssl3
@@ -1836,6 +1838,7 @@ usr/lib/libxxhash.dylib					    libxxhash-dev
 usr/lib/libz-ng.2.0.6.dylib				    libz-ng2
 usr/lib/libz-ng.2.1.3.dylib				    libz-ng2
 usr/lib/libz-ng.2.1.6.dylib				    libz-ng2
+usr/lib/libz-ng.2.1.7.dylib				    libz-ng2
 usr/lib/libz-ng.2.dylib					    libz-ng2
 usr/lib/libz-ng.a					    libz-ng-dev
 usr/lib/libz-ng.dylib					    libz-ng-dev

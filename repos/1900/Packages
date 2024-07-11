@@ -2572,6 +2572,23 @@ Description: mount, quota, fsck, fstyp, fdisk, tunefs
 
 Package: diskdev-cmds
 Architecture: iphoneos-arm
+Version: 718.120.3
+Priority: required
+Essential: yes
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1248
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/diskdev-cmds/diskdev-cmds_718.120.3_iphoneos-arm.deb
+Size: 88624
+MD5sum: 7d50d8198aa03c39047e2bfebe54e3e3
+SHA1: b764b261896554573c04d12fc9fd844d7810f2c2
+SHA256: ab5e2da07791b8dd978c8d782e74b1d527b1861522bb485375356d9e032b27ee
+SHA512: 4fc14781b30fbb00a594fc8ac6bded4b1f21c647288e643fd41bb11b4298b8b4c9775a1be36464df508a3d5d65d5be3d98c2fff0180c4e1ac58a3a469d7b8d84
+Description: mount, quota, fsck, fstyp, fdisk, tunefs
+
+Package: diskdev-cmds
+Architecture: iphoneos-arm
 Version: 718
 Priority: required
 Essential: yes
@@ -7176,6 +7193,24 @@ SHA256: 2cef3374d2fdb5e6d5e4c95e33b62f1e3a5f3d49e1f47802b3a25c53ba1a1c1d
 SHA512: 1919f6627fdbc3c5c589b6ae63547cbffe64b200b777ccf7e835abe8884a0a53625802e46a1d41de4fea4fb7e2cfe4f3e33780aa3676799e93f94a640432f335
 Description: gpgrt (also known as libgpg-error) defines common error values, messages, and common runtime functionality for all GnuPG components. This package contains yat2m, a Texinfo to nroff/troff converter useful for building manpages, and gpg-error, a binary for deciphering GnuPG/libgcrypt error codes.
 
+Package: gpgrt-tools
+Architecture: iphoneos-arm
+Version: 1.49
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 964
+Depends: libiosexec1 (>= 1.3.1), libgpg-error0 (= 1.49)
+Conflicts: libgpg-error (<< 1.49)
+Filename: ./debs/libgpg-error/gpgrt-tools_1.49_iphoneos-arm.deb
+Size: 219072
+MD5sum: fc1eb580ef1ca06dc9a0c57a21f9d4f6
+SHA1: f607a143333505a6125f64d4598d47183b9a3a87
+SHA256: dbbd54daddcd1537bf363c3f5b9ca5d6366147b2a916b4ff78679bd75225fc05
+SHA512: f9b26eed18781484bbef66f5588dda4ae945b50bc8a7fc6d0c5c818a4f3f072f012d81c88e60f0eeb855de7e8c7fd22c0ea4c7d177b19a1a2704f978cd5cff2a
+Description: gpgrt (also known as libgpg-error) defines common error values, messages, and common runtime functionality for all GnuPG components. This package contains yat2m, a Texinfo to nroff/troff converter useful for building manpages, and gpg-error, a binary for deciphering GnuPG/libgcrypt error codes.
+
 Package: libgpg-error-dev
 Architecture: iphoneos-arm
 Version: 1.46
@@ -7248,6 +7283,30 @@ Description: GnuPG development runtime library (developer tools)
  This package contains the headers and other files needed to compile
  against this library.
 
+Package: libgpg-error-dev
+Architecture: iphoneos-arm
+Version: 1.49
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 536
+Filename: ./debs/libgpg-error/libgpg-error-dev_1.49_iphoneos-arm.deb
+Size: 211278
+MD5sum: 8a0b68dba494ec871c9884f6df905766
+SHA1: 51016f733f41cfe8371bf126cfc9d38ce1e25819
+SHA256: dcecc79b7c1dbc7320f5713900d239de13f1298c708ff84375dafb585d75318a
+SHA512: 2f8f87ffeda280d0cc7e63306d645121f26d4be507d7dbc24185b4119b32116a6f29a59724ce43e4db570ab1e783ee2b6b1ee0bdc0993aaea74e8177b478cb42
+Description: GnuPG development runtime library (developer tools)
+ Library that defines common error values, messages, and common
+ runtime functionality for all GnuPG components.  Among these are GPG,
+ GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+ possibly more in the future.
+ .
+ It will likely be renamed "gpgrt" in the future.
+ .
+ This package contains the headers and other files needed to compile
+ against this library.
+
 Package: libgpg-error0
 Architecture: iphoneos-arm
 Version: 1.46
@@ -7306,6 +7365,28 @@ MD5sum: 4bcfe0186125b1af7a00ef07f3cfab65
 SHA1: 670151fb0e19b3f53a10d28c121650f59490e8d1
 SHA256: d5dba8ffce02ce8f210d0d8ae363a05d68f7a967a10fdba47872d88dcaf99d14
 SHA512: 2d04be3532ae01075420bc65222a8214d85f227cbc54dee27f010e3ccf4de0ecb601996f78583907c1679698333fc9d934133f7a6cb891aa8f67bc4f4b1a5f51
+Description: GnuPG development runtime library
+ Library that defines common error values, messages, and common
+ runtime functionality for all GnuPG components.  Among these are GPG,
+ GPGSM, GPGME, GPG-Agent, libgcrypt, pinentry, SmartCard Daemon and
+ possibly more in the future.
+ .
+ It will likely be renamed "gpgrt" in the future.
+
+Package: libgpg-error0
+Architecture: iphoneos-arm
+Version: 1.49
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 216
+Depends: libiosexec1 (>= 1.3.1), libintl8
+Filename: ./debs/libgpg-error/libgpg-error0_1.49_iphoneos-arm.deb
+Size: 85748
+MD5sum: 595329a178f05e6280c6ed08bf089e21
+SHA1: 95962fd7d6c2a357ff54f0197a95f6efc841df63
+SHA256: d1a164836c15dac3c796fc2b9f7e122e065ded9a3567f32f750792e826f1549a
+SHA512: 9a8585aee95ff1aa3b138fb96be47282ea60851e623112379bc68a91fe69a61f640c7d6f36bb6c9d81219bf88b355beb6cee8f735267f172e3d29f6a60b00b3e
 Description: GnuPG development runtime library
  Library that defines common error values, messages, and common
  runtime functionality for all GnuPG components.  Among these are GPG,
@@ -12553,6 +12634,24 @@ Description: killall, renice, script, time, which, getopt, what, hexdump, su
 
 Package: shell-cmds
 Architecture: iphoneos-arm
+Version: 309.120.3
+Priority: important
+Section: Administration
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1464
+Provides: killall, which
+Depends: libiosexec1 (>= 1.3.1), libpam2
+Conflicts: coreutils (<< 8.32-9)
+Filename: ./debs/shell-cmds/shell-cmds_309.120.3_iphoneos-arm.deb
+Size: 98720
+MD5sum: 4eb172899b019e2ffc13ec53811ee433
+SHA1: 3d8befbd6c14ad95c9b999b33a3f1958aa772a1e
+SHA256: 48177398119a8040d99c4ca223aea2ee08ceeef2489852514bb8179d31299bdf
+SHA512: 44157e6e19e3c09779456888d1cc42cd05f9caee0e3765023be409881aba3fad2251736495ebfd7e7ceccbffa65530762d25b8d5947555398b81d9ea3adf183a
+Description: killall, renice, script, time, which, getopt, what, hexdump, su
+
+Package: shell-cmds
+Architecture: iphoneos-arm
 Version: 309
 Priority: important
 Section: Administration
@@ -14228,6 +14327,25 @@ Description: next gen compression library - development
  found in gzip and PKZIP. This package includes the development support
  files.
 
+Package: libz-ng-dev
+Architecture: iphoneos-arm
+Version: 2.1.7
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 492
+Depends: libz-ng2 (= 2.1.7)
+Filename: ./debs/zlib-ng/libz-ng-dev_2.1.7_iphoneos-arm.deb
+Size: 227642
+MD5sum: e47a487167028eaf5485db238bf1c4d1
+SHA1: 4b3bdfff8aa7328f1687ff14146adc7b63da00f5
+SHA256: b7617ecd155ec9cf395fdccea92e9d8140f24affa8278d4c9f741a7417e0088b
+SHA512: ab7bb993f6ab2f5d3bf7c94ae4174f20f0eb44b5959c3bc408ce797ad09c428d0398a465696a4d1313870ed78a5762a3a0f53a25d1f81ea81f17821548792c33
+Description: next gen compression library - development
+ next generation zlib library implementing the deflate compression method
+ found in gzip and PKZIP. This package includes the development support
+ files.
+
 Package: libz-ng2
 Architecture: iphoneos-arm
 Version: 2.0.6
@@ -14296,6 +14414,24 @@ MD5sum: aeae7c9555d836aec142a2ef78227f19
 SHA1: e59eaaefa3ef7113ec1f07eb8febeead34827a15
 SHA256: 943be2904d2d6fb413695cbd34c1abb1f9f41dc8288d4174a0e1f89282497f4d
 SHA512: b2ba06145f470aded2a46ce6181bad6d286961ab0241a0be3808822e07305f1f3665682b267f82d93e9991eab1a3ac6e4015fa11e7e84a17b7cdf7af69954685
+Description: next gen zlib compression library - runtime
+ next generation zlib library implementing the deflate compression method
+ found in gzip and PKZIP. This package includes the shared library.
+
+Package: libz-ng2
+Architecture: iphoneos-arm
+Version: 2.1.7
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 168
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/zlib-ng/libz-ng2_2.1.7_iphoneos-arm.deb
+Size: 58834
+MD5sum: 55b03e7714a3612035a9bf2e5ee714c8
+SHA1: e303f7495404c6c813b7a5b6de8f3b39bb31330e
+SHA256: 98b7525a211c895df220e36ab5803b071453a9db5e9df4a25d4d2c3fb033d1ba
+SHA512: 6248d9c5de16962f55cd38a8e70f0c79438497eef637f988869979645baa983e9ab43196592949986a0f567cb72241870b766bd80746d0542940bbccf42e322e
 Description: next gen zlib compression library - runtime
  next generation zlib library implementing the deflate compression method
  found in gzip and PKZIP. This package includes the shared library.
