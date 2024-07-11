@@ -977,10 +977,13 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: my_repo
         run: |
-          mkdir -vp /tmp/${{ matrix.cfver }}/bootstrap && unzstd -d -vvvv ../Procursus/build_strap/$MEMO_TARGET/${{ matrix.cfver }}/bootstrap-ssh.tar.zst -o /tmp/${{ matrix.cfver }}/bootstrap.tar
-          tar -xvvf /tmp/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap
-          cp -v ./repos/anfora-repo.gpg /tmp/${{ matrix.cfver }}/bootstrap/private/etc/apt/trusted.gpg.d/
-          tar -cvvf ./repos/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
+          mkdir -vp /tmp/${{ matrix.cfver }}/bootstrap && unzstd -v ../Procursus/build_strap/$MEMO_TARGET/${{ matrix.cfver }}/bootstrap-ssh.tar.zst -o /tmp/${{ matrix.cfver }}/bootstrap.tar
+          sudo tar --same-owner -p -xvvf /tmp/${{ matrix.cfver }}/bootstrap.tar -C /tmp/${{ matrix.cfver }}/bootstrap
+          sudo cp -v ./repos/anfora-repo.gpg /tmp/${{ matrix.cfver }}/bootstrap/private/etc/apt/trusted.gpg.d/
+          sudo find /tmp/${{ matrix.cfver }}/bootstrap/ -name ".DS_Store" -delete
+          sudo dot_clean -n /tmp/${{ matrix.cfver }}/bootstrap/
+          sudo tar --same-owner -p -cvvf /tmp/${{ matrix.cfver }}/bootstrap-ssh.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
+          zstd --verbose --threads=0 --rm -19 /tmp/${{ matrix.cfver }}/bootstrap-ssh.tar -o ./repos/${{ matrix.cfver }}/bootstrap.tar
           git add -v .
           git commit -v -m "Upload bootstrap"
 
