@@ -983,7 +983,7 @@ jobs:
           sudo find /tmp/${{ matrix.cfver }}/bootstrap/ -name ".DS_Store" -delete
           sudo dot_clean -n /tmp/${{ matrix.cfver }}/bootstrap/
           sudo tar --same-owner -p -cvvf /tmp/${{ matrix.cfver }}/bootstrap-ssh.tar -C /tmp/${{ matrix.cfver }}/bootstrap/ .
-          zstd --verbose --threads=0 --rm -19 /tmp/${{ matrix.cfver }}/bootstrap-ssh.tar -o ./repos/${{ matrix.cfver }}/bootstrap.tar
+          zstd --verbose --threads=0 --rm -19 /tmp/${{ matrix.cfver }}/bootstrap-ssh.tar -o ./repos/${{ matrix.cfver }}/bootstrap-ssh.tar.zst
           git add -v .
           git commit -v -m "Upload bootstrap"
 
