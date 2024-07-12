@@ -530,6 +530,8 @@ usr/bin/sleep						    coreutils
 usr/bin/snaputil					    snaputil
 usr/bin/sort						    coreutils
 usr/bin/split						    coreutils
+usr/bin/sqldiff						    sqlite3
+usr/bin/sqlite3						    sqlite3
 usr/bin/ssh						    openssh-client
 usr/bin/ssh-add						    openssh-client
 usr/bin/ssh-agent					    openssh-client
@@ -1792,6 +1794,7 @@ usr/lib/libreadline.dylib				    libreadline-dev
 usr/lib/librtmp.1.dylib					    librtmp1
 usr/lib/librtmp.a					    librtmp-dev
 usr/lib/librtmp.dylib					    librtmp-dev
+usr/lib/libsqlite3.1.dylib				    libsqlite3-1
 usr/lib/libsqlite3.a					    libsqlite3-dev
 usr/lib/libsqlite3.dylib				    libsqlite3-dev
 usr/lib/libssh2.1.dylib					    libssh2-1
@@ -16224,6 +16227,7 @@ usr/share/man/man3/CURLOPT_DOH_SSL_VERIFYHOST.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_DOH_SSL_VERIFYPEER.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_DOH_SSL_VERIFYSTATUS.3.zst	    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_DOH_URL.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/CURLOPT_ECH.3.zst			    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_EGDSOCKET.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_ERRORBUFFER.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/CURLOPT_EXPECT_100_TIMEOUT_MS.3.zst	    libcurl4-openssl-dev
@@ -21278,6 +21282,7 @@ usr/share/man/man3/curl_multi_socket_all.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_strerror.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_timeout.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_wait.3.zst		    libcurl4-openssl-dev
+usr/share/man/man3/curl_multi_waitfds.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_multi_wakeup.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_pushheader_byname.3.zst		    libcurl4-openssl-dev
 usr/share/man/man3/curl_pushheader_bynum.3.zst		    libcurl4-openssl-dev

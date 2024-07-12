@@ -1997,6 +1997,26 @@ Description: command line tool for transferring data with URL syntax
  .
  curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a busload of other useful tricks.
 
+Package: curl
+Architecture: iphoneos-arm
+Version: 8.8.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 364
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.8.0), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Filename: ./debs/curl/curl_8.8.0_iphoneos-arm.deb
+Size: 216594
+MD5sum: 38f203d906b6a03a364e019d8e91ef0f
+SHA1: 1fb7dd7caa079dcb2516a52ce6762a289a3d7eca
+SHA256: 931055445bde0b84a36dcf10f8fa0e3d4ddb3bb7fb7863e78b24d9ebe3a744d6
+SHA512: 05fe9b6f33ee68cebd9593e0cf1276c81a0994511322d8b69bafd7f1314700e85b2fb03150f47773ea533c4a65ecba7e09eb22e1912ef7674b41648d626a5789
+Homepage: http://curl.haxx.se/
+Description: command line tool for transferring data with URL syntax
+ curl is a command line tool for transferring data with URL syntax, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a busload of other useful tricks.
+
 Package: libcurl4-openssl-dev
 Architecture: iphoneos-arm
 Version: 7.88.1
@@ -2113,6 +2133,35 @@ Description: development files and documentation for libcurl (OpenSSL flavour)
  .
  SSL support is provided by OpenSSL.
 
+Package: libcurl4-openssl-dev
+Architecture: iphoneos-arm
+Version: 8.8.0
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4664
+Provides: libcurl-dev (= 8.8.0)
+Depends: libcurl4 (= 8.8.0), libidn2-dev, libssl-dev, libssh2-dev, libnghttp2-dev, librtmp-dev
+Conflicts: curl (<< 8.8.0)
+Replaces: curl (<< 8.8.0)
+Filename: ./debs/curl/libcurl4-openssl-dev_8.8.0_iphoneos-arm.deb
+Size: 1859932
+MD5sum: cb5c724c2434bf3fcab0af9d91054817
+SHA1: a0b9605c497cd72c9bc2220100ab4c40c081be70
+SHA256: 5ff47d2c49520bf817d0989dd9936f7685d217526081c5da3f93f6b31f96e1ce
+SHA512: 98f1a2072eb8efc039c15739129277f5072511838b77b072f1525c0ac5a4633f6de67239f91790acbec71269f5562d8fd32a6f809195725b24c3e9f9e4287d62
+Homepage: http://curl.haxx.se/
+Description: development files and documentation for libcurl (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ .
+ This package provides the development files (ie. includes, static library, manual pages) that allow one to build software which uses libcurl.
+ .
+ SSL support is provided by OpenSSL.
+
 Package: libcurl4
 Architecture: iphoneos-arm
 Version: 7.88.1
@@ -2207,6 +2256,32 @@ MD5sum: 7ce8e490706346308ad807c8134e10e9
 SHA1: e0dc36d1610460a972473db56a1280f008a19c46
 SHA256: 289ce18cf767af32279b1d671c8df64a637e7550101be6aca8918276d65ed0fc
 SHA512: 941829f3010cf4eee9af69f373d1efe8c727ca4ce7a4e4aa93b3b8a6c45ac7eb9e08b349432c06763b66f124e332769010af1a87004e54493433faa6768d3c93
+Homepage: http://curl.haxx.se/
+Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ . 
+ SSL support is provided by OpenSSL
+
+Package: libcurl4
+Architecture: iphoneos-arm
+Version: 8.8.0
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 616
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.8.0), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Conflicts: curl (<< 8.8.0)
+Replaces: curl (<< 8.8.0)
+Filename: ./debs/curl/libcurl4_8.8.0_iphoneos-arm.deb
+Size: 298414
+MD5sum: 203a2d5c1cbb4ceb77cb5745277bf306
+SHA1: de800639decc60429cc7f4f45570d144dd6cf46c
+SHA256: 7389592e76382857bd43382c380b192594339cb723964b923241b72ccc6ed1de
+SHA512: 31b423ca11687f5c34d973f2e5a3c402d4e955fe7edb41556732b94eee0e251720b890ceb3e0682c5d7768bedf5d7611e1b21eedc7f436828175e14190df55d6
 Homepage: http://curl.haxx.se/
 Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
  libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
@@ -12920,6 +12995,23 @@ SHA512: bdd447d6d185137aaf12a9df228b4bb90d05abf83d0f414f68a595822ed722f48524e2f1
 Homepage: https://www.sqlite.org/
 Description: LALR(1) Parser Generator for C or C++
 
+Package: libsqlite3-1
+Architecture: iphoneos-arm
+Version: 3.34.1
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 980
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/sqlite3/libsqlite3-1_3.34.1_iphoneos-arm.deb
+Size: 549554
+MD5sum: 84449d5022b381d5fafb6418497401c6
+SHA1: 4c45cce8983ecedf6e2f28052a182fd208f3d2d2
+SHA256: e1821a60c5bdc78041f845483eec7dae432a69a07cb1d9a951566015c53a981d
+SHA512: fb150ef4ac5d8b2c06699ba5638d919855d4e414574da174befb131e6f14cbd10e2ba0bbe122ec804c62955d2f992bdfae5d2ebcc27a6de857acee1eee4cb76e
+Homepage: https://www.sqlite.org/
+Description: SQLite 3 shared library
+
 Package: libsqlite3-dev
 Architecture: iphoneos-arm
 Version: 3.34.1
@@ -12936,6 +13028,23 @@ SHA256: daf8916946ac4cf244f3e701cff9cfd36cab1a66a28df45c7ec35c6e53fbb0ea
 SHA512: 5ccc48ed072dc1b72e30e89d23086191f754c6ce8e0ce4f1aaf578463dcc45483d3d74494629b8d67f9f2d615590f2eea0af85552755e9cebc29bc1afb0244a9
 Homepage: https://www.sqlite.org/
 Description: SQLite 3 development files
+
+Package: sqlite3
+Architecture: iphoneos-arm
+Version: 3.34.1
+Priority: standard
+Section: Data_Storage
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 364
+Depends: libiosexec1 (>= 1.3.1), libsqlite3-1 (= 3.34.1), libreadline8, libncursesw6
+Filename: ./debs/sqlite3/sqlite3_3.34.1_iphoneos-arm.deb
+Size: 120648
+MD5sum: aba9edc78a8928d8936b34f3b72f4651
+SHA1: ea53553f76b372fadf94936f7649cdebce27e1d8
+SHA256: ee1cc5ad944123de59cd1ac1c061c17aa69d478ffd9e17c3201c2dc3e27aca37
+SHA512: 02cea31d62d7a04c0417497b2c36b1cc4ff91538c2a2e2ad304c9dc3ca898f3638433c5aec3fc5d6fa2196f85014d37c89ba48ef45aea20f11a54b80d8152d9e
+Homepage: https://www.sqlite.org/
+Description: Command line interface for SQLite 3
 
 Package: sudo
 Architecture: iphoneos-arm
