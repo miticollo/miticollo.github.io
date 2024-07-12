@@ -12920,23 +12920,6 @@ SHA512: bdd447d6d185137aaf12a9df228b4bb90d05abf83d0f414f68a595822ed722f48524e2f1
 Homepage: https://www.sqlite.org/
 Description: LALR(1) Parser Generator for C or C++
 
-Package: libsqlite3-1
-Architecture: iphoneos-arm
-Version: 3.34.1
-Priority: standard
-Section: Libraries
-Maintainer: Procursus Team <support@procurs.us>
-Installed-Size: 980
-Depends: libiosexec1 (>= 1.2.2)
-Filename: ./debs/sqlite3/libsqlite3-1_3.34.1_iphoneos-arm.deb
-Size: 557090
-MD5sum: f1608fa78b2a1a10b5dc1d28ff99ddd8
-SHA1: 68babccf3486c9e904de2efadfc73f4aba8c438b
-SHA256: 54945149f1352cfff576352603d1501b2d1f6c99fb88a88a2266207d388d7988
-SHA512: 1ad766f901f7d5a8ef837262c9552c34d853f2df964aee721428564cc754976cdbe2b689de0b19b5a5a6903d61b6bb20ccf716c7eb5bf971fd830d4c140d9bc6
-Homepage: https://www.sqlite.org/
-Description: SQLite 3 shared library
-
 Package: libsqlite3-dev
 Architecture: iphoneos-arm
 Version: 3.34.1
@@ -12953,23 +12936,6 @@ SHA256: daf8916946ac4cf244f3e701cff9cfd36cab1a66a28df45c7ec35c6e53fbb0ea
 SHA512: 5ccc48ed072dc1b72e30e89d23086191f754c6ce8e0ce4f1aaf578463dcc45483d3d74494629b8d67f9f2d615590f2eea0af85552755e9cebc29bc1afb0244a9
 Homepage: https://www.sqlite.org/
 Description: SQLite 3 development files
-
-Package: sqlite3
-Architecture: iphoneos-arm
-Version: 3.34.1
-Priority: standard
-Section: Data_Storage
-Maintainer: Procursus Team <support@procurs.us>
-Installed-Size: 316
-Depends: libiosexec1 (>= 1.2.2), libsqlite3-1 (= 3.34.1), libreadline8, libncursesw6
-Filename: ./debs/sqlite3/sqlite3_3.34.1_iphoneos-arm.deb
-Size: 117002
-MD5sum: 760f2ad6eccda642c89d77c04efa3ee5
-SHA1: b1c754a9a135214b91db94dc8c28d15b2bc6d08f
-SHA256: 5b10fac989b4d0c77d07951faed0c743ce41243f16cacdae18d25f9a1a9cca2e
-SHA512: be8ee72036156adad28de69ec783122a2c495dbbc70266e4f28a066a1300423ac2d8dd68dae997e6682b26ddb3dc2ba04474f7814d8ba77512b33299b7cbc7eb
-Homepage: https://www.sqlite.org/
-Description: Command line interface for SQLite 3
 
 Package: sudo
 Architecture: iphoneos-arm

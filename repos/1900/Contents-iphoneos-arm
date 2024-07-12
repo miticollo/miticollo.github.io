@@ -530,8 +530,6 @@ usr/bin/sleep						    coreutils
 usr/bin/snaputil					    snaputil
 usr/bin/sort						    coreutils
 usr/bin/split						    coreutils
-usr/bin/sqldiff						    sqlite3
-usr/bin/sqlite3						    sqlite3
 usr/bin/ssh						    openssh-client
 usr/bin/ssh-add						    openssh-client
 usr/bin/ssh-agent					    openssh-client
@@ -1794,7 +1792,6 @@ usr/lib/libreadline.dylib				    libreadline-dev
 usr/lib/librtmp.1.dylib					    librtmp1
 usr/lib/librtmp.a					    librtmp-dev
 usr/lib/librtmp.dylib					    librtmp-dev
-usr/lib/libsqlite3.1.dylib				    libsqlite3-1
 usr/lib/libsqlite3.a					    libsqlite3-dev
 usr/lib/libsqlite3.dylib				    libsqlite3-dev
 usr/lib/libssh2.1.dylib					    libssh2-1
