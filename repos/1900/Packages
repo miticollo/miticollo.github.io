@@ -6313,6 +6313,23 @@ SHA512: 8534fbc9a289f2fc490b41f584227981d1c16b9de843af54eda5a9b7ef5b6a0451f22473
 Homepage: https://c-ares.haxx.se/
 Description: Development files for the c-ares asynchronous name resolver library.
 
+Package: libc-ares-dev
+Architecture: iphoneos-arm
+Version: 1.32.1
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1396
+Depends: libc-ares2 (= 1.32.1)
+Filename: ./debs/libc-ares/libc-ares-dev_1.32.1_iphoneos-arm.deb
+Size: 369354
+MD5sum: 0a68951fe2478e92ca9de01b175ae7a1
+SHA1: 221dc4e2c8d64426cf33138458d50aed7ee7f950
+SHA256: 04f67bbf2103e92a2a28eb0c35fbd4a460e8aae9544bb42b9b2eb20acfacf7df
+SHA512: b431012c12c10cf10dabb201b49e142e90655b6a2e6735959c3ce99c0fd23672cb01367526f8caaabd65fb8d7d92e854cac9324489b05cfbc2180d4d0c49cd7c
+Homepage: https://c-ares.haxx.se/
+Description: Development files for the c-ares asynchronous name resolver library.
+
 Package: libc-ares2
 Architecture: iphoneos-arm
 Version: 1.19.0
@@ -6361,6 +6378,23 @@ MD5sum: 6aefa39dffdb6db52d582570123c88db
 SHA1: d7afae11a5a75dbc00e76c9b7538e8c681e240bb
 SHA256: a40461269ed7c95adeba6764c0c41aae9dd8ced1d119c0cea0e86196bd12600c
 SHA512: 706561797b6e567707072a83f207a3e644882cc6c13a865475a118c9a98b00f8d75c7250dcec7a12573907ed769aa8b220c8033203c5f7a91080886641facee6
+Homepage: https://c-ares.haxx.se/
+Description: Shared libraries for the c-ares asynchronous name resolver library.
+
+Package: libc-ares2
+Architecture: iphoneos-arm
+Version: 1.32.1
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 180
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/libc-ares/libc-ares2_1.32.1_iphoneos-arm.deb
+Size: 70268
+MD5sum: 3d4344ec1c8b4131323fafcdd1d892c9
+SHA1: 76c145cd29c38bcf762984c424924846e220b5c2
+SHA256: d5981c7d18c82d2a8ed47f846a9b0b2695851c7c2d73103e9e105cc5f44da498
+SHA512: f2677ea5e7bd0efad11b47a871119dc208d0e1a719761a56e82bf64059c66030220edb876bc02882d7f860d6b1985ba0c277904b36d1cef04ce04679b9f9a938
 Homepage: https://c-ares.haxx.se/
 Description: Shared libraries for the c-ares asynchronous name resolver library.
 
@@ -6941,6 +6975,23 @@ SHA256: c1013bfd573f8d5d36ccd6bcc785d571b2e43ce78e39cf5c814ae2214ae0b323
 SHA512: 8b87380278135ec8826febaf70a49816cfd34623a150c9d5ed56816f472d4c5ae1a6d520fa404cb46b0bbca36eb9954f4a0ac93891a4c8bee45607a93857b1f1
 Description: LGPL cryptographic algorithm library (Development files)
 
+Package: libgcrypt20-dev
+Architecture: iphoneos-arm
+Version: 1.11.0
+Multi-Arch: foreign
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2708
+Depends: libiosexec1 (>= 1.3.1), libgpg-error-dev (>= 1.37), libgcrypt20 (= 1.11.0)
+Filename: ./debs/libgcrypt/libgcrypt20-dev_1.11.0_iphoneos-arm.deb
+Size: 1252484
+MD5sum: 7b15a4d059103f71de8d1bbc60931617
+SHA1: ff38d997e6a44430be969d2fde4121c43dcf2f0a
+SHA256: ccc10db0666e99106792ad35590af10ef8ad5f79926c59aee30dc8ba6a6332fb
+SHA512: 510a2bd524227c8dcaaf5532ab4f4ac6716b5f836c34e62fac334293930f68a66d4b7f7ea0a6b8a9637badd9cfe5a90cce2042c38c2925b21101b55588fb6afb
+Description: LGPL cryptographic algorithm library (Development files)
+
 Package: libgcrypt20
 Architecture: iphoneos-arm
 Version: 1.10.1
@@ -6999,6 +7050,26 @@ MD5sum: de1c94ef19408a1bea6f6e7ee332e696
 SHA1: cc7eec69cfd280a2f92c758cf9010087ec975b39
 SHA256: a2a26fe17a9b201f978b90414cb35501896f5bf3242cdaddbe84492bd5a4eb56
 SHA512: 52f07549a722f1ce6b04ae43b3b80f0552148284420a6e2ff6069b7585ebf0836b18301a6663bbe949fd63ff69cce0703c396968b87cf4098db08e19f7e8cf26
+Description: LGPL cryptographic algorithm library (Libraries)
+
+Package: libgcrypt20
+Architecture: iphoneos-arm
+Version: 1.11.0
+Multi-Arch: foreign
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 992
+Provides: gcrypt (=1.11.0), libgcrypt (=1.11.0)
+Depends: libiosexec1 (>= 1.3.1), libgpg-error0 (>= 1.37)
+Conflicts: gcrypt (<<1:0), libgcrypt (<<1:0)
+Replaces: gcrypt, libgcrypt
+Filename: ./debs/libgcrypt/libgcrypt20_1.11.0_iphoneos-arm.deb
+Size: 507868
+MD5sum: 6d0a35f749009a2c8b4df2a122953ef5
+SHA1: 52ad8148c66bad3b128a220bf99575c8baed1b76
+SHA256: 88148e46f1ae1cf790ab449bf2d8d7ee32785deb8e147814bb47a7a97e810fe7
+SHA512: 46dbcb7fdf2b546ca847b6274e2505c1f6fa60c9c89c728e1ef9c98c638d0d2ee5c13e752c6b29ad7d3dd2d575b8e7997e351ad4e3ae8ebdb4b67da84041266b
 Description: LGPL cryptographic algorithm library (Libraries)
 
 Package: libgmp-dev
