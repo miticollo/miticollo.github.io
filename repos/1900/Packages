@@ -1676,6 +1676,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20240712
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 228
+Filename: ./debs/cacerts/ca-certificates_20240712_all.deb
+Size: 127954
+MD5sum: ca9b09407d7de69fe6b26ec41a439faf
+SHA1: 851a1537d7e21d46c99d501ea4e10d9f2fe24ff6
+SHA256: ad2bc16e977957f7ac00b3b859ff3bdfc9aace2aabf636592cae0e31e7e73432
+SHA512: 25283c38d7bf90abba791ca18caddfe87e59dc0c74dc76d5e66ad6c58c7f6cb3495f83e1b1d9962796c8db9bae6d10e0108c716193e0e610e286843964a1ceb7
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -9924,6 +9943,28 @@ Description: library implementing HTTP/2 protocol (shared library)
  .
  This package installs a shared library.
 
+Package: libnghttp2-14
+Architecture: iphoneos-arm
+Version: 1.62.1
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 196
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/nghttp2/libnghttp2-14_1.62.1_iphoneos-arm.deb
+Size: 72692
+MD5sum: d89ff2a737c2554af33fc41f2491ba34
+SHA1: bf87960117c1d0b0d0813d076d434e061dd2ebe7
+SHA256: 7f3ab561125d5470f09f8dcd8c6feda3e5c1135747e09085882ab725b662d776
+SHA512: 70b28f8d49d8454e1632b5f3a6152e108d8d941e09500735176bd1a6f9796370d30fdf77b7ff7fe5ea23fc320388001f088d15ab882c38faf12b4e198ceef473
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (shared library)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs a shared library.
+
 Package: libnghttp2-dev
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -9960,6 +10001,28 @@ MD5sum: 578dcbf7428dc78ffe3b20e6691f5be2
 SHA1: ddce8243e0319be9a11bd32783652ecbe6a01d63
 SHA256: 3aa50231d8abdd101ac183077472cbafc7b743d2269b4ae76ec7db85a592c85f
 SHA512: 30a98e80d67eb9e303cadf447fd3e58077263f1e2414eeb46983fea6aa85ff984511611683a7730cd19e2414cb2ec0730befb41a75f741dfd3486ccc33badc48
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (development files)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs development files.
+
+Package: libnghttp2-dev
+Architecture: iphoneos-arm
+Version: 1.62.1
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 728
+Depends: libnghttp2-14 (= 1.62.1)
+Filename: ./debs/nghttp2/libnghttp2-dev_1.62.1_iphoneos-arm.deb
+Size: 275952
+MD5sum: 83aaf8db572c2c9e83e3a77ecb0c7288
+SHA1: 6d96a4289915df796a3fef059c731cfa8f320488
+SHA256: 0d351801e50606791b7a0a01e6876ebb83c4c827d6669bf78a06b36f16c33300
+SHA512: 8b980daec31935ebcc3c70844423bea59d24f70d570f46187c2ddcd20e90f960ca1c70c5282125cc86a96297003ee70c2285b10b2dea8ba29c047c74e4715ea2
 Homepage: https://nghttp2.org/
 Description: library implementing HTTP/2 protocol (development files)
  This is an implementation of the Hypertext Transfer Protocol version
@@ -10008,6 +10071,26 @@ Description: client implementing HTTP/2 protocol
  gives access to many low-level and advanced aspects of the protocol
  and therefore is useful for debugging.
 
+Package: nghttp2-client
+Architecture: iphoneos-arm
+Version: 1.62.1
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 268
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.62.1), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-client_1.62.1_iphoneos-arm.deb
+Size: 89384
+MD5sum: 6d03faca2cc257c997768ee775ff8ffd
+SHA1: f58dde87282ae7bb23e9505d04874f58e38a3fbd
+SHA256: 4377b743890bc65e477c3a3de1c2fac7e5c947de81469be996157cb4aae1302b
+SHA512: 5014d0d8efc77efc7343bb4a97d69dec9e7668fa692371d23565f2149aa0acb5834c57011bd2b69b2d62a03a8c41b7b5c7553d221e2422c4c136eaccc793edb7
+Homepage: https://nghttp2.org/
+Description: client implementing HTTP/2 protocol
+ This is a command line client implementing the HTTP/2 protocol. It
+ gives access to many low-level and advanced aspects of the protocol
+ and therefore is useful for debugging.
+
 Package: nghttp2-proxy
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -10048,6 +10131,26 @@ Description: reverse proxy implementing HTTP/2 protocol
  HTTP/1.1 fallback for clients that do not support it. It can be used
  as a frontend in front of web servers that do not support HTTP/2.
 
+Package: nghttp2-proxy
+Architecture: iphoneos-arm
+Version: 1.62.1
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 960
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.62.1), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libngtcp2-16, libnghttp3-9
+Filename: ./debs/nghttp2/nghttp2-proxy_1.62.1_iphoneos-arm.deb
+Size: 378180
+MD5sum: 9d6c881e581dca10bdf61822a64ed8d7
+SHA1: 2f251d7a70fc02c125fc17efd8b69583d27b1239
+SHA256: d2cd3efe93eae30e633b81ecaa6a56b3d39510ffaf55fed43aa8c5a9354a8498
+SHA512: 178a67298b18c5cc01a8a18cd43e382056052e1eafa580c48ffa5294f14d1937933bc2a1162f873522668aff363f246051d13dab95afe0717d88e561f4a49f35
+Homepage: https://nghttp2.org/
+Description: reverse proxy implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ as a frontend in front of web servers that do not support HTTP/2.
+
 Package: nghttp2-server
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -10082,6 +10185,26 @@ MD5sum: 01277cff690b7e22af42656786a6a54e
 SHA1: f8102502e97f44912b0fb520b70e9951d4044938
 SHA256: c07943666f468815d189f069d83e674f8cb3268df5767ab7fb94f5d02037dc61
 SHA512: cd1fba740789b757540daa0023aadb6c54f9e5fb705c8d3e3f99057a227018902d5b7913e0290ec23007ffb57755cb646e39140368030bae50918a54ba777f40
+Homepage: https://nghttp2.org/
+Description: server implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ to serve files from a local directory.
+
+Package: nghttp2-server
+Architecture: iphoneos-arm
+Version: 1.62.1
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 200
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.62.1), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-server_1.62.1_iphoneos-arm.deb
+Size: 64634
+MD5sum: b18faaa86dc7bcc68e000983bf2f70d4
+SHA1: d567828244bb6377ff2ecc8abecb643e81fdbf10
+SHA256: ba664c14cff4d8de67537fd0fe70666e273df23f3fd30c73d431028bb2394fa2
+SHA512: d0a20526a7508618086736774d9b12abc9950008924c37c839342347c58c7b5206936b1254f1b1103feeaf234dd1bf386a1de7317b71a3bd807764dbdcf2aad9
 Homepage: https://nghttp2.org/
 Description: server implementing HTTP/2 protocol
  This is a standalone server implementing the HTTP/2 protocol with
