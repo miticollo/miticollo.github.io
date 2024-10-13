@@ -110,7 +110,7 @@ jobs:
         run: |
           chmod +x ./update.sh
           p=0
-          for repo in "1900" "my"; do
+          for repo in "1900" "my" "roothide"; do
             ./update.sh "${repo}" ${{ secrets.GPG_PASSWORD }} &
             pids[$(( p++ ))]=$!
           done

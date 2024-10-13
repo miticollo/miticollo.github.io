@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 cd ./repos/"${1}"/ || exit 1
+
+arch="arm"
+if [ "${1}" = "roothide" ]; then
+  arch="${arch}64e"
+fi
+
 rm -v Packages* InRelease
 
 apt-ftparchive packages ./debs > Packages
@@ -11,29 +17,18 @@ lz4 -c9 Packages > Packages.lz4
 gzip -c9 Packages > Packages.gz
 zstd -c19 Packages > Packages.zst
 
-apt-ftparchive contents ./debs > Contents-iphoneos-arm
-apt-ftparchive contents ./debs > Contents-iphoneos-arm64e
-
-bzip2 -c9 Contents-iphoneos-arm > Contents-iphoneos-arm.bz2
-bzip2 -c9 Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.bz2
-
-xz -c9 Contents-iphoneos-arm > Contents-iphoneos-arm.xz
-xz -c9 Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.xz
-
-xz -5fkev --format=lzma Contents-iphoneos-arm > Contents-iphoneos-arm.lzma
-xz -5fkev --format=lzma Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.lzma
-
-lz4 -c9 Contents-iphoneos-arm > Contents-iphoneos-arm.lz4
-lz4 -c9 Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.lz4
-
-gzip -c9 Contents-iphoneos-arm > Contents-iphoneos-arm.gz
-gzip -c9 Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.gz
-
-zstd -c19 Contents-iphoneos-arm > Contents-iphoneos-arm.zst
-zstd -c19 Contents-iphoneos-arm64e > Contents-iphoneos-arm64e.zst
+apt-ftparchive contents ./debs > Contents-iphoneos-"${arch}"
+bzip2 -c9 Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".bz2
+xz -c9 Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".xz
+xz -5fkev --format=lzma Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".lzma
+lz4 -c9 Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".lz4
+gzip -c9 Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".gz
+zstd -c19 Contents-iphoneos-"${arch}" > Contents-iphoneos-"${arch}".zst
 
 if [ "${1}" = "my" ]; then
   apt-ftparchive release -c ../config/my.conf . > Release
+elif [ "${1}" = "roothide" ]; then
+  apt-ftparchive release -c ../config/roothide.conf . > Release
 else
   apt-ftparchive release -c ../config/iphoneos-arm64.conf . > Release
 fi
