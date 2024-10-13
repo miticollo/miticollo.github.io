@@ -1,0 +1,3 @@
+Library/LaunchDaemons/re.frida.server.plist		    re.frida.server
+usr/lib/frida/frida-agent.dylib				    re.frida.server
+usr/sbin/frida-server					    re.frida.server

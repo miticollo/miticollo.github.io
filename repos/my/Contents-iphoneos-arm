@@ -1,8 +1,5 @@
-Library/LaunchDaemons/re.frida.server.plist		    re.frida.server
 etc/apt/trusted.gpg.d/miticollo-repo.gpg		    miticollo-keyring-rootfull
 usr/bin/fsmon						    fsmon
-usr/lib/frida/frida-agent.dylib				    re.frida.server
-usr/sbin/frida-server					    re.frida.server
 usr/share/man/man1/fsmon.1				    fsmon
 var/jb/Applications/CocoaTop.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ru.domo.cocoatop64
 var/jb/Applications/CocoaTop.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ru.domo.cocoatop64
