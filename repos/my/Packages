@@ -282,6 +282,25 @@ Description: Observe and reprogram running programs.
 Name: Frida
 Author: Frida Developers <oleavr@nowsecure.com>
 
+Package: re.frida.server
+Architecture: iphone-arm64e
+Version: 16.4.5
+Priority: optional
+Section: Development
+Maintainer: Ole André Vadla Ravnås <oleavr@nowsecure.com>
+Installed-Size: 61188
+Conflicts: re.frida.server64
+Filename: ./debs/frida/frida_16.4.5_iphoneos-arm64e.deb
+Size: 17851712
+MD5sum: 6af8ab47b83ae90aa6d60b29bd520b41
+SHA1: aa72858df8ec8b1339540f80612c741aa4319cfb
+SHA256: a34a71ec345f36152b495928a2f1a5678864d51d47649e5dda4c76a018d806e2
+SHA512: 64fbfc2c81e17d89be9669ed5090dc0c6d772a38ee26fd914ac506a81caa4e5bf07037a917307f9fd2cfe5ce288e9ff9cfd8868386f4cbc9a18bf24e9d081b93
+Homepage: https://frida.re/
+Description: Observe and reprogram running programs.
+Name: Frida
+Author: Frida Developers <oleavr@nowsecure.com>
+
 Package: fsmon-rootless
 Architecture: iphoneos-arm64
 Version: 1.8.5
