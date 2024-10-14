@@ -738,6 +738,12 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libarchive-package
 
+      - name: Build libpcap
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libpcap-package
+
       - name: Build network-cmds
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
