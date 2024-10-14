@@ -2831,6 +2831,25 @@ Description: Debian package development tools
 
 Package: dpkg-dev
 Architecture: iphoneos-arm
+Version: 1.22.11
+Priority: optional
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1832
+Depends: dpkg (= 1.22.11), libdpkg-perl (= 1.22.11)
+Filename: ./debs/dpkg/dpkg-dev_1.22.11_iphoneos-arm.deb
+Size: 1092562
+MD5sum: 84d1b2b0cd347415941dedc066a0c469
+SHA1: 4413cec33c9819c23bdc4a15158d2a2b2ca858db
+SHA256: 5813aa3aaa6e5c83a0c218e0d63d21b806187c75a2586492f72dda1716daed1b
+SHA512: 898ff6e2a5f440024f83d3408ff9252c37012a3568780069d7ba7bcf5795c04514d464d1ff0686fe1425470d7381c0c6840673822beb933d1404ff537ea3db92
+Homepage: http://wiki.debian.org/Teams/Dpkg
+Description: Debian package development tools
+ This package provides the development tools (including dpkg-source)
+ required to unpack, build and upload Debian source packages.
+
+Package: dpkg-dev
+Architecture: iphoneos-arm
 Version: 1.22.6
 Priority: optional
 Section: Packaging
@@ -2940,6 +2959,25 @@ MD5sum: 9d9be6818cda950e72f93bd7a09bfa75
 SHA1: e38db11e952cbf636fe4f4e84f43051763057fe3
 SHA256: 2f8bd7d1fd76a607375abf06654d77e1da9caab5c6f2345fd57e0ab55a3c82a3
 SHA512: 72c6d547d061afd82b1b07850e58b79c62f2d5977be16bda1f756adbc83c7447c6ce8165f9c667a8285e58349bd9bc71f846052964732bb2a3ae50f1b3cea8b3
+Homepage: http://wiki.debian.org/Teams/Dpkg
+Description: package maintainance tools from Debian
+
+Package: dpkg
+Architecture: iphoneos-arm
+Version: 1.22.11
+Priority: required
+Essential: yes
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 6332
+Pre-Depends: tar (>= 1.23), libintl8 (>= 0.20)
+Depends: libiosexec1 (>= 1.3.1), sh, coreutils, diffutils, tar, liblzma5 (>= 5.2.5), libintl8, libz-ng2, libzstd1, libmd0
+Filename: ./debs/dpkg/dpkg_1.22.11_iphoneos-arm.deb
+Size: 1552636
+MD5sum: 73c2a0d0ad6776be0b5d17aa94b680cc
+SHA1: b1ac2c529bd21dc1ac7a7949fbd88583f68eca39
+SHA256: c9637860126f1e71c1273c571b1bdd56e08fdae01170c492e91d1b8fe620fd96
+SHA512: 52585bfe5ec2ef65492fbf863cdef1b24cc49b8aac98aa13f69145bb70dcc56ee89375080c1b76041707d9d5828c20eb66429812ab2780774fa887dada7a8789
 Homepage: http://wiki.debian.org/Teams/Dpkg
 Description: package maintainance tools from Debian
 
@@ -3064,6 +3102,28 @@ MD5sum: 5232f2e04a5e7b95126c6ee1320d3fbb
 SHA1: e62efa64258cf5d0143bc95adc923d975083ba3d
 SHA256: 6ffa716a6e754b37e907571bad71d39ef222ccee5bfcb8f0c3318d7f6abd0c8d
 SHA512: b57c402ea92376c5420e08aa699df834bf2e802a085dc3ea217f127e710d77eaf01e3f50f6d60f257bad7e3d2361c824c16e154a8bed7c549736bd75637ecdbd
+Homepage: http://wiki.debian.org/Teams/Dpkg
+Description: Debian package management static library
+ This package provides the header files and static library necessary to
+ develop software using libdpkg, the same library used internally by dpkg.
+ .
+ Note though, that the API is to be considered volatile, and might change
+ at any time, use at your own risk.
+
+Package: libdpkg-dev
+Architecture: iphoneos-arm
+Version: 1.22.11
+Priority: optional
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 992
+Depends: liblzma-dev, libzstd-dev
+Filename: ./debs/dpkg/libdpkg-dev_1.22.11_iphoneos-arm.deb
+Size: 312628
+MD5sum: c7e9122a26360c67eb962fd911d2c8d8
+SHA1: f4c33899594543344aa9aa3386dcc4847bed0f88
+SHA256: 27948cd952ba6a92d3d02ef6369bc69eee0e8a09201329bbea9a90ecb7e6bb16
+SHA512: e9c6b53bfed60c5c2978fc6a8ce1b1d191f5b555a930d67f3da764a2a73503b55ec8a3b40236753e0e6cf0cec3c35cab7870e09f3a0465d38414b5712052140d
 Homepage: http://wiki.debian.org/Teams/Dpkg
 Description: Debian package management static library
  This package provides the header files and static library necessary to
@@ -3383,6 +3443,74 @@ MD5sum: 2530022a6495e53006bbbdb6d92d0127
 SHA1: 6a0a17167ba8dd3bb339861399bd8982e3f7f698
 SHA256: 363f6931b51e75233340768412400fabf3dd59d756c41b79897622fd0213de6a
 SHA512: 224e00543859a96b51f8720e34a094171a10a51e17b3adc2123c43258ce89ac555a07fe2f3139aa4cb401b5926c85970fd65f927009af31f333e05e7c6e8c7a1
+Homepage: http://wiki.debian.org/Teams/Dpkg
+Description: Dpkg perl modules
+ This package provides the perl modules used by the scripts
+ in dpkg-dev. They cover a wide range of functionality. Among them
+ there are the following public modules:
+ .
+  - Dpkg: core variables
+  - Dpkg::Arch: architecture handling functions
+  - Dpkg::Build::Info: build information functions
+  - Dpkg::BuildFlags: set, modify and query compilation build flags
+  - Dpkg::BuildOptions: parse and manipulate DEB_BUILD_OPTIONS
+  - Dpkg::BuildProfiles: parse and manipulate build profiles
+  - Dpkg::Changelog: parse changelogs
+  - Dpkg::Changelog::Entry: represents a changelog entry
+  - Dpkg::Changelog::Parse: generic changelog parser for dpkg-parsechangelog
+  - Dpkg::Checksums: generate and parse checksums
+  - Dpkg::Compression: simple database of available compression methods
+  - Dpkg::Compression::FileHandle: transparently (de)compress files
+  - Dpkg::Compression::Process: wrapper around compression tools
+  - Dpkg::Conf: parse dpkg configuration files
+  - Dpkg::Control: parse and manipulate Debian control information
+    (.dsc, .changes, Packages/Sources entries, etc.)
+  - Dpkg::Control::Changelog: represent fields output by dpkg-parsechangelog
+  - Dpkg::Control::Fields: manage (list of known) control fields
+  - Dpkg::Control::Hash: parse and manipulate a block of RFC822-like fields
+  - Dpkg::Control::Info: parse files like debian/control
+  - Dpkg::Control::Tests: parse files like debian/tests/control
+  - Dpkg::Control::Tests::Entry: represents a debian/tests/control stanza
+  - Dpkg::Deps: parse and manipulate dependencies
+  - Dpkg::Deps::Simple: represents a single dependency statement
+  - Dpkg::Deps::Multiple: base module to represent multiple dependencies
+  - Dpkg::Deps::Union: list of unrelated dependencies
+  - Dpkg::Deps::AND: list of AND dependencies
+  - Dpkg::Deps::OR: list of OR dependencies
+  - Dpkg::Deps::KnownFacts: list of installed and virtual packages
+  - Dpkg::Exit: push, pop and run exit handlers
+  - Dpkg::Gettext: wrapper around Locale::gettext
+  - Dpkg::IPC: spawn sub-processes and feed/retrieve data
+  - Dpkg::Index: collections of Dpkg::Control (Packages/Sources files for
+    example)
+  - Dpkg::Interface::Storable: base object serializer
+  - Dpkg::Path: common path handling functions
+  - Dpkg::Source::Format: manipulate debian/source/format files
+  - Dpkg::Source::Package: extract Debian source packages
+  - Dpkg::Substvars: substitute variables in strings
+  - Dpkg::Vendor: identify current distribution vendor
+  - Dpkg::Version: parse and manipulate Debian package versions
+ .
+ All the packages listed in Suggests or Recommends are used by some of the
+ modules.
+
+Package: libdpkg-perl
+Architecture: iphoneos-arm
+Version: 1.22.11
+Priority: optional
+Section: Packaging
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2128
+Provides: dpkg-perl (= 1.22.11)
+Depends: dpkg (= 1.22.11), perl
+Conflicts: dpkg-perl (<<1:0), dpkg-dev (<< 1.22.11)
+Replaces: dpkg-perl
+Filename: ./debs/dpkg/libdpkg-perl_1.22.11_iphoneos-arm.deb
+Size: 528050
+MD5sum: 52823433adcc6e0a8aeaefbaf79ce441
+SHA1: 6868415313857a690abe75e4356107549e75414d
+SHA256: 593d638a616cf79f3831fcb849a2861ca88fad0ec5e026df78061e48df45db60
+SHA512: 352961a94f33ee6db4f30fb6e18eaebeba44bcb64ae2d040c6c43495bdde2c6aead350d622f9e19065db0067252c37d3a842c47ca9bf05f69b8a082f2456c762
 Homepage: http://wiki.debian.org/Teams/Dpkg
 Description: Dpkg perl modules
  This package provides the perl modules used by the scripts
@@ -3906,6 +4034,23 @@ Description: autopoint program from GNU gettext
 
 Package: autopoint
 Architecture: iphoneos-arm
+Version: 0.22.5
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 508
+Depends: liblzma5 (>= 5.2.5)
+Filename: ./debs/gettext/autopoint_0.22.5_iphoneos-arm.deb
+Size: 466784
+MD5sum: 1dd08b7388ea816292e0d97ec33420db
+SHA1: 377ecb526b807ab0031397a4ebe129fd41bdad83
+SHA256: cd18fbabc029258e46d47f4432732aaf7f31e71e6ea84ee9d2c9c460a94fe342
+SHA512: 221ef3379cf0316338571accac4c15e522e503a66f60cfcac64db08e0c8b256a5cca62d89c4c2d4929df20b42a55f0f155389116c26f9a4adaeccfda174a2b22
+Homepage: http://www.gnu.org/software/gettext/
+Description: autopoint program from GNU gettext
+
+Package: autopoint
+Architecture: iphoneos-arm
 Version: 0.22
 Priority: optional
 Section: Development
@@ -3937,6 +4082,25 @@ MD5sum: 2fec5d1986c28fff9b1c329896683ca6
 SHA1: 72c7bfb6bfef63648be67dcace74e07a16e702ab
 SHA256: 6e2a6142b0ffba0d9d675a82f91d4f08dd7399ddae28a03b0ea89f560fc5d138
 SHA512: 60659125d159276bb259670630b75a5aee2961e1201be7e6075cd4335b09a8db634e473d7841b25971c8d6f5881d7d223d8c359a03e5e52cdd07543aca84f4b6
+Homepage: http://www.gnu.org/software/gettext/
+Description: GNU Internationalization utilities for the base system
+
+Package: gettext-base
+Architecture: iphoneos-arm
+Version: 0.22.5
+Priority: optional
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 464
+Depends: libiosexec1 (>= 1.3.1), libintl8
+Conflicts: gettext (<< 0.22.5)
+Replaces: gettext (<< 0.22.5)
+Filename: ./debs/gettext/gettext-base_0.22.5_iphoneos-arm.deb
+Size: 83612
+MD5sum: 91e695871decdad3759655f02d920d9e
+SHA1: d0077ee42d9c9022bb06172c8306e4f720f450f8
+SHA256: 46dec595b98c1ba98fae667d15fe092df001aca06320437dc74c624af30ddb09
+SHA512: 331c450bd3ca170d868c9a09a77f39979ee2c4e2f345de889e2992ec8a522f3ff30ae2e9b941a9b04ec821a73fa51b1c693e9d7e19fecbd7955cfe1a82938b56
 Homepage: http://www.gnu.org/software/gettext/
 Description: GNU Internationalization utilities for the base system
 
@@ -3978,6 +4142,23 @@ Description: internationalization helper for strings
 
 Package: gettext
 Architecture: iphoneos-arm
+Version: 0.22.5
+Priority: optional
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 3228
+Depends: libiosexec1 (>= 1.3.1), libncursesw6, gettext-base, libintl8, libtextstyle0v5, libunistring5
+Filename: ./debs/gettext/gettext_0.22.5_iphoneos-arm.deb
+Size: 645030
+MD5sum: 58bf6f29e09b2471557fe87247f72441
+SHA1: 21ce311b23f672e2bd4075540a2a3af036047270
+SHA256: b3391999414416d23a62a3fedd9a7bc857933a6b64c45e06fa65567bb442453d
+SHA512: 51887bd7bffd28a4f2d47ba9e54b7adf4ba3056417377bcadebe51376d3bfa60da0b324f5ea11740599a85cd4d2b6f1511bb045f7de2d126407bc1098c2ba02c
+Homepage: http://www.gnu.org/software/gettext/
+Description: internationalization helper for strings
+
+Package: gettext
+Architecture: iphoneos-arm
 Version: 0.22
 Priority: optional
 Section: System
@@ -4006,6 +4187,22 @@ MD5sum: 73a5c608936f5bade177e1910d19d5d1
 SHA1: b406335e39540b162e476697f9a33bfeba96016d
 SHA256: 4002e208fce3ef44c3871deb382063521a3edc79736d957c43575b8f031039fe
 SHA512: b37390d89324ee60ee9cbd744b5e97c1bbfc76b88790f6dbe5d657bdc57de41fdb136ac1cd901e02f213beab7b7b139ef6aa655eaf7b98eae650ac4b2037531f
+Homepage: http://www.gnu.org/software/gettext/
+Description: process PO files - static libraries and headers
+
+Package: libgettextpo-dev
+Architecture: iphoneos-arm
+Version: 0.22.5
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1268
+Depends: libgettextpo0 (= 0.22.5)
+Filename: ./debs/gettext/libgettextpo-dev_0.22.5_iphoneos-arm.deb
+Size: 494800
+MD5sum: 1b37942f3a989ac00af2d6dbca866e4f
+SHA1: 7800b6e9e0e71c02dfd18e7bc16756ed0a7c9c42
+SHA256: 4ddca3a0ad0b27fe6d52c63f12d511527cba2c1704c3081a13f9cb5ece50f598
+SHA512: dac80e20a05a6bce15056a4da1ed9e2a31a2978919dc200edc9b815b70ac6ae9d4f592725cbc09d0e47e0b5f4116e3e5b1505aff33e9971f3afa3fc52b27e090
 Homepage: http://www.gnu.org/software/gettext/
 Description: process PO files - static libraries and headers
 
@@ -4043,6 +4240,22 @@ Description: process PO files - shared library
 
 Package: libgettextpo0
 Architecture: iphoneos-arm
+Version: 0.22.5
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 340
+Depends: libiosexec1 (>= 1.3.1), libunistring5, libintl8
+Filename: ./debs/gettext/libgettextpo0_0.22.5_iphoneos-arm.deb
+Size: 152818
+MD5sum: 9318b813543cc7aefc6aed4175cfa375
+SHA1: e3b2b948243eb49e2311be1aebf65e10562d8219
+SHA256: 668912a13644635518394477e348d69153b215fe6ea2b761a036546d9da86c0c
+SHA512: a2c1f7a4800341cf866934972f0aedab5931ed5804b99fb2d4463e1fc8e2cf99b8bff9200b6d67c75e5066f0bd3530dfdd2353af7c832b955f3ed8f2434eea19
+Homepage: http://www.gnu.org/software/gettext/
+Description: process PO files - shared library
+
+Package: libgettextpo0
+Architecture: iphoneos-arm
 Version: 0.22
 Section: Libraries
 Maintainer: Procursus Team <support@procurs.us>
@@ -4072,6 +4285,24 @@ MD5sum: 42d6b65f5c31c5eb650b60d097a847d1
 SHA1: 1d419ceddd344e150bb4fb8feda97eaca59e4ac9
 SHA256: d00ae2d2108dda4340a5bd7ca6c92e61a993a896ca6186eaf6e1e9d3cf8cce7f
 SHA512: 612a0e6597952b5610c742b8b8b7355ccc4b251daa8e64dc4a267bfc576e32a643f214452f1923fa3cc40342b8e4922f2fa63ab3b1ba19ea24ae6b10beaa9784
+Homepage: http://www.gnu.org/software/gettext/
+Description: internationalization helper for strings - development files
+
+Package: libintl-dev
+Architecture: iphoneos-arm
+Version: 0.22.5
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 468
+Depends: libintl8 (= 0.22.5)
+Conflicts: gettext (<< 0.22.5)
+Replaces: gettext (<< 0.22.5)
+Filename: ./debs/gettext/libintl-dev_0.22.5_iphoneos-arm.deb
+Size: 203184
+MD5sum: 33f9f37662142f4e8efe8340ae157fad
+SHA1: ac4f369a990240d201b4bcd0e39024ac42283eb5
+SHA256: d55dbcc3f9f6640a80c323cb529b0ea85bb1a90f668081188d4dac4cd201e06f
+SHA512: 9d8ca0225742c4d124d5b3ad907bde6bfc3ddd23d924c24697a17a416175cde2bfb7d52e9e74a9898599d1cb4dd25e514b75e9cff945787d1e3363dcb558517c
 Homepage: http://www.gnu.org/software/gettext/
 Description: internationalization helper for strings - development files
 
@@ -4112,6 +4343,23 @@ Essental: yes
 
 Package: libintl8
 Architecture: iphoneos-arm
+Version: 0.22.5
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 208
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/gettext/libintl8_0.22.5_iphoneos-arm.deb
+Size: 86262
+MD5sum: 5302096a8e848ddf87f7b3c4092d9f42
+SHA1: f3040fac1906c959e7035ad4d4cfc8db84c32072
+SHA256: 4849cfba44b47e67ca6624b308610fc3924f4f95ef3de5becadb1de02eb03956
+SHA512: 19233b39ea89b8ad202f00c34e1ad852ff839ad92e502b6623a39b9bbb0e1dd89d18333de6c7a35bd00cdb586723ff9f8ea7ccf1db9491a00c10bc1f103f93d2
+Homepage: http://www.gnu.org/software/gettext/
+Description: internationalization helper for strings
+Essental: yes
+
+Package: libintl8
+Architecture: iphoneos-arm
 Version: 0.22
 Section: System
 Maintainer: Procursus Team <support@procurs.us>
@@ -4145,6 +4393,22 @@ Description: internationalization helper for strings - development files
 
 Package: libtextstyle-dev
 Architecture: iphoneos-arm
+Version: 0.22.5
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 2004
+Depends: libtextstyle0v5 (= 0.22.5)
+Filename: ./debs/gettext/libtextstyle-dev_0.22.5_iphoneos-arm.deb
+Size: 867508
+MD5sum: c8b4a42171f4ad842ed28f04b22cf760
+SHA1: 125d24e46a79f67e673328d4eb7519019a3e2351
+SHA256: 42554c2795310daf6b6cafb4eeced0a83f4b24240fb674cc4c1e152f6cef4916
+SHA512: f1fde55559d87a399451a4ce5c7b0dd9f00c3388dba651111ea19a3da9162e057b4b5ef3109c1b8b2de0189453c69394a72b098114648d0ab51f3632e0fafeff
+Homepage: http://www.gnu.org/software/gettext/
+Description: internationalization helper for strings - development files
+
+Package: libtextstyle-dev
+Architecture: iphoneos-arm
 Version: 0.22
 Section: Development
 Maintainer: Procursus Team <support@procurs.us>
@@ -4172,6 +4436,22 @@ MD5sum: 5454006dca0fe95aa504553e74b444cc
 SHA1: 4d320da5411f1d746a0a7e67e232fbb48cc3f806
 SHA256: ad243c6b325b19c371e205a80226adb6c6b1e2ddb5f183e6e6ac6aa50262f098
 SHA512: 78fde34d5214494ab6ddfaac30144982b0a86286d3a6b7e67cf3c57f3b37c3b63db24036905e3016192d7c9df1c50876eba9a74d620156c69bdc55b77c864f78
+Homepage: http://www.gnu.org/software/gettext/
+Description: internationalization helper for strings
+
+Package: libtextstyle0v5
+Architecture: iphoneos-arm
+Version: 0.22.5
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 492
+Depends: libiosexec1 (>= 1.3.1), libncursesw6
+Filename: ./debs/gettext/libtextstyle0v5_0.22.5_iphoneos-arm.deb
+Size: 223644
+MD5sum: 13a3da243c909e44594b3ae89ae88cc9
+SHA1: 5d024a072a5f0f653915b55dd73b22c89ff89182
+SHA256: 3a536888f170ae9737fb4cc354d8747357d1a99ca7d0ee1a57c987db43ecb757
+SHA512: 312e59a434b455f6e40a8446659ad96317fe83ee018a573f623b0e27ac36d4d3f0aa835af0996b8ec6cabec0efaf74260509366df545880d3d3e5b608eebf25e
 Homepage: http://www.gnu.org/software/gettext/
 Description: internationalization helper for strings
 
@@ -8273,6 +8553,30 @@ Description: X.509 and CMS support library - development files
  .
  This package contains the development library files.
 
+Package: libksba-dev
+Architecture: iphoneos-arm
+Version: 1.6.7
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 648
+Depends: libksba8 (= 1.6.7), libgpg-error-dev
+Filename: ./debs/libksba/libksba-dev_1.6.7_iphoneos-arm.deb
+Size: 318436
+MD5sum: d762d62910a99003d4017f7a9f57aa0a
+SHA1: 7a38be335d92fdc6a09d6ea29ef73ba193ced38a
+SHA256: 008c608e3141f7220dd586f74a97cc217894a5fdf37c6696f7faa707423cc09f
+SHA512: 2f388b82d34b8590b5b03e3b259ef514c33c25b18c0791c03cb19f2023e42a8b3542b7f284a8bfe09cdfbe4532ce6ac8e8ed0eb0395c1d7e80c32f1988d717bb
+Description: X.509 and CMS support library - development files
+ KSBA (pronounced Kasbah) is a library to make X.509 certificates as
+ well as the CMS easily accessible by other applications.  Both
+ specifications are building blocks of S/MIME and TLS.
+ .
+ KSBA provides these subsystems: ASN.1 Parser, BER Decoder, BER
+ Encoder, Certificate Handling and CMS Handling.
+ .
+ This package contains the development library files.
+
 Package: libksba8
 Architecture: iphoneos-arm
 Version: 1.6.0
@@ -8338,6 +8642,31 @@ MD5sum: a732998f99bcb64688d7aa5bbf8c0571
 SHA1: 0788854d65628c29b38f32714ed0f8afd28b3ce1
 SHA256: 1770063984ead7d3ff2f86abfb692bbdb9182c7d5e41e8a60565177f41e67c40
 SHA512: 22d2573876eefd034417fb5e360a47b4b9a15e7d69bed41c8ff0ddca03fcaa91d557259a08d70b15ecaf58804bcb1312099b44a1aa1673d4f3c5880e424907e2
+Description: X.509 and CMS support library
+ KSBA (pronounced Kasbah) is a library to make X.509 certificates as
+ well as the CMS easily accessible by other applications.  Both
+ specifications are building blocks of S/MIME and TLS.
+ .
+ KSBA provides these subsystems: ASN.1 Parser, BER Decoder, BER
+ Encoder, Certificate Handling and CMS Handling.
+ .
+ This package contains the runtime library files.
+
+Package: libksba8
+Architecture: iphoneos-arm
+Version: 1.6.7
+Multi-Arch: foreign
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 288
+Depends: libiosexec1 (>= 1.3.1), libgpg-error0
+Filename: ./debs/libksba/libksba8_1.6.7_iphoneos-arm.deb
+Size: 112584
+MD5sum: f0d7a1a688255a7cb9ad94d029dcd12c
+SHA1: 671ee3ea0b3cfbb540655dcf14d21d5069d28bc1
+SHA256: ed01ecddf2ebaa8e5f9a196a81cb8a3a07beda2ff1ec123a65280c64073645e0
+SHA512: 09a2ef26bd7670da15a8a4f5bb243f28a0f9a541f56ec1c191aa23161f505a096c829975adbf72c2dadb9811e2c756e81076f8af52edb5df11b9121f0465d52c
 Description: X.509 and CMS support library
  KSBA (pronounced Kasbah) is a library to make X.509 certificates as
  well as the CMS easily accessible by other applications.  Both
@@ -9339,6 +9668,57 @@ Description: Python3 bindings for the GNOME XML library
  .
  This package contains the files needed to use the GNOME XML library
  in Python3 programs.
+
+Package: libxo-dev
+Architecture: iphoneos-arm
+Version: 1.4.0
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 476
+Depends: libiosexec1 (>= 1.3.1), libintl-dev, libxo0 (= 1.4.0)
+Filename: ./debs/libxo/libxo-dev_1.4.0_iphoneos-arm.deb
+Size: 198720
+MD5sum: 00d8ab106368f5d63ce6eb84f2c3294f
+SHA1: 35be15d1c00e0b89c2653ad6eef80ecac231890c
+SHA256: 3fba8b2c399e69ec1559790a8939804c1b28d7a779b02fa4b627dbb4a3175db3
+SHA512: c4a44fe711dd1f7eb7fafcddc389b8fd2f9571684a37997cfada361d809c1d67ae15317a356c426873ee28d5f2f9c3040f1a39fec42e3512310b219454607784
+Homepage: https://github.com/Juniper/libxo
+Description: The Easy Way to Generate text, XML, JSON, and HTML output - devel
+
+Package: libxo-tools
+Architecture: iphoneos-arm
+Version: 1.4.0
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 464
+Depends: libiosexec1 (>= 1.3.1), libintl8, perl, libxo0 (= 1.4.0)
+Filename: ./debs/libxo/libxo-tools_1.4.0_iphoneos-arm.deb
+Size: 125108
+MD5sum: fe747a8c0917b907b44dbbdde57bf170
+SHA1: a9d4bf7e0bf9cd8a1d203ba34e524a13701e763e
+SHA256: ce3d8141e15d1df74ea01ee5bc731f25b1eecd98f7403f20d461c1bb0fcbfedf
+SHA512: 4d80224838c655b8db6b54ec07b793d1ab6e9bcce5b83782aadf3a63c87178ebfed1bb3d08abd11c9654e41e879ef60ba7a36400445be86d18516d56808aa666
+Homepage: https://github.com/Juniper/libxo
+Description: The Easy Way to Generate text, XML, JSON, and HTML output - tools
+
+Package: libxo0
+Architecture: iphoneos-arm
+Version: 1.4.0
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 248
+Depends: libiosexec1 (>= 1.3.1), libintl8
+Filename: ./debs/libxo/libxo0_1.4.0_iphoneos-arm.deb
+Size: 52020
+MD5sum: 6173f7fdb3503bd9e5a369791a4f909d
+SHA1: 0ff03b475a826625cc9b1b949ce0d96f42b3bfad
+SHA256: 92bfa6b61088c76029720dc586ec96fd72e71f7e1d1c21f9bcf23270d6ee5050
+SHA512: 796048a719747fc8fd022e48c196444a4a0d2ae05e8a4dfd7e76a01a320b43404268fc08ede0db4ad2db4dbf2f3f273e1c8bcd42b01dc70654262082dc8ba5c0
+Homepage: https://github.com/Juniper/libxo
+Description: The Easy Way to Generate text, XML, JSON, and HTML output
 
 Package: lsof
 Architecture: iphoneos-arm
