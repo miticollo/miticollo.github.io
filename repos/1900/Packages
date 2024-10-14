@@ -1695,6 +1695,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20241014
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 236
+Filename: ./debs/cacerts/ca-certificates_20241014_all.deb
+Size: 131374
+MD5sum: 74fd8b97d17718bd091a88abbda352d7
+SHA1: c2cb1bd2e70ad85d402da0f26ddb889540f14e36
+SHA256: 2b7e3a2f92a74f0b532bd7a71046c58491595b592253ce1c81c34e8f06e2de13
+SHA512: eb98179561966a9619b58a372c723c464088d85d7ddb676ae2b788a865233e213c5b7d4528e7b2f9ee6d50cefb2d3a179ee9a9b5106b6388bc2275b101331514
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -2679,6 +2698,23 @@ MD5sum: 7d50d8198aa03c39047e2bfebe54e3e3
 SHA1: b764b261896554573c04d12fc9fd844d7810f2c2
 SHA256: ab5e2da07791b8dd978c8d782e74b1d527b1861522bb485375356d9e032b27ee
 SHA512: 4fc14781b30fbb00a594fc8ac6bded4b1f21c647288e643fd41bb11b4298b8b4c9775a1be36464df508a3d5d65d5be3d98c2fff0180c4e1ac58a3a469d7b8d84
+Description: mount, quota, fsck, fstyp, fdisk, tunefs
+
+Package: diskdev-cmds
+Architecture: iphoneos-arm
+Version: 718.140.2
+Priority: required
+Essential: yes
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1248
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/diskdev-cmds/diskdev-cmds_718.140.2_iphoneos-arm.deb
+Size: 88612
+MD5sum: 2375aa4863b52f88e5c19fe5e2945b56
+SHA1: 190e7276bfd46093beafbcdc8f6a9bb7fc2df157
+SHA256: 3d9f968e818787a26f61d6e956dcde91d38ab8eb6f9e35f57a47f911bd33a01c
+SHA512: 6ce52363be14c1f4b50044213e2af8938e97e852934428f2909faed7ca1c912b6d8097d043575880a0456a6fd739ab14ebb281b377a724690ba4415b792b39ae
 Description: mount, quota, fsck, fstyp, fdisk, tunefs
 
 Package: diskdev-cmds
@@ -5244,6 +5280,44 @@ Description: GNU TLS library - commandline utilities
   - key and certificate management: certtool, ocsptool, p11tool
   - credential management: srptool, psktool
 
+Package: gnutls-bin
+Architecture: iphoneos-arm
+Version: 3.8.7.1
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1348
+Depends: libiosexec1 (>= 1.3.1), libgnutls30 (>= 3.8.7.1), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/gnutls-bin_3.8.7.1_iphoneos-arm.deb
+Size: 318674
+MD5sum: c78632cc1b3e16c1c95e3b41ef7a2377
+SHA1: 6ab2929892f46b63f8516ce76ad9e9a5c3596584
+SHA256: 771fe981eb34c77f6a455834f4fc8b72ba4cd688f088968a8ddf8996f7736c7c
+SHA512: c41887a58c78e57203e99db5c38a15212a9b5e7b3292606fde5f2955ff23afd21eb75728b56091a74c26fa1bc58aaea52bbf0018fcef2c528f79dd77471a5270
+Description: GNU TLS library - commandline utilities
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains a commandline interface to the GNU TLS library, which
+ can be used to set up secure connections from e.g. shell scripts, debugging
+ connection issues or managing certificates.
+ .
+ Useful utilities include:
+  - TLS termination: gnutls-cli, gnutls-serv
+  - key and certificate management: certtool, ocsptool, p11tool
+  - credential management: srptool, psktool
+
 Package: libgnutls30-dev
 Architecture: iphoneos-arm
 Version: 3.8.0
@@ -5323,6 +5397,38 @@ MD5sum: 76c6ae85ee76fa0cdc129ef37285be08
 SHA1: b09e9c6067ec3841dd1c548d26d5d7c32fa623fb
 SHA256: 7bcc005c328f549de088ce99bfc24f1d0a94bf9cf13d9efb416610a2307740cd
 SHA512: 17b65363876427281a08deaa07436df5c43a5939bb2fd761ddc4a6bd9f14174bd2ce0d67890e16fec2c47981c02949436094828dd041987f4b838e3ba79c885a
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - development files
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the GnuTLS development files.
+
+Package: libgnutls30-dev
+Architecture: iphoneos-arm
+Version: 3.8.7.1
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 516
+Depends: libgnutls30 (>= 3.8.7.1), libgnutlsxx30 (>= 3.8.7.1), libp11-kit-dev, libtasn1-6-dev, nettle-dev, libidn2-dev
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutls30-dev_3.8.7.1_iphoneos-arm.deb
+Size: 185064
+MD5sum: 5d9e794438e9a84899496f29f99da2e4
+SHA1: 87ea34e990af3148920c021e7ef7f8526ee3d405
+SHA256: ad0ae284d92b8091d8e653a5a926b18a00e9dd6e1dff9b16e8d72e3a229bb24a
+SHA512: 5ec34a7f0a1c587ff04003af69bbaf6f3236386bf635fe7883fb7dc0821fda7bc60159f332fd778425824f22895e8b67ea6a9a10eab288f8205e5dbdffd2b9a9
 Homepage: http://www.gnu.org/software/gnutls/
 Description: GNU TLS library - development files
  GnuTLS is a portable library which implements the Transport Layer
@@ -5442,6 +5548,40 @@ Description: GNU TLS library - main runtime library
  .
  This package contains the main runtime library.
 
+Package: libgnutls30
+Architecture: iphoneos-arm
+Version: 3.8.7.1
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1924
+Provides: gnutls (= 1:0)
+Depends: libiosexec1 (>= 1.3.1), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Replaces: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutls30_3.8.7.1_iphoneos-arm.deb
+Size: 946746
+MD5sum: c5eb2fc7cc632147f87fde5a11d059ce
+SHA1: b8e102bd2a0c280332ce102c905d88e309e7e73a
+SHA256: 2e4ddd36a818b6f28b477c24ca3d25c59b5273bb05abca5045859afd6c620ec9
+SHA512: 5b6b6bf3cfce3dd8c3c33730c531910d6096a9ddfe8562f07626722cef06a8116e9ae6f69bb4519372db5b75f4533b9faa55f02b0d5268d106281aef7cd90961
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - main runtime library
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the main runtime library.
+
 Package: libgnutlsxx30
 Architecture: iphoneos-arm
 Version: 3.8.0
@@ -5521,6 +5661,38 @@ MD5sum: 61817f2ce4adb54568b1f4da8f2dcab9
 SHA1: 776b7eb365f42868f664c50c26c5bd1781bb2d75
 SHA256: d49014ca55e7232f68d83890b0f0d9b58768876f45fbe9475ff0cf3e6c64dd34
 SHA512: e5a319c1455436a6a45562dbf14ba02c8ef52f6ad46ba4eff06caa115c105f2f2c63466667305a790bee1ee440f80142b082742fbbd160ce2aec8ae2ae1bcdf3
+Homepage: http://www.gnu.org/software/gnutls/
+Description: GNU TLS library - C++ runtime library
+ GnuTLS is a portable library which implements the Transport Layer
+ Security (TLS 1.0, 1.1, 1.2, 1.3) and Datagram
+ Transport Layer Security (DTLS 1.0, 1.2) protocols.
+ .
+ GnuTLS features support for:
+  - certificate path validation, as well as DANE and trust on first use.
+  - the Online Certificate Status Protocol (OCSP).
+  - public key methods, including RSA and Elliptic curves, as well as password
+    and key authentication methods such as SRP and PSK protocols.
+  - all the strong encryption algorithms, including AES and Camellia.
+  - CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+  - HSMs and cryptographic tokens, via PKCS #11.
+ .
+ This package contains the C++ runtime libraries.
+
+Package: libgnutlsxx30
+Architecture: iphoneos-arm
+Version: 3.8.7.1
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 200
+Depends: libiosexec1 (>= 1.3.1), libintl8 (>= 0.20.0), libgmp10, libidn2-0, libunistring5, libnettle8, libhogweed6, libp11-kit0, libtasn1-6, libgnutls30 (= 3.8.7.1), libzstd1, libbrotli1
+Conflicts: gnutls (<< 1:0)
+Filename: ./debs/gnutls/libgnutlsxx30_3.8.7.1_iphoneos-arm.deb
+Size: 124094
+MD5sum: 5a15e6aad022d0cf66a87d0c406cff90
+SHA1: c368da8f0c6f5148b368a747d523a49e1cb0ffa6
+SHA256: a7d3320b5c3d395c056240e993a190a339142ec19f3403b68aa81e911e470e99
+SHA512: 5cc62b722346c05f9fcc64f38cc296defe3595aebc0ef2cc8511a08ebf3fa8d97447c023f5170d5965de0a1f45655c4ca28d1113e8995a4870c676fda8b3c915
 Homepage: http://www.gnu.org/software/gnutls/
 Description: GNU TLS library - C++ runtime library
  GnuTLS is a portable library which implements the Transport Layer
@@ -6424,6 +6596,23 @@ SHA512: b431012c12c10cf10dabb201b49e142e90655b6a2e6735959c3ce99c0fd23672cb013675
 Homepage: https://c-ares.haxx.se/
 Description: Development files for the c-ares asynchronous name resolver library.
 
+Package: libc-ares-dev
+Architecture: iphoneos-arm
+Version: 1.34.1
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1520
+Depends: libc-ares2 (= 1.34.1)
+Filename: ./debs/libc-ares/libc-ares-dev_1.34.1_iphoneos-arm.deb
+Size: 417204
+MD5sum: f8ce30508e14e5b2c2c421bedcfaafc1
+SHA1: 5430f9d3c964d951d60373271d147d2f5bba763b
+SHA256: 0becef5e0b704ea3016ffe48af9c246d88a71ef8e193520865a1d813bc1ddf64
+SHA512: 2a6b69f3b5c701d72bb6e8dbbca51726529ad0cce980fa0b769b3e23db35cfee5ce71557a09aa134e551be41067826f0d3b0dea540b5341c8ae6ad53cdcb11e1
+Homepage: https://c-ares.haxx.se/
+Description: Development files for the c-ares asynchronous name resolver library.
+
 Package: libc-ares2
 Architecture: iphoneos-arm
 Version: 1.19.0
@@ -6489,6 +6678,23 @@ MD5sum: 3d4344ec1c8b4131323fafcdd1d892c9
 SHA1: 76c145cd29c38bcf762984c424924846e220b5c2
 SHA256: d5981c7d18c82d2a8ed47f846a9b0b2695851c7c2d73103e9e105cc5f44da498
 SHA512: f2677ea5e7bd0efad11b47a871119dc208d0e1a719761a56e82bf64059c66030220edb876bc02882d7f860d6b1985ba0c277904b36d1cef04ce04679b9f9a938
+Homepage: https://c-ares.haxx.se/
+Description: Shared libraries for the c-ares asynchronous name resolver library.
+
+Package: libc-ares2
+Architecture: iphoneos-arm
+Version: 1.34.1
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 224
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/libc-ares/libc-ares2_1.34.1_iphoneos-arm.deb
+Size: 84304
+MD5sum: f1ed677999f189074806aa3d07ad1793
+SHA1: 3e6fd1b72fffa1de5f419f70f1b869f3be55b6a7
+SHA256: fad661757057cd62c8ccef4a34bae497c31dfdc5ab47d3e1f1538ee4b1b6aac1
+SHA512: d2c207ef3a3fc37026134282d719a5cd2986807022f512d3894cfc5173076b6bf8a1a3d61b257bed80b08b8f6a9cd8286b2a957824367e554b40d1a27c04c1f2
 Homepage: https://c-ares.haxx.se/
 Description: Shared libraries for the c-ares asynchronous name resolver library.
 
@@ -6572,6 +6778,26 @@ Description: BSD editline and history libraries (development files)
  .
  It slightly resembles GNU readline.
 
+Package: libedit-dev
+Architecture: iphoneos-arm
+Version: 3.1-20240808
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 552
+Depends: libedit0 (= 3.1-20240808), libncurses-dev (>= 6.0)
+Filename: ./debs/libedit/libedit-dev_3.1-20240808_iphoneos-arm.deb
+Size: 251906
+MD5sum: 496f7a8fa54e0993e12ddec160815d9b
+SHA1: 28e52a8567702bbbb48ba195a672d788714b130f
+SHA256: 74af3ab140b364074e5c50ef3bb0a60a23cfbc79216947d2736e501b1ce2e89b
+SHA512: ef1910c87818ee715ca6577e0977038956c178022b52de50c70965f51e0f0cc19402b1e66aec64d0ea91e9c68a603c7900fc0d23322837133a9a1eed18327516
+Description: BSD editline and history libraries (development files)
+ Command line editor library provides generic line editing,
+ history, and tokenization functions.
+ .
+ It slightly resembles GNU readline.
+
 Package: libedit0
 Architecture: iphoneos-arm
 Version: 3.1-20210910
@@ -6646,6 +6872,26 @@ MD5sum: 979eccab180bbd9ddb9fd8686de7a8c9
 SHA1: f1ea3e37b77e46983b04a345591604e58a327447
 SHA256: 1f7f9bb76de29d6220a4c1867b89740ac48e01659162d0710f853a17627a152c
 SHA512: 4da25fcdf96b9322b9afa771a02b00438322a390926e6f38a20b1c5ca4ae8ea3a9f2ec135d8153ab753a6123aaaf3166670cd8d4b3574acbc78ef0f493952eb9
+Description: BSD editline and history libraries
+ Command line editor library provides generic line editing,
+ history, and tokenization functions.
+ .
+ It slightly resembles GNU readline.
+
+Package: libedit0
+Architecture: iphoneos-arm
+Version: 3.1-20240808
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 216
+Depends: libiosexec1 (>= 1.3.1), libncursesw6 (>= 6.0)
+Filename: ./debs/libedit/libedit0_3.1-20240808_iphoneos-arm.deb
+Size: 79650
+MD5sum: 420988228e2025a8d2f02d2ef9a3cf55
+SHA1: 60a6e0bbe2c94fe1ef10a0f35d0f88fd66a8f4e8
+SHA256: cc2b72df71be8ec54be987c000931a3c271bbcc499c5c6080970e47504e6e378
+SHA512: 0f665b02ccc0edd35b485a1ae89500b67010219bbe68949a8d4c601c4283a413e8820031a3473a5cd93c8b5eafdfd02589ba2dec2974d7fb3bf72588ac81f08f
 Description: BSD editline and history libraries
  Command line editor library provides generic line editing,
  history, and tokenization functions.
@@ -10040,6 +10286,28 @@ Description: library implementing HTTP/2 protocol (shared library)
  .
  This package installs a shared library.
 
+Package: libnghttp2-14
+Architecture: iphoneos-arm
+Version: 1.63.0
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 196
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/nghttp2/libnghttp2-14_1.63.0_iphoneos-arm.deb
+Size: 72718
+MD5sum: 1973a401ec3a318ccdbbdeb8f48f421a
+SHA1: bf4049e2998a10c4f04bf5ef690c8438b8f00861
+SHA256: 3236a0f67c7a246887c3ae12f9d8e3a7b63ece67820a0848c0addaade0308fa1
+SHA512: 5da9626865214a9dd6b975c179ac9f9a3a369941d5b3060e1cc65e7709b3b362795102e65d87ce8351657b8b558d78fe75748c5939e25057e9bcf61b887d3cc0
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (shared library)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs a shared library.
+
 Package: libnghttp2-dev
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -10098,6 +10366,28 @@ MD5sum: 83aaf8db572c2c9e83e3a77ecb0c7288
 SHA1: 6d96a4289915df796a3fef059c731cfa8f320488
 SHA256: 0d351801e50606791b7a0a01e6876ebb83c4c827d6669bf78a06b36f16c33300
 SHA512: 8b980daec31935ebcc3c70844423bea59d24f70d570f46187c2ddcd20e90f960ca1c70c5282125cc86a96297003ee70c2285b10b2dea8ba29c047c74e4715ea2
+Homepage: https://nghttp2.org/
+Description: library implementing HTTP/2 protocol (development files)
+ This is an implementation of the Hypertext Transfer Protocol version
+ 2 in C. The framing layer of HTTP/2 is implemented as a reusable C
+ library.
+ .
+ This package installs development files.
+
+Package: libnghttp2-dev
+Architecture: iphoneos-arm
+Version: 1.63.0
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 728
+Depends: libnghttp2-14 (= 1.63.0)
+Filename: ./debs/nghttp2/libnghttp2-dev_1.63.0_iphoneos-arm.deb
+Size: 275982
+MD5sum: 7accec3132f7cc0b50cf682835677a3b
+SHA1: db96f252cbd205998eab72e545d72ad33085a838
+SHA256: aa091a13472f177eb850d9f835acef06442f938d82718b5d6463cbc81a4889cc
+SHA512: fd32359df48d104e7d5592efd2a858be745fd528e181b7e6eb0de12da8738da55ff628178e27e9fe42d0598950cf2116105e8517827e1e1cf37753c6d8e46092
 Homepage: https://nghttp2.org/
 Description: library implementing HTTP/2 protocol (development files)
  This is an implementation of the Hypertext Transfer Protocol version
@@ -10166,6 +10456,26 @@ Description: client implementing HTTP/2 protocol
  gives access to many low-level and advanced aspects of the protocol
  and therefore is useful for debugging.
 
+Package: nghttp2-client
+Architecture: iphoneos-arm
+Version: 1.63.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 268
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.63.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-client_1.63.0_iphoneos-arm.deb
+Size: 89282
+MD5sum: 301ca1d58b1363dba3c40fb48843b79b
+SHA1: dc7991ed414d0c0f88aad470d33f61dd9a4f62eb
+SHA256: 86a67cbf06c8801417725e6dc52ae51b3e791ef236cdfe391f2d0d7aa0b45e0c
+SHA512: e8d8757394820e2b74395f58d31755ba79a7dc58633a4703324571cc724ec93165a3cf1795e208006c6c3ec70de876388607fa053c792298db6baff4ba9981ef
+Homepage: https://nghttp2.org/
+Description: client implementing HTTP/2 protocol
+ This is a command line client implementing the HTTP/2 protocol. It
+ gives access to many low-level and advanced aspects of the protocol
+ and therefore is useful for debugging.
+
 Package: nghttp2-proxy
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -10226,6 +10536,26 @@ Description: reverse proxy implementing HTTP/2 protocol
  HTTP/1.1 fallback for clients that do not support it. It can be used
  as a frontend in front of web servers that do not support HTTP/2.
 
+Package: nghttp2-proxy
+Architecture: iphoneos-arm
+Version: 1.63.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 960
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.63.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libngtcp2-16, libnghttp3-9
+Filename: ./debs/nghttp2/nghttp2-proxy_1.63.0_iphoneos-arm.deb
+Size: 377906
+MD5sum: 031c4a26d7c590806d1fb615c773bc62
+SHA1: de1e12a2f7b4fe333916a9fedd4693ebdd61e7f2
+SHA256: 91359814dcf3abb4bbd14850fda5c54d274228dac0875836aee7e7f78727cf19
+SHA512: 0f6df0c4532998f5151d6189a738415dfdfe062ef8dcdeadfb41b680c1f1bd68014b719be622f0906b11439055ac3b460b4c9f78301e5e3a7a66203b79de7932
+Homepage: https://nghttp2.org/
+Description: reverse proxy implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ as a frontend in front of web servers that do not support HTTP/2.
+
 Package: nghttp2-server
 Architecture: iphoneos-arm
 Version: 1.52.0
@@ -10280,6 +10610,26 @@ MD5sum: b18faaa86dc7bcc68e000983bf2f70d4
 SHA1: d567828244bb6377ff2ecc8abecb643e81fdbf10
 SHA256: ba664c14cff4d8de67537fd0fe70666e273df23f3fd30c73d431028bb2394fa2
 SHA512: d0a20526a7508618086736774d9b12abc9950008924c37c839342347c58c7b5206936b1254f1b1103feeaf234dd1bf386a1de7317b71a3bd807764dbdcf2aad9
+Homepage: https://nghttp2.org/
+Description: server implementing HTTP/2 protocol
+ This is a standalone server implementing the HTTP/2 protocol with
+ HTTP/1.1 fallback for clients that do not support it. It can be used
+ to serve files from a local directory.
+
+Package: nghttp2-server
+Architecture: iphoneos-arm
+Version: 1.63.0
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 200
+Depends: libiosexec1 (>= 1.3.1), libnghttp2-14 (= 1.63.0), libc-ares2, libev4, libjansson4, libjemalloc2, libssl3, libnghttp3-9, libngtcp2-16
+Filename: ./debs/nghttp2/nghttp2-server_1.63.0_iphoneos-arm.deb
+Size: 64658
+MD5sum: b0e10ae64fc1be554ea2aa3f6a6a5a3a
+SHA1: 0116fdf70a5c8736f33bc9d7d2891a5e197dfc47
+SHA256: b6059824b0bc9922ef99d77ea20e018f0d92b8431e0264fb8a97ffb335dc0bc5
+SHA512: a8512b8ab89fb15a659273d62e9858be904d00659b9ee60d78820491a662c80ab55a087b8021e052d63d914ff8b250a9ab66ed70b9eb2eebd4cb0efb3876f2a8
 Homepage: https://nghttp2.org/
 Description: server implementing HTTP/2 protocol
  This is a standalone server implementing the HTTP/2 protocol with
@@ -10794,6 +11144,28 @@ Description: Secure Sockets Layer toolkit - development files
  It contains development libraries, header files, and manpages for libssl
  and libcrypto.
 
+Package: libssl-dev
+Architecture: iphoneos-arm
+Version: 3.2.3
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 15948
+Depends: libssl3 (= 3.2.3)
+Filename: ./debs/openssl/libssl-dev_3.2.3_iphoneos-arm.deb
+Size: 6556836
+MD5sum: d3120fec24084a7d04c9f1042e607a00
+SHA1: 8900036dad5a566a2370241bf3a7fe8758c97dbe
+SHA256: 9a43c13f39d9dfed16422d4d23c3541cfc69977cbd6b6280240c8f83f9e59e99
+SHA512: da761efed7b9cabcbb218ca7bff6984d4fd88fc400497d99220cd29db40e86a3547c932c6c5072a89d5866f02751f5ec15fde2c00e055679519464293758de14
+Description: Secure Sockets Layer toolkit - development files
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains development libraries, header files, and manpages for libssl
+ and libcrypto.
+
 Package: libssl-doc
 Architecture: all
 Version: 3.0.10
@@ -10863,6 +11235,25 @@ MD5sum: 24b528f6174b7fbbbd4c7d5609466192
 SHA1: c769705967ccc436d992c1f21326d08c3181b1bb
 SHA256: 0cf59e5fcb4591106d6c8dc8deb8e1a59411afb3c36dc55a52bc345dcafb0e37
 SHA512: 2c0d24e08df452703a7d9d441e8704b4bdfbe1f7a0f7180318b6a4f4f267393833b9f0f6f73c4ff9a942b1fa7ddd0c1eb0bf41f25b24682835f65e7e65891bd8
+Description: Secure Sockets Layer toolkit - development documentation
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains manpages and demo files for libssl and libcrypto.
+
+Package: libssl-doc
+Architecture: all
+Version: 3.2.3
+Section: Documentation
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4304
+Filename: ./debs/openssl/libssl-doc_3.2.3_all.deb
+Size: 3167932
+MD5sum: f0de393b4f4040f36cef007339fbc858
+SHA1: f02314b0f06dfcbffab0d132fcdc39fb832c7292
+SHA256: c5cb9e0b975a735494701c67135c2df1f46c924d399db1a1a461a3aaf6111240
+SHA512: 7c5314c791c7fe3057d1285b1bf36ae9204601df29556fbfa70d9d93b134a904dce9893c56a99433834357b1b0b909dd99c0f86fd4a0dfe864b6a71b8f3e88cf
 Description: Secure Sockets Layer toolkit - development documentation
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -10947,6 +11338,27 @@ MD5sum: fe95c23e6c888d23c9140edcb2b8328b
 SHA1: 8cc7df76ff8d975e215f8d1a9e0817e6ed6db212
 SHA256: d4c7b5df625a957ea625c674d84d5f0cf6eb02a0d305694a0eebdfe32a84bfed
 SHA512: 14eb4ac09e9655b9e00eb8fcb22f66ea934e3fbf8b91108e3a2b33e1c788c3760af3d55fd66bdf411b4c683695a779c2ce6c1ef45b2184d855daa7f68e204183
+Description: Secure Sockets Layer toolkit - shared libraries
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It provides the libssl and libcrypto shared libraries.
+
+Package: libssl3
+Architecture: iphoneos-arm
+Version: 3.2.3
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 5060
+Depends: libiosexec1 (>= 1.3.1), ca-certificates
+Filename: ./debs/openssl/libssl3_3.2.3_iphoneos-arm.deb
+Size: 2503792
+MD5sum: 8ff34d4840a910b4b249591ca4775982
+SHA1: 4e7f245298eb2acf95d230eb1fc5064ab8c84001
+SHA256: 5aec80511a0962cc37f49e6c82cb3040fe2bb52a98bb20f619c73d7ab3eca7a6
+SHA512: 1ec76ac440fbd3537f0734ac88de5a48f348ccc6fb261aed005a8e630c4cfa3c02fd61b62f2d02b0db9f22a40a805cbc166a3ed23a19886990f8e2d21b06aaf8
 Description: Secure Sockets Layer toolkit - shared libraries
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -11052,6 +11464,34 @@ MD5sum: 60a3296c612488a820802f9224d3010f
 SHA1: 3c0f3fd2516e320f304dae50b200354b2afd9b57
 SHA256: 932bdca86639892d4ace4ad8581c164370e4f5f0a5645725ad30fa8007b5608e
 SHA512: 2af6a07389b4df4492c9a217a9bf087329c878e49278ade78b948e363732ca87cadb3c60c79e7eb2d84128ba2ef216bf810b4b96de5595bb2bfe84f0a545359d
+Description: Secure Sockets Layer toolkit - cryptographic utility
+ This package is part of the OpenSSL project's implementation of the SSL
+ and TLS cryptographic protocols for secure communication over the
+ Internet.
+ .
+ It contains the general-purpose command line binary /usr/bin/openssl,
+ useful for cryptographic operations such as:
+  * creating RSA, DH, and DSA key parameters;
+  * creating X.509 certificates, CSRs, and CRLs;
+  * calculating message digests;
+  * encrypting and decrypting with ciphers;
+  * testing SSL/TLS clients and servers;
+  * handling S/MIME signed or encrypted mail.
+
+Package: openssl
+Architecture: iphoneos-arm
+Version: 3.2.3
+Priority: standard
+Section: Security
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 888
+Depends: libiosexec1 (>= 1.3.1), libssl3 (= 3.2.3)
+Filename: ./debs/openssl/openssl_3.2.3_iphoneos-arm.deb
+Size: 353250
+MD5sum: 133b3e9937c13a7f2aab2f52fa480e1a
+SHA1: 90b0ba5b72fcd5faf4382d0febeb38cdfd33603c
+SHA256: dc73cd75e6acfd3b4ed83c9dd2de9a05113b0006457cf78ba00be61f96b79c9c
+SHA512: 416a9ab4925c525273c7430a0890e223197e656885845438e37d5068d297556f6ad337d1b4a93f60605b8a07233eb9a51f2700d446492d87af7ce77c444901da
 Description: Secure Sockets Layer toolkit - cryptographic utility
  This package is part of the OpenSSL project's implementation of the SSL
  and TLS cryptographic protocols for secure communication over the
@@ -13189,6 +13629,22 @@ SHA256: ad00f6f873c714da5025ab42751868f95b4c3f9c6c7124ab7ddaa0b298c2209b
 SHA512: 234afb08c5c713886d90f7aaaafd021639d794e5421f2b7d3ba4487163ce3e6130df1d42c6617b6363960521559a606689ff1b2f8d720d6fe7f36833b5c64720
 Description: Text-based Application Programming Interface (library) - development files
 
+Package: libtapi-dev
+Architecture: iphoneos-arm
+Version: 1500.0.12.3
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 12124
+Depends: libtapi
+Filename: ./debs/tapi/libtapi-dev_1500.0.12.3_iphoneos-arm.deb
+Size: 990968
+MD5sum: ab3c36876d5b2aee26f83033bc78f7bb
+SHA1: 21a38fee3bd502fa5c2792de26d1db0d8756d9ec
+SHA256: e15f74c96da111c3d93dda5b33115a01cdba0a58d52bd8d7e6ecc2b4b3a67a7a
+SHA512: 8783a9e3bd7990ccfb4e974bf2c203c5350e071b1a9d00335b20d954eb7868628a1803247414271e529c3f15ff689528d6aab3301f15a756f0ff4817010d2a40
+Description: Text-based Application Programming Interface (library) - development files
+
 Package: libtapi
 Architecture: iphoneos-arm
 Version: 1100.0.11-1
@@ -13207,6 +13663,24 @@ SHA256: 0b7c51669404624ab753097a54e46f737b9e9351a0e9cad3cbae5be73009ebaa
 SHA512: 10b812fe1958ef363276e9a54b8f4fa6009fda0e99ecfccb3b41611c8263e44fcbde6a67a5fcf3a64b9637d2781586f48351cb67e7338465172c0be590efc6e9
 Description: Text-based Application Programming Interface (library)
 
+Package: libtapi
+Architecture: iphoneos-arm
+Version: 1500.0.12.3
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 392
+Depends: libiosexec1 (>= 1.3.1), libncursesw6 (>= 6.0)
+Conflicts: libtapi10
+Replaces: libtapi10
+Filename: ./debs/tapi/libtapi_1500.0.12.3_iphoneos-arm.deb
+Size: 173124
+MD5sum: 52ee8c1b76b72f26e15ad052af9191f6
+SHA1: 0df4b964069c604133d4f0e15d2f5994e5948c55
+SHA256: 8a4d6f977d06815925cdcdf01fa14b74f9cbcc8260fdf2358be834bba28a34f1
+SHA512: ada2f429b894f374ceffdaec72ac703b79c20e1490df960f0855aa259ed40043a49cebfb60e176d33822fab3442447a1988f2a3d5ec5c6799e543f1120c87d59
+Description: Text-based Application Programming Interface (library)
+
 Package: tapi
 Architecture: iphoneos-arm
 Version: 1100.0.11-1
@@ -13221,6 +13695,22 @@ MD5sum: bebea98dae675ad74540dfe243a10264
 SHA1: cbff440610a161358dc890a134c93a80646bcc38
 SHA256: 3c4143f5f344249c50c6686503a79c713e7b5a74541082b6655758d69058e45c
 SHA512: 7017159546708149bd71c6bfb332d5b8add0265231c613730c4e684cc30a17823ebb139fbf0fe026c17936ddf7929d2c83ce6864f5605c02bbc66944165ca2ec
+Description: Text-based Application Programming Interface frontend
+
+Package: tapi
+Architecture: iphoneos-arm
+Version: 1500.0.12.3
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 29724
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/tapi/tapi_1500.0.12.3_iphoneos-arm.deb
+Size: 10872138
+MD5sum: be5858002efe0a08bb72824e63732a71
+SHA1: 2b712f38677d0d6ccd8a486577a4141287dd8185
+SHA256: 58ab4e5756cb7a26351242d0b3b035ee3f56173674bf93c4543f4993b4bf24b9
+SHA512: f3573cbd0e948e33212ffb2aa620e0b2c1c7a335b876afbbe8cbdd0e5956997ffbf20f673244c2c6ed8e062840af4254ad3abad8429969edf8f3d0ce3b5644c2
 Description: Text-based Application Programming Interface frontend
 
 Package: tar
@@ -14615,6 +15105,25 @@ Description: next gen compression library - development
  found in gzip and PKZIP. This package includes the development support
  files.
 
+Package: libz-ng-dev
+Architecture: iphoneos-arm
+Version: 2.1.8
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 492
+Depends: libz-ng2 (= 2.1.8)
+Filename: ./debs/zlib-ng/libz-ng-dev_2.1.8_iphoneos-arm.deb
+Size: 227634
+MD5sum: 78441fe41f67936bda9c13a9bfdacadc
+SHA1: a8d7c2d66fedd7917abe629a15ecf1d64df15058
+SHA256: 204847714dc79bc1f324a1481197138b32f6f3d668257391f290c63f95826ae7
+SHA512: 3742625ba4163897676d5a1f54408de9786b7e9fa9493200497083c7fcfb6de8c470c268377f135e034ec7ac0dd8a4eff1c7c8306c0d1fee62b8dd85a7c816e7
+Description: next gen compression library - development
+ next generation zlib library implementing the deflate compression method
+ found in gzip and PKZIP. This package includes the development support
+ files.
+
 Package: libz-ng2
 Architecture: iphoneos-arm
 Version: 2.0.6
@@ -14701,6 +15210,24 @@ MD5sum: 55b03e7714a3612035a9bf2e5ee714c8
 SHA1: e303f7495404c6c813b7a5b6de8f3b39bb31330e
 SHA256: 98b7525a211c895df220e36ab5803b071453a9db5e9df4a25d4d2c3fb033d1ba
 SHA512: 6248d9c5de16962f55cd38a8e70f0c79438497eef637f988869979645baa983e9ab43196592949986a0f567cb72241870b766bd80746d0542940bbccf42e322e
+Description: next gen zlib compression library - runtime
+ next generation zlib library implementing the deflate compression method
+ found in gzip and PKZIP. This package includes the shared library.
+
+Package: libz-ng2
+Architecture: iphoneos-arm
+Version: 2.1.8
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 168
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/zlib-ng/libz-ng2_2.1.8_iphoneos-arm.deb
+Size: 58870
+MD5sum: 8f0d7f013f78018cc769c4297dda9b9b
+SHA1: ceed0b0f83bcd04e428af2e8b9a554746ff5330b
+SHA256: 402794c3dc2b1db48c7fae396f0d9221efba6f8f19d13bdb94908ae5476e66d5
+SHA512: de850a252f8a6dde3efeb882afd46ba3a35460eddf3b80ef02e41a4826888b34b815c1fdc152d5f83da2a884546c2eb914dd85d779515d769dfb0e8a1d68f5d7
 Description: next gen zlib compression library - runtime
  next generation zlib library implementing the deflate compression method
  found in gzip and PKZIP. This package includes the shared library.
