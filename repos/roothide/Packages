@@ -7,11 +7,11 @@ Maintainer: Ole André Vadla Ravnås <oleavr@nowsecure.com>
 Installed-Size: 61188
 Conflicts: re.frida.server64
 Filename: ./debs/frida/frida_16.4.3_iphoneos-arm64e.deb
-Size: 17853488
-MD5sum: 1a11dc76069ad19fef9de0ccb0983378
-SHA1: b1779fb386d4b47d2d1d2db96501b9fff4dfb081
-SHA256: 853ac94f872c13ae4ebd490365cb18797d98fc4ee58959c6d4e52b4a0b365990
-SHA512: 5913f20e33552f9e01ab0f231eb0310f7b80a77f26c2cbc64d51b6391a7567923f5f30f3c695217c77575735af2ffa642abb4ea024486c7010ab1a9825d3b327
+Size: 17855468
+MD5sum: 6831776f52016f2dce4cca71771ba988
+SHA1: 97e0975d260f17c26ddfc90367809e157f2a30f4
+SHA256: 0140e6d86dbc2bc1d1e417e53281a905990251c9f2e5787eb2f24ebd93a83049
+SHA512: 09dec7cb938cdd99e3a7af41df04210fd2183d553d4fae1d08fb493811b74c538a9fbf86509579200bbadb005c63ebbc21bf05b208e8f42669963e0fca19fbf8
 Homepage: https://frida.re/
 Description: Observe and reprogram running programs.
 Name: Frida
