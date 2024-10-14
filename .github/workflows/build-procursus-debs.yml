@@ -774,6 +774,12 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake text-cmds-package
 
+      - name: Build libsodium
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libsodium-package
+
       - name: Build vim
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
