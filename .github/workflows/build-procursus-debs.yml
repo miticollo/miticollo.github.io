@@ -702,6 +702,12 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake amy-keyring-package
 
+      - name: Build libxo
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake libxo-package
+
       - name: Build adv-cmds
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
