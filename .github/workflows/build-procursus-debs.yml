@@ -594,12 +594,6 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake curl-package
 
-      - name: Build cowsay
-        if: ${{ success() || failure() }}
-        working-directory: ./Procursus
-        run: |
-          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake cowsay-package
-
       - name: Build file
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
