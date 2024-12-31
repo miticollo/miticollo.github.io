@@ -116,7 +116,7 @@ jobs:
         if: ${{ success() || failure() }}
         working-directory: ./Procursus
         run: |
-           declare -A prs=( ["rsync"]="https://github.com/miticollo/Procursus.git" ["updates-october2024"]="https://github.com/miticollo/Procursus.git" ["gnutls-no-march"]="https://github.com/miticollo/Procursus.git" ["Cryptic/x8A4"]="https://github.com/miticollo/Procursus.git" )
+           declare -A prs=( ["rsync"]="https://github.com/miticollo/Procursus.git" ["updates-october2024"]="https://github.com/miticollo/Procursus.git" ["gnutls-no-march"]="https://github.com/miticollo/Procursus.git" ["Cryptic/x8A4"]="https://github.com/ProcursusTeam/Procursus.git" )
            if [ "${#prs[@]}" -ne 0 ]; then
              for branch in "${!prs[@]}"; do
                git remote -v add external_pr "${prs[$branch]}"
@@ -962,6 +962,12 @@ jobs:
         run: |
           MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake tapi-package
 
+      - name: Build x8A4
+        if: ${{ success() || failure() }}
+        working-directory: ./Procursus
+        run: |
+          MEMO_TARGET=$MEMO_TARGET MEMO_CFVER=${{ matrix.cfver }} NO_PGP=$NO_PGP gmake x8A4-package
+      
       - name: Create build dirs
         run: |
           mkdir -vp $GITHUB_WORKSPACE/my_repo
