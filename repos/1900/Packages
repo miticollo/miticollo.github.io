@@ -1714,6 +1714,25 @@ Description: Common CA certificates
  .
  Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
 
+Package: ca-certificates
+Architecture: all
+Version: 20241231
+Multi-Arch: foreign
+Priority: optional
+Section: Utilities
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 220
+Filename: ./debs/cacerts/ca-certificates_20241231_all.deb
+Size: 122616
+MD5sum: 18143ea61ec27a603ec678f896a1d538
+SHA1: 4267216a3c1718173082127505e3a9b425d148d5
+SHA256: 8ef83bcf9dafd074e2931becb941ee164a6c677b37a371481d3569279ca9bb50
+SHA512: ca63572bc2e380b633cbdbbf4b1b90fee3e4626bfbcb982f9d4153148759c5de45fe1db46b2f67bb6894991ff62e58a8f3796c4dee4e2bec7fda8e644d501f0b
+Description: Common CA certificates
+ Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections.
+ .
+ Please note that Procursus can neither confirm nor deny whether the certificate authorities whose certificates are included in this package have in any way been audited for trustworthiness or RFC 3647 compliance. Full responsibility to assess them belongs to the local system administrator.
+
 Package: chariz-keyring
 Architecture: all
 Version: 2021.07.18
@@ -1978,6 +1997,26 @@ Description: command line tool for transferring data with URL syntax
 
 Package: curl
 Architecture: iphoneos-arm
+Version: 8.10.1
+Priority: standard
+Section: Networking
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 384
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.10.1), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Filename: ./debs/curl/curl_8.10.1_iphoneos-arm.deb
+Size: 223754
+MD5sum: 46d38bfa97306eb237a6e7d5f3f1edc0
+SHA1: 9c75102e0970c7f126ea5e0a5ff88d5d51b24507
+SHA256: 6cc5d806b74112263cb4a3660407cf4a93bdb1053b1e9f78626013e985450138
+SHA512: 04b36117889d8b0b7350c434912a3ffc70f9ff741b708a7a2ff754de295266cc5e194b3049c0a3a209056517acaeb03ae502a630ece12b927d3af9e3345974ed
+Homepage: http://curl.haxx.se/
+Description: command line tool for transferring data with URL syntax
+ curl is a command line tool for transferring data with URL syntax, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, kerberos...), file transfer resume, proxy tunneling and a busload of other useful tricks.
+
+Package: curl
+Architecture: iphoneos-arm
 Version: 8.2.1
 Priority: standard
 Section: Networking
@@ -2082,6 +2121,35 @@ MD5sum: 3c401ca2f00ddae25b81a44f868e4abe
 SHA1: 87ebbb2fe084834bd853d8b0432d0c3090c497fa
 SHA256: 9e1299c17a891dde36c2ec346add7de5a46baae69259d125490bd1eedcd19b83
 SHA512: 6a78a6025d65830e26915cfb738066917d92519dd5378cf531a6a6da4c5158ed53921093d1ae12a9483068eb71217da2090b33626e67d760b0c02dc53ebe0afd
+Homepage: http://curl.haxx.se/
+Description: development files and documentation for libcurl (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ .
+ This package provides the development files (ie. includes, static library, manual pages) that allow one to build software which uses libcurl.
+ .
+ SSL support is provided by OpenSSL.
+
+Package: libcurl4-openssl-dev
+Architecture: iphoneos-arm
+Version: 8.10.1
+Priority: standard
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 4736
+Provides: libcurl-dev (= 8.10.1)
+Depends: libcurl4 (= 8.10.1), libidn2-dev, libssl-dev, libssh2-dev, libnghttp2-dev, librtmp-dev
+Conflicts: curl (<< 8.10.1)
+Replaces: curl (<< 8.10.1)
+Filename: ./debs/curl/libcurl4-openssl-dev_8.10.1_iphoneos-arm.deb
+Size: 1915744
+MD5sum: 835fcd6422786fa65b5cc2ff81f4e646
+SHA1: 50d1dcea27d6f02ae0c1e051c1efc332474084f3
+SHA256: 45c3c3edf3b0fbfe23082fd7e86bbca75d88c4561c60c80ebd2af98d9454749a
+SHA512: e945d5d23805c431dd7224f056d3c9fb1630d543253cb6e6de7de6eae66b2a0f88da8ecdf3a2289ee30a0297d7e4d9f4479d81985bded1dd35f07a300bf781b4
 Homepage: http://curl.haxx.se/
 Description: development files and documentation for libcurl (OpenSSL flavour)
  libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
@@ -2223,6 +2291,32 @@ MD5sum: 4dac1958fe46d59e7a33124ff5f8242b
 SHA1: 5aab0f8bbf8a30bc0c78f9f6a1192a9376e98d33
 SHA256: 5ee21a7213b742c305fe4717a92b9b43abd82fc7ed82676ec4cee55e7f6bb3b3
 SHA512: f1f48b00f87d24a26ce54fe80246d96326f487e8b658021b9a7a7be87ebf10b979e74bf3d79a62723d537848a047e14eb70a9c4049ffbbe7b8593bf9fa8b8e55
+Homepage: http://curl.haxx.se/
+Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
+ libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+ .
+ libcurl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, cookies, user+password authentication (Basic, Digest, NTLM, Negotiate, Kerberos), file transfer resume, http proxy tunneling and more!
+ .
+ libcurl is free, thread-safe, IPv6 compatible, feature rich, well supported, fast, thoroughly documented and is already used by many known, big and successful companies and numerous applications.
+ . 
+ SSL support is provided by OpenSSL
+
+Package: libcurl4
+Architecture: iphoneos-arm
+Version: 8.10.1
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 648
+Depends: libiosexec1 (>= 1.3.1), libcurl4 (= 8.10.1), libc-ares2, libnghttp2-14, libidn2-0, librtmp1, libgmp10, libgnutls30, libhogweed6, libnettle8, libssh2-1, libssl3, libzstd1, libbrotli1
+Conflicts: curl (<< 8.10.1)
+Replaces: curl (<< 8.10.1)
+Filename: ./debs/curl/libcurl4_8.10.1_iphoneos-arm.deb
+Size: 309332
+MD5sum: 50f00f50099a3d9256cfa4eb58f3f513
+SHA1: 39a0ebc745c16c8b8a9b2f0facce08d4aae07b0a
+SHA256: cd3540c34b71073e85117ac33541835b7d45324586590da9cc2ba9f71dfd23bf
+SHA512: 7c27cf9e51672f69418f51a2c4977b21061fdc4ca71f3997e43d3fccd8060ba8b15c51c118fab817f0b1c580928c228e7dc66f62f58a13b617c22feb36299428
 Homepage: http://curl.haxx.se/
 Description: easy-to-use client-side URL transfer library (OpenSSL flavour)
  libcurl is an easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
@@ -8404,6 +8498,24 @@ Homepage: https://github.com/Siguza/libkrw
 Description: A kernel R/W API for jailbreaks (Development Files)
 Author: Siguza
 
+Package: libkrw-dev
+Architecture: iphoneos-arm
+Version: 1.1.2
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 16
+Depends: libkrw0 (= 1.1.2)
+Filename: ./debs/libkrw/libkrw-dev_1.1.2_iphoneos-arm.deb
+Size: 4286
+MD5sum: eca10401da920ccdf66185f3a92d4b78
+SHA1: 8bf433bf4a0b5d3956c859395bc3b07d467c01bd
+SHA256: ef876e0ddaba53b366d1af52454ca5ab6809b48301a1472f85aa64312066cf72
+SHA512: 3c2291d4c595267be4f4c1450a398d37580032a735dab1f5535741c52635597474be8fd2d8bd6e35abedb79fce4d3d5b093ba417f49b9755dd7a006aa2d87095
+Homepage: https://github.com/Cryptiiiic/libkrw
+Description: A kernel R/W API for jailbreaks (Development Files)
+Author: Cryptiiiic
+
 Package: libkrw0-tfp0
 Architecture: iphoneos-arm
 Version: 1.1.1-2
@@ -8443,6 +8555,26 @@ Homepage: https://github.com/Siguza/libkrw
 Description: Plugin for libkrw that interfaces with tfp0 (Shared Library)
 Author: Siguza
 
+Package: libkrw0-tfp0
+Architecture: iphoneos-arm
+Version: 1.1.2
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 56
+Provides: libkrw0-plugin
+Depends: libiosexec1 (>= 1.3.1)
+Enhances: libkrw0
+Filename: ./debs/libkrw/libkrw0-tfp0_1.1.2_iphoneos-arm.deb
+Size: 5624
+MD5sum: 4ec51dde70b7cac52434b0736a4a00e5
+SHA1: a0dd6f68d299a740459e4378b7a888f097c98bee
+SHA256: 7a07481f5e0b5f3ed09de355a6fe589061c4ee08542248ec6d90e31e9d0d7652
+SHA512: 218a88bcdad16dd7dcefa1882c6c2e1a33aae1d6b01bd398dfb1d0c0337ec2923955ed42ddca5fe05519938c26e8ad5324170abc0eed04f97acabc0591161999
+Homepage: https://github.com/Cryptiiiic/libkrw
+Description: Plugin for libkrw that interfaces with tfp0/hgsp4 (Shared Library)
+Author: Cryptiiiic
+
 Package: libkrw0
 Architecture: iphoneos-arm
 Version: 1.1.1-2
@@ -8480,6 +8612,25 @@ SHA512: da4ae17fc8d8f4a0cab1ffdb7f9bd2ab694b3bc1d745b9f73a16b4c38dabcda971f7163d
 Homepage: https://github.com/Siguza/libkrw
 Description: A kernel R/W API for jailbreaks (Shared Library)
 Author: Siguza
+
+Package: libkrw0
+Architecture: iphoneos-arm
+Version: 1.1.2
+Priority: standard
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 56
+Provides: libkrw (= 1.1.2)
+Depends: libiosexec1 (>= 1.3.1), libkrw0-plugin
+Filename: ./debs/libkrw/libkrw0_1.1.2_iphoneos-arm.deb
+Size: 5570
+MD5sum: 92b4aec3bbe4a8fe6295a569ca2958f9
+SHA1: 5eb4da78e66b2a30a116ba393c641d204b14603f
+SHA256: 864d25ebdf0e9d40ad9c1c652fe335c4757a682f23e4541e36e46792c86ee6e2
+SHA512: 13e00ec46e1b5d3e42979950ae571e1c7fba92da36331fad3cef6ba4b7fcb12b2c58bfd063508189ecedf2e3b5e215a9ad35695b8037593be3248e5032c132b0
+Homepage: https://github.com/Cryptiiiic/libkrw
+Description: A kernel R/W API for jailbreaks (Shared Library)
+Author: Cryptiiiic
 
 Package: libksba-dev
 Architecture: iphoneos-arm
@@ -8799,6 +8950,60 @@ Description: message digest functions from BSD systems - shared library
  as found on various BSDs on a library with the same name and with a
  compatible API.
 
+Package: libpcapa-dev
+Architecture: iphoneos-arm
+Version: 1.10.5
+Priority: optional
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1100
+Depends: libpcapa (= 1.10.5), libssl-dev
+Filename: ./debs/libpcap/libpcapa-dev_1.10.5_iphoneos-arm.deb
+Size: 507766
+MD5sum: b110dbec2bcfd45725b7e259db7dabe0
+SHA1: 907dda863c797b1a8a2d11098d36c5196d76487a
+SHA256: e208d6cc46e6689d00636ff069a4cfcd5d4079337267673145449db89f4cfb74
+SHA512: 727b4d57ebaf8a547c1e2b6f9b3a62324a0a361b985d712edf91365a41062b7222c162ec0c1f769370f1ce3d37dec23e7b195ba91b9b6ddae4bf428985621cf5
+Homepage: http://www.tcpdump.org/
+Description: development library and header files for libpcapa
+ Headers, static libraries, and documentation for the libpcap library.
+ .
+ libpcap (Packet CAPture) provides a portable framework for low-level
+ network monitoring.  Applications include network statistics
+ collection, security monitoring, network debugging, etc.
+ .
+ Since almost every system vendor provides a different interface for
+ packet capture, and since there are several tools that require this
+ functionality, the libpcap authors created this system-independent API
+ to ease in porting and to alleviate the need for several
+ system-dependent packet capture modules in each application.
+
+Package: libpcapa
+Architecture: iphoneos-arm
+Version: 1.10.5
+Priority: optional
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 324
+Depends: libiosexec1 (>= 1.3.1), libssl3
+Filename: ./debs/libpcap/libpcapa_1.10.5_iphoneos-arm.deb
+Size: 115808
+MD5sum: d2739ead218ad268a961f6067425171f
+SHA1: 07b450f1a41cb53b84495d0d4fdfe47fbf8681ba
+SHA256: da312a18ebb5707fc7db3d524a3b5b412d62b7e5cb79e4d7c8166e66c4ecb92c
+SHA512: 6cd2b6154e4dab6700bd340899668650da6166fed8b9910f3cca60b486f584efbe10c9fb7a0d0b9c736314e618e7ce21575c15a085489bb931208f16893525b4
+Homepage: http://www.tcpdump.org/
+Description: system interface for user-level packet capture
+ libpcap (Packet CAPture) provides a portable framework for low-level
+ network monitoring.  Applications include network statistics collection,
+ security monitoring, network debugging, etc.
+ .
+ Since almost every system vendor provides a different interface for
+ packet capture, and since there are several tools that require this
+ functionality, the libpcap authors created this system-independent API
+ to ease in porting and to alleviate the need for several
+ system-dependent packet capture modules in each application.
+
 Package: libplist++-dev
 Architecture: iphoneos-arm
 Version: 2.2.0+git20230130.4b50a5a
@@ -8885,6 +9090,57 @@ SHA1: eee3608088425a984311b6b907cd34166ea75bc6
 SHA256: 4b5e812edd996e90e9aa9347b08451a358ccf0d7a73849923b23af17800ed46b
 SHA512: 1db2f77e9429dce32d6a3ea3edd2659714f44572c7f33297919ca0ffdb54f1098c954359bec91d6fb0c92acae70094ca6bbacb4c7c2686fa25d3f908325a8420
 Description: Library for handling Apple binary and XML property lists
+
+Package: libsodium-dev
+Architecture: iphoneos-arm
+Version: 1.0.18
+Section: Development
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 1024
+Depends: libsodium23 (= 1.0.18)
+Filename: ./debs/libsodium/libsodium-dev_1.0.18_iphoneos-arm.deb
+Size: 262452
+MD5sum: 2792eadc92203eea353d09d1a26d6e80
+SHA1: e755119469f4ae728efaddab5b18dc8512db4108
+SHA256: 17e6b835cb96a82c4ced4d9e3a9d0ea1f6b557e5d5d638628936f78048dbbf68
+SHA512: 435143cc69273fa546ec82c181a3fdcafd3d47613afdfeb7b0d4a948f68def9cfae1dc87336fb012b9ea6d89110676790cf3ef4a0d87c3abd56c1e69bf69f868
+Homepage: https://doc.libsodium.org/
+Description: Network communication, cryptography and signaturing library - headers
+ NaCl (pronounced "salt") is a new easy-to-use high-speed software library for
+ network communication, encryption, decryption, signatures, etc.
+ .
+ NaCl's goal is to provide all of the core operations needed to build
+ higher-level cryptographic tools.
+ .
+ Sodium is a portable, cross-compilable, installable, packageable fork of NaCl,
+ with a compatible API.
+ .
+ This package provides development headers needed for applications that use
+ libsodium.
+
+Package: libsodium23
+Architecture: iphoneos-arm
+Version: 1.0.18
+Section: Libraries
+Maintainer: Procursus Team <support@procurs.us>
+Installed-Size: 256
+Depends: libiosexec1 (>= 1.3.1)
+Filename: ./debs/libsodium/libsodium23_1.0.18_iphoneos-arm.deb
+Size: 112178
+MD5sum: 4d34b344d46b213ccf5c89dc0a9d26a8
+SHA1: d6db646147adb5deb36926f4b2848095b48b9b4a
+SHA256: fdf251bbdf14d9ae5dbda50aa32370a17b51adcd58cb0eb88a07ec567f6fa65f
+SHA512: 9c603aa33e5d15652c6e4c6017a40f561539d45429288834e3518d0b6a2c36ba4c00876752e25a244cc7bb674d588db81d53c1fa547d8e0bae5eefbc9df61877
+Homepage: https://doc.libsodium.org/
+Description: Network communication, cryptography and signaturing library
+ NaCl (pronounced "salt") is a new easy-to-use high-speed software library for
+ network communication, encryption, decryption, signatures, etc.
+ .
+ NaCl's goal is to provide all of the core operations needed to build
+ higher-level cryptographic tools.
+ .
+ Sodium is a portable, cross-compilable, installable, packageable fork of NaCl,
+ with a compatible API.
 
 Package: libssh2-1
 Architecture: iphoneos-arm
